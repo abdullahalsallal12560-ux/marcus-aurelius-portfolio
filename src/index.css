@@ -1,0 +1,312 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #111111;
+  --color-ink-soft: #17161a;
+  --color-cream: #f5f0e8;
+  --color-cream-dim: #d8d0c2;
+  --color-gold: #c9a25c;
+  --color-gold-soft: #e0c48d;
+  --color-bronze: #8a6a3c;
+  --color-tan: #cbb08a;
+
+  --font-display: "Cinzel", serif;
+  --font-script: "Playfair Display", serif;
+  --font-body: "EB Garamond", serif;
+}
+
+:root {
+  /* One easing curve across the whole site. The long tail on this curve is
+     the difference between motion that feels considered and motion that
+     feels like a default transition. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur: 700ms;
+  --dur-slow: 1100ms;
+  --stagger-step: 90ms;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+section {
+  /* keeps anchored sections clear of the fixed nav */
+  scroll-margin-top: 72px;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-script {
+  font-family: var(--font-script);
+  font-style: italic;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* ---------------------------------------------------------------
+   Scroll reveal system
+   --------------------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(var(--reveal-x, 0), var(--reveal-y, 28px), 0);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* variants */
+.reveal-fade {
+  --reveal-y: 0px;
+}
+.reveal-left {
+  --reveal-x: -32px;
+  --reveal-y: 0px;
+}
+.reveal-right {
+  --reveal-x: 32px;
+  --reveal-y: 0px;
+}
+.reveal-rise {
+  --reveal-y: 48px;
+}
+
+/* staggered children — direct children cascade in sequence */
+.stagger > * {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition:
+    opacity var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out);
+}
+
+.stagger.is-visible > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: calc(var(--reveal-delay, 0ms) + var(--i, 0) * var(--stagger-step));
+}
+
+.stagger > *:nth-child(1) { --i: 0; }
+.stagger > *:nth-child(2) { --i: 1; }
+.stagger > *:nth-child(3) { --i: 2; }
+.stagger > *:nth-child(4) { --i: 3; }
+.stagger > *:nth-child(5) { --i: 4; }
+.stagger > *:nth-child(6) { --i: 5; }
+.stagger > *:nth-child(7) { --i: 6; }
+.stagger > *:nth-child(8) { --i: 7; }
+.stagger > *:nth-child(9) { --i: 8; }
+.stagger > *:nth-child(10) { --i: 9; }
+.stagger > *:nth-child(11) { --i: 10; }
+.stagger > *:nth-child(12) { --i: 11; }
+
+/* self-drawing rule (used for timeline connectors + section dividers) */
+.draw-line {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1400ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.draw-line.is-visible {
+  transform: scaleX(1);
+}
+
+.draw-line-center {
+  transform-origin: center;
+}
+
+/* self-drawing SVG stroke (Greek key dividers) — paths use pathLength="1" */
+.draw-stroke path,
+.draw-stroke line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1800ms var(--ease-out);
+}
+.draw-stroke.is-visible path,
+.draw-stroke.is-visible line {
+  stroke-dashoffset: 0;
+}
+
+/* ---------------------------------------------------------------
+   Texture + treatment utilities
+   --------------------------------------------------------------- */
+
+/* film grain — sits above the page, never intercepts pointer events */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.32;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+/* gold duotone for footage — makes stock video read as art-directed */
+.duotone-gold {
+  filter: grayscale(1) sepia(1) saturate(2.1) hue-rotate(-12deg) contrast(1.08)
+    brightness(0.92);
+}
+
+/* feathered "light shaft" mask — dissolves a contained video into the page
+   on every edge instead of butting against a hard rectangle */
+.mask-shaft {
+  -webkit-mask-image: radial-gradient(
+    ellipse 72% 64% at 50% 50%,
+    #000 46%,
+    transparent 90%
+  );
+  mask-image: radial-gradient(
+    ellipse 72% 64% at 50% 50%,
+    #000 46%,
+    transparent 90%
+  );
+}
+
+.mask-fade-y {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 18%,
+    #000 82%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 18%,
+    #000 82%,
+    transparent
+  );
+}
+
+/* ---------------------------------------------------------------
+   Reduced motion — base layer, applies to every effect above.
+   Everything lands in its final state instantly.
+   --------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .stagger > *,
+  .reveal.is-visible,
+  .stagger.is-visible > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .draw-line,
+  .draw-line.is-visible {
+    transform: scaleX(1) !important;
+    transition: none !important;
+  }
+
+  .draw-stroke path,
+  .draw-stroke line,
+  .draw-stroke.is-visible path,
+  .draw-stroke.is-visible line {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+
+  .parallax {
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Print / static capture — force every reveal into its end state so a
+   screenshot or PDF never catches a section mid-animation or empty.
+   --------------------------------------------------------------- */
+
+@media print {
+  .reveal,
+  .stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .draw-line {
+    transform: scaleX(1) !important;
+  }
+  .draw-stroke path,
+  .draw-stroke line {
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+/* Escape hatch: adding .motion-settled to <html> resolves every animation
+   immediately. Used for static screenshot capture. */
+html.motion-settled .reveal,
+html.motion-settled .stagger > * {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+html.motion-settled .draw-line {
+  transform: scaleX(1) !important;
+  transition: none !important;
+}
+html.motion-settled .draw-stroke path,
+html.motion-settled .draw-stroke line {
+  stroke-dashoffset: 0 !important;
+  transition: none !important;
+}
+
+/* ---------------------------------------------------------------
+   Scrollbar
+   --------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-bronze);
+  border-radius: 6px;
+}
