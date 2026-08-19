@@ -24,22 +24,13 @@ export default function PortfolioDesign() {
           <BustMark className="w-11 h-13 text-gold" />
 
           <p className="font-body text-lg md:text-xl leading-relaxed text-cream-dim max-w-2xl">
-            The dual color system exists because a brand and a product live in two different moments.
-            Black and gold carry the digital first impression: a screen glanced at in seconds, where
-            restraint and contrast do the work of standing out. Tan and bronze carry the physical
-            unboxing moment: a slower, tactile experience where warmth and texture matter more than
-            contrast. Neither palette is decorative; each is matched to how the customer is actually
-            encountering the brand at that instant.
+            {t.portfolioDesign.colour}
           </p>
 
           <GreekKey className="w-56 text-gold/55" />
 
           <p className="font-body text-lg md:text-xl leading-relaxed text-cream-dim max-w-2xl">
-            The same logic drives the typography and the recurring motifs. The classical serif
-            wordmark and the script &ldquo;Perfumes&rdquo; pairing echo the brand&rsquo;s Italian,
-            Roman-influenced aesthetic without leaning on cliché. The bust mark and the Greek meander
-            border repeat quietly across every section, never shouting, always present, because
-            exclusivity is communicated through consistency and restraint, not volume.
+            {t.portfolioDesign.type}
           </p>
         </Reveal>
 

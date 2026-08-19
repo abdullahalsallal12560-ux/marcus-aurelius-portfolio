@@ -188,6 +188,8 @@ export default {
   },
 
   portfolioDesign: {
+      colour: "Il sistema a due palette esiste perché un marchio e un prodotto vivono in due momenti diversi. Il nero e l'oro reggono la prima impressione digitale: uno schermo guardato per pochi secondi, dove sono la misura e il contrasto a farsi notare. Sabbia e bronzo reggono il momento fisico dell'apertura della confezione: un'esperienza più lenta e tattile, in cui calore e materia contano più del contrasto. Nessuna delle due palette è decorativa; ciascuna è calibrata sul modo in cui il cliente sta davvero incontrando il marchio in quell'istante.",
+      type: "La stessa logica guida la tipografia e i motivi ricorrenti. Il logotipo in serif classico e l'accostamento con il corsivo Perfumes richiamano l'estetica italiana e di matrice romana del marchio senza cadere nel luogo comune. Il busto e la greca tornano con discrezione in ogni sezione, senza mai alzare la voce ma sempre presenti, perché l'esclusività si comunica con la coerenza e la misura, non con il volume.",
     typefaces: [
       { role: "Display: logotipo e titoli" },
       { role: "Corsivo: fioriture" },
@@ -272,6 +274,47 @@ export default {
     tractionNote: "Ha coperto il 68% di due anni di sviluppo in quattordici giorni. Altri diciassette flaconi chiudono il resto, e l'obiettivo fissato negli Obiettivi SMART chiede cinquanta vendite in tre mesi.",
     tractionEmphasis: "68% di due anni di sviluppo",
   },
+
+  companyOverview: {
+    facts: [
+      { label: "Settore", value: "Profumeria di nicchia di lusso (Eau de Parfum)" },
+      { label: "Servizi", value: "Progettazione e produzione di fragranze esclusive in serie limitata, ciascuna con la propria identità visiva e il proprio racconto: Maxima, Maximus, Romeo di Roma, Roma Juliette" },
+      { label: "Sede", value: "Amman, Giordania. Prima di tutto online, al momento senza punto vendita fisico" },
+    ],
+    proof: [
+      { figure: "2 anni", label: "Prima di vendere un solo flacone" },
+      { figure: "30+", label: "Formule provate e scartate" },
+      { figure: "40 giorni", label: "Per completare una prova seria" },
+      { figure: "1.800 JOD", label: "Spesi prima di qualsiasi ricavo" },
+    ],
+    storyTitle: "Come è nato tutto",
+    lead: "È cominciata con una conversazione al bar tra due amici: perché nessuna fragranza porta proprio queste note, e perché non farne una noi? Non c'era in mente un marchio. C'erano una curiosità e un tetto.",
+    paragraphs: [
+      { text: "I video sulla produzione scoraggiavano: macchine industriali grandi come stanze. Poi la scoperta che le case che valgono davvero il loro prezzo lavorano ancora con il contagocce, miscelano a mano e lasciano macerare la composizione in un luogo naturalmente fresco. Più semplice. E molto più caro.", emphasis: "" },
+      { text: "Il primo anno se n'è andato a cercare una fonte. Quando l'hanno trovata, europea e raggiunta tramite un intermediario svizzero, il primo ordine di oli è costato 500 dinari, e la miscelazione si faceva in bicchieri da acqua.", emphasis: "" },
+      { text: "Sono seguite più di trenta formule. Una profumava bene ma restava oleosa sulla pelle. Una bruciava il naso. Una spariva prima di mezzogiorno. Una sapeva di tutto quello che c'è già sullo scaffale. Una prova seria richiede quaranta giorni: una settimana in congelatore, poi trenta giorni al buio a una temperatura costante tra i 16 e i 19 gradi. Il tetto lo garantiva gratis.", emphasis: "" },
+      { text: "Il secondo anno è costato 1.300 dinari: note nuove, coloranti, attrezzatura migliore e alcol rettificato al 100% mentre quasi tutta la profumeria, comprese le case francesi, lavora al 96%. Un litro costa dieci volte tanto.", emphasis: "100%" },
+      { text: "Alcuni esperti hanno consigliato di partire da oli economici e comprare quelli buoni una volta trovata la formula. Quel consiglio è stato rifiutato. La stessa nota da una fonte più economica è una composizione diversa fatta in modo diverso, e si vede in quanto dura e in come si posa sul naso di chi la porta tutto il giorno. Un compromesso preso all'inizio non si recupera dopo.", emphasis: "Quel consiglio è stato rifiutato." },
+      { text: "Romeo di Roma è nato per caso. Cuffie nelle orecchie mentre l'amico dormiva, una canzone qualunque in sottofondo, e una parola che è rimasta impigliata: ananas. Una nota che le case di nicchia usano spesso, e che era già tra i materiali. È finita dentro con caramello e vaniglia.", emphasis: "" },
+      { text: "L'ha indossato ed è uscito per strada. I complimenti che sono tornati indietro non se li aspettava. Solo allora è diventato un marchio.", emphasis: "Solo allora è diventato un marchio." },
+    ],
+    credit: "Il tetto era dell'amico di quella prima conversazione, che gli ha tenuto compagnia per quasi tutto il percorso.",
+  },
+
+  marketAnalysis: [
+    {
+      label: "Globale",
+      body: "Il mercato mondiale della profumeria vale circa {{60-70 miliardi di dollari}} nel 2026. Al suo interno, il segmento di nicchia è la categoria che cresce più in fretta: si stima raggiunga circa {{4,85 miliardi}} entro il 2026, con una crescita annua intorno al {{9,1%}} contro il 2,7% circa del mercato di massa. Le ricerche sui consumatori indicano che circa il {{62%}} degli acquirenti preferisce le fragranze di nicchia a quelle di largo consumo, e il regalo di fascia alta vale quasi metà della domanda di nicchia. Tra i principali concorrenti globali: Maison Francis Kurkdjian, Creed, Xerjoff e Amouage.",
+    },
+    {
+      label: "MENA / Regionale",
+      body: "Il mercato mediorientale della profumeria vale circa {{4 miliardi di dollari}} nel 2026 e si prevede cresca di circa il {{7,5%}} l'anno. Il profumo è profondamente radicato nella cultura e nelle tradizioni di ospitalità della regione, e le vendite regionali crescono di circa l'{{11%}} l'anno, con le composizioni a base di oud in aumento di oltre il {{20%}} su base annua. Tra i protagonisti regionali: Ajmal, Rasasi e Swiss Arabian. L'occasione sta nello spazio tra le fragranze tradizionali cariche di oud e la nicchia di stampo occidentale: uno spazio che Marcus Aurelius occupa direttamente con miscele come Romeo di Roma.",
+    },
+    {
+      label: "Giordania / Locale",
+      body: "Il mercato giordano mostra una domanda crescente di profumi radicati nell'identità regionale. Amman da sola ha una concentrazione fitta di profumerie. I concorrenti locali vanno da marchi nazionali economici che propongono imitazioni a distributori internazionali di nicchia che vendono a prezzi d'importazione elevati. Il vuoto: oggi nessun marchio progettato e prodotto localmente compete davvero sul piano della qualità e dell'identità della nicchia internazionale, ed è esattamente lo spazio che Marcus Aurelius è stato costruito per occupare.",
+    },
+  ],
 
   hero: {
     srTitle: "Marcus Aurelius Profumi",
