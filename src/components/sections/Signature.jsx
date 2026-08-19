@@ -1,6 +1,7 @@
 import Reveal from "../shared/Reveal";
 import { GreekKey } from "../shared/Motifs";
 import { asset } from "../../utils/asset";
+import { useT } from "../../i18n/useLocale";
 
 /**
  * The closing signature.
@@ -19,10 +20,11 @@ import { asset } from "../../utils/asset";
  * where it was placed.
  */
 export default function Signature() {
+  const t = useT();
   return (
     <section
       id="signature"
-      aria-label="Site credit"
+      aria-label={t.signature.aria}
       className="relative bg-ink border-t border-gold/20 py-20 md:py-28"
     >
       <div className="grid md:grid-cols-2 items-center gap-12 md:gap-8 max-w-6xl mx-auto px-6">
@@ -48,13 +50,13 @@ export default function Signature() {
           <GreekKey className="w-40 text-gold/55" />
 
           <p className="font-script text-3xl md:text-5xl text-gold-soft leading-[1.25] max-w-md">
-            The Mastermind Behind The Masterpiece
+            {t.signature.line}
           </p>
 
           <span aria-hidden="true" className="w-16 h-px bg-gold/50" />
 
           <p className="font-display text-xl md:text-3xl uppercase tracking-[0.22em] text-cream">
-            Abdullah Al-Sallal
+            {t.signature.name}
           </p>
         </Reveal>
       </div>

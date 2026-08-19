@@ -173,6 +173,28 @@ export default {
     { name: "Contatti e tracciamento", body: "Canale di contatto diretto e sistema di tracciamento degli ordini." },
   ],
 
+  contactSection: {
+    eyebrow: "Contatti",
+    title: "Iscriviti alla lista",
+    kinds: { website: "Sito", instagram: "Instagram", telephone: "Telefono", email: "Email" },
+    invitation: "Aperti alla collaborazione",
+    invitationBody: "Rivenditori, fotografi e partner creativi che lavorano come lavora questo marchio sono invitati a scrivere. Come chiunque voglia semplicemente sapere quando sarà versata la prossima serie.",
+  },
+
+  signature: {
+    aria: "Crediti del sito",
+    line: "La mente dietro l'opera",
+    name: "Abdullah Al-Sallal",
+  },
+
+  portfolioDesign: {
+    typefaces: [
+      { role: "Display: logotipo e titoli" },
+      { role: "Corsivo: fioriture" },
+      { role: "Testo: lettura lunga" },
+    ],
+  },
+
   hero: {
     srTitle: "Marcus Aurelius Profumi",
     logoAlt: "Marcus Aurelius Profumi",

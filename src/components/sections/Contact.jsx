@@ -1,6 +1,7 @@
 import Reveal from "../shared/Reveal";
 import { BustMark, GreekKey } from "../shared/Motifs";
 import { getSection } from "../../data/sections";
+import { useT } from "../../i18n/useLocale";
 
 // The two places a visitor can actually go and find the house are given the
 // weight of destinations rather than being set as a line of text.
@@ -23,6 +24,7 @@ const direct = [
 ];
 
 export default function Contact() {
+  const t = useT();
   const section = getSection("contact");
 
   return (
@@ -50,14 +52,14 @@ export default function Contact() {
           </span>
           <span aria-hidden="true" className="w-6 h-px bg-gold/30" />
           <span className="meta-label text-gold">
-            Contact
+            {t.contactSection.eyebrow}
           </span>
         </div>
 
         <BustMark className="w-12 h-14 text-gold" />
 
         <h2 className="font-display text-4xl md:text-6xl uppercase tracking-[0.06em] text-cream leading-[1.05]">
-          Join the Waitlist
+          {t.contactSection.title}
         </h2>
 
         <GreekKey className="w-44 text-gold/55" />
@@ -72,7 +74,7 @@ export default function Contact() {
               className="group flex flex-col items-center gap-2 border border-gold/35 hover:border-gold px-6 py-7 md:py-8 transition-colors duration-500"
             >
               <span className="meta-label text-gold/85 group-hover:text-gold transition-colors duration-500">
-                {d.kind}
+                {t.contactSection.kinds[d.kind.toLowerCase()] ?? d.kind}
               </span>
               <span className="font-display text-lg md:text-2xl tracking-[0.06em] text-cream group-hover:text-gold-soft transition-colors duration-500 break-all">
                 {d.label}
@@ -89,7 +91,7 @@ export default function Contact() {
               className="group flex flex-col items-center gap-1.5 hover:text-gold transition-colors duration-500"
             >
               <span className="meta-label-sm text-gold/85">
-                {d.kind}
+                {t.contactSection.kinds[d.kind.toLowerCase()] ?? d.kind}
               </span>
               <span className="font-body text-lg md:text-xl text-cream-dim group-hover:text-gold transition-colors duration-500 tabular-nums">
                 {d.label}
@@ -106,12 +108,23 @@ export default function Contact() {
             aria-hidden="true"
             className="absolute inset-0 bg-gold origin-bottom scale-y-0 transition-transform duration-500 ease-out group-hover:scale-y-100"
           />
-          <span className="relative">Join the Waitlist</span>
+          <span className="relative">{t.contactSection.title}</span>
         </a>
 
+        {/* Brief item 17 asks for an invitation to collaborate, and the
+            section closed on a customer call to action instead. Kept below
+            the waitlist rather than beside it: buying is what most readers
+            came for, and working together is the quieter second door. */}
+        <div className="mt-12 pt-9 border-t border-gold/20 w-full flex flex-col items-center gap-3">
+          <h3 className="meta-label text-gold">{t.contactSection.invitation}</h3>
+          <p className="font-body text-base md:text-lg text-cream-dim leading-relaxed max-w-xl">
+            {t.contactSection.invitationBody}
+          </p>
+        </div>
+
         <p className="font-script text-2xl md:text-4xl text-gold-soft mt-10 leading-snug">
-          Not for everyone.
-          <span className="block">That&rsquo;s the point.</span>
+          {t.hero.lineOne}
+          <span className="block">{t.hero.lineTwo}</span>
         </p>
       </Reveal>
     </section>

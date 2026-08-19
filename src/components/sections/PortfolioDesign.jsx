@@ -1,6 +1,7 @@
 import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
 import { BustMark, GreekKey } from "../shared/Motifs";
+import { useT } from "../../i18n/useLocale";
 
 const specimens = [
   { face: "Cinzel", role: "Display: wordmark & headings", sample: "MARCVS", className: "font-display tracking-[0.1em]" },
@@ -9,6 +10,7 @@ const specimens = [
 ];
 
 export default function PortfolioDesign() {
+  const t = useT();
   return (
     <section id="portfolio-design" className="py-28 md:py-40 px-5 bg-ink">
       <div className="max-w-4xl mx-auto">
@@ -43,7 +45,7 @@ export default function PortfolioDesign() {
 
         {/* the three faces, shown rather than described */}
         <Reveal stagger className="grid sm:grid-cols-3 gap-px bg-gold/15">
-          {specimens.map((s) => (
+          {specimens.map((s, i) => (
             <div key={s.face} className="bg-ink p-8 text-center flex flex-col items-center gap-4">
               <span className={`${s.className} text-5xl md:text-6xl text-cream leading-none`}>
                 {s.sample}
@@ -52,7 +54,7 @@ export default function PortfolioDesign() {
               <span className="meta-label text-gold">
                 {s.face}
               </span>
-              <span className="font-body text-sm text-cream-dim/85">{s.role}</span>
+              <span className="font-body text-sm text-cream-dim/85">{t.portfolioDesign.typefaces[i].role}</span>
             </div>
           ))}
         </Reveal>

@@ -174,6 +174,28 @@ export default {
     { name: "Contact & Order Tracking", body: "Direct contact channel and order tracking system." },
   ],
 
+  contactSection: {
+    eyebrow: "Contact",
+    title: "Join the Waitlist",
+    kinds: { website: "Website", instagram: "Instagram", telephone: "Telephone", email: "Email" },
+    invitation: "Open to collaboration",
+    invitationBody: "Retailers, photographers, and creative partners who work the way this brand works are welcome to write. So is anyone who simply wants to know when the next batch is poured.",
+  },
+
+  signature: {
+    aria: "Site credit",
+    line: "The Mastermind Behind The Masterpiece",
+    name: "Abdullah Al-Sallal",
+  },
+
+  portfolioDesign: {
+    typefaces: [
+      { role: "Display: wordmark & headings" },
+      { role: "Script accent: flourishes" },
+      { role: "Body: long-form reading" },
+    ],
+  },
+
   hero: {
     srTitle: "Marcus Aurelius Perfumes",
     logoAlt: "Marcus Aurelius Perfumes",
