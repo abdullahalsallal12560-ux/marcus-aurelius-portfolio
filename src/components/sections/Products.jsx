@@ -4,41 +4,39 @@ import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
 import ProductImage from "../shared/ProductImage";
 import ProductVideo from "../shared/ProductVideo";
+import ScentWorlds from "../shared/ScentWorlds";
 import useParallax from "../../hooks/useParallax";
-import useReveal from "../../hooks/useReveal";
+import useActiveScent from "../../hooks/useActiveScent";
 import { FountainIcon, AqueductIcon, CampanileIcon, LoversBalconyIcon } from "../shared/Motifs";
 import Lightbox from "../shared/Lightbox";
 import { getProductImages } from "../../utils/productGallery";
 import { asset } from "../../utils/asset";
 
-// The collection splits into two pairs, and each pair carries its own mood
-// inside the shared house identity:
+// Each fragrance owns the page while the reader is in front of it: ground,
+// type, rules, accent and the pattern behind them all belong to it, and
+// dissolve into the next one on the way down. The colourways themselves live
+// in index.css, keyed off <html data-scent>, because the nav and the Contents
+// rail have to travel with them — the collection is a passage through the
+// house, not four websites.
 //
-//   kinetic   Maximus + Maxima — youth, motion, energy. The card ground cools
-//             and lifts, the type brightens, and a diagonal sweep carries the
-//             accent across the panel.
-//   romantic  Romeo di Roma + Roma Juliette — stillness and depth. The ground
-//             goes warmer and deeper than the house black and the treatment
-//             leans back into gold, centred rather than directional.
+// The collection still splits into the two pairs the brand identity section
+// documents, and the split now carries a visual rule:
 //
-// Each fragrance also keeps its own muted accent, drawn from its composition.
-// Everything here is contained to the card: the nav and the Contents rail
-// never leave the fixed black-and-gold identity.
+//   kinetic   Maximus + Maxima — youth, motion, energy. Light grounds.
+//   romantic  Romeo di Roma + Roma Juliette — stillness and depth. Deep ones.
 const products = [
   {
     slug: "maxima",
     name: "Maxima",
     tagline: "For Her",
     Icon: FountainIcon,
-    accent: "#B5697C", // dusty rose — red berries, rose, caramel
-    pair: "kinetic",
+    pair: "Kinetic pair",
     // shot for the brand: the film leads, the bottle still joins the gallery
     video: {
       src: asset("/videos/maxima-accent.mp4"),
       poster: asset("/videos/maxima-accent-poster.jpg"),
       alt: "Maxima — golden hour, filmed for the house",
     },
-    scrim: "default",
     notes: {
       Top: "Red berries, bergamot, sweet almond",
       Heart: "Jasmine, rose, caramel",
@@ -53,14 +51,12 @@ const products = [
     name: "Maximus",
     tagline: "For Him",
     Icon: AqueductIcon,
-    accent: "#5E82A6", // slate blue — sea breeze, citrus, cedar
-    pair: "kinetic",
+    pair: "Kinetic pair",
     video: {
       src: asset("/videos/maximus-accent.mp4"),
       poster: asset("/videos/maximus-accent-poster.jpg"),
       alt: "Maximus — ocean, citrus and jasmine, filmed for the house",
     },
-    scrim: "strong",
     notes: {
       Top: "Orange, bergamot, lemon zest, sea breeze",
       Heart: "Grapefruit, pink pepper, cedarwood, jasmine",
@@ -75,10 +71,7 @@ const products = [
     name: "Romeo di Roma",
     tagline: "Unisex, leaning masculine",
     Icon: CampanileIcon,
-    accent: "#7A5240", // oud espresso — oud, leather, patchouli
-    pair: "romantic",
-    // mid-tone tan background — lifted a step for the long name
-    scrim: "strong",
+    pair: "Romantic pair",
     notes: {
       Top: "Vanilla, saffron, pineapple",
       Heart: "Leather, patchouli, caramel",
@@ -93,10 +86,7 @@ const products = [
     name: "Roma Juliette",
     tagline: "For Her",
     Icon: LoversBalconyIcon,
-    accent: "#A8672E", // dark honeyed amber — the liquid itself, aged roses
-    pair: "romantic",
-    // warm amber silk — smooth but light toward the base of the frame
-    scrim: "strong",
+    pair: "Romantic pair",
     notes: {
       Top: "Saffron, jasmine, bergamot, mandarin, orange",
       Heart: "Tuberose, red fruits, rose, caramel, almond",
@@ -109,22 +99,11 @@ const products = [
   },
 ];
 
-// The name straddles the image's lower edge, so its descenders already sit on
-// pure ink — the scrim only has to seat the upper half of the letterforms.
-// Kept deliberately shallow so the photography survives intact.
-const SCRIMS = {
-  default: "h-[30%] bg-gradient-to-t from-ink/85 via-ink/35 to-transparent",
-  strong: "h-[38%] bg-gradient-to-t from-ink/92 via-ink/50 to-transparent",
-};
-
 function ProductCard({ product, index, reversed }) {
-  const { slug, name, tagline, Icon, notes, benefits, deliverables, scrim, video, accent, pair } =
-    product;
+  const { slug, name, tagline, Icon, notes, benefits, deliverables, video, pair } = product;
   const { hero, gallery } = getProductImages(slug);
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [parallaxRef, offset] = useParallax({ strength: 26 });
-  // one-way: the accent settles in as the card arrives and stays put
-  const [accentRef, accentOn] = useReveal({ threshold: 0.15 });
 
   // When footage leads, the bottle photograph is not dropped — it heads up the
   // gallery, so every card keeps the same structure: one dominant visual, then
@@ -142,64 +121,49 @@ function ProductCard({ product, index, reversed }) {
     caption: name,
   }));
 
+  // the plate carries the name in the colourway's own contrast pair, so it
+  // reads the same whether the ground behind it is near-black or near-white
+  const plate = (
+    <div className="product-plate absolute -left-3 right-10 -bottom-6 z-10 px-5 py-3 md:px-6 md:py-4">
+      <h3 className="font-display uppercase leading-[0.95] tracking-[0.04em] text-[clamp(1.4rem,3.6vw,2.3rem)]">
+        {name}
+      </h3>
+      <p className="font-script text-base md:text-lg opacity-85 mt-1">{tagline}</p>
+    </div>
+  );
+
   return (
     <article
-      ref={accentRef}
-      style={{ "--accent": accent }}
-      data-pair={pair}
-      className={`product-card relative grid md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-10 items-start ${
-        accentOn ? "accent-on" : ""
-      }`}
+      data-scent-id={slug}
+      className="product-card relative grid md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-10 items-start"
     >
-      {/* the pair's ground, dissolved at its edges so it reads as a shift in
-          the light rather than as a pasted-on panel */}
-      <div aria-hidden="true" className="card-ground pointer-events-none absolute z-0" />
-
       {/* ---------- imagery ---------- */}
       <div className={`relative z-10 ${reversed ? "md:order-2" : ""}`}>
         <Reveal variant={reversed ? "right" : "left"}>
-          <figure className="relative mb-14 md:mb-20">
+          <figure className="mb-16 md:mb-24">
             {video ? (
-              // Portrait footage, shown at its native ratio and untreated. No
-              // scrim here — the name's own shadow carries it, so nothing is
-              // laid over the film.
-              <ProductVideo
-                src={video.src}
-                poster={video.poster}
-                alt={video.alt}
-                className="max-w-[430px] mx-auto"
-              />
+              // Portrait footage, shown at its native ratio and untreated.
+              <div className="relative max-w-[430px] mx-auto">
+                <ProductVideo src={video.src} poster={video.poster} alt={video.alt} />
+                {plate}
+              </div>
             ) : (
-              <div className="relative overflow-hidden bg-ink-soft">
-                <div ref={parallaxRef} style={{ transform: `translate3d(0, ${offset}px, 0)` }}>
-                  <ProductImage
-                    src={hero}
-                    alt={`${name} — eau de parfum`}
-                    label={name}
-                    aspect="aspect-[4/5]"
-                    className="w-full scale-[1.08]"
-                    onClick={() => setLightboxIndex(0)}
-                  />
+              <div className="relative">
+                <div className="relative overflow-hidden bg-ink-soft">
+                  <div ref={parallaxRef} style={{ transform: `translate3d(0, ${offset}px, 0)` }}>
+                    <ProductImage
+                      src={hero}
+                      alt={`${name} — eau de parfum`}
+                      label={name}
+                      aspect="aspect-[4/5]"
+                      className="w-full scale-[1.08]"
+                      onClick={() => setLightboxIndex(0)}
+                    />
+                  </div>
                 </div>
-                {/* legibility scrim, tuned per hero image */}
-                <div
-                  aria-hidden="true"
-                  className={`absolute inset-x-0 bottom-0 pointer-events-none ${SCRIMS[scrim] ?? SCRIMS.default}`}
-                />
+                {plate}
               </div>
             )}
-
-            {/* the name straddles the lower edge — half on the visual,
-                half on the page, so the descenders always sit on pure ink */}
-            <figcaption className="absolute left-0 right-0 bottom-0 translate-y-1/2 px-4 md:px-6">
-              <h3
-                className="font-display uppercase text-cream leading-[0.95] tracking-[0.02em]
-                           text-[clamp(1.9rem,5.2vw,3.6rem)]"
-                style={{ textShadow: "0 2px 24px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8)" }}
-              >
-                {name}
-              </h3>
-            </figcaption>
           </figure>
         </Reveal>
 
@@ -225,40 +189,33 @@ function ProductCard({ product, index, reversed }) {
       <div className={`relative z-10 ${reversed ? "md:order-1" : ""} md:sticky md:top-28`}>
         <Reveal stagger variant="fade">
           <div className="flex items-center gap-4 mb-6">
-            <span className="ac-text font-display text-xs tracking-[0.3em] tabular-nums">
+            <span className="field-label tabular-nums">
               {String(index + 1).padStart(2, "0")} / {String(products.length).padStart(2, "0")}
             </span>
-            <span aria-hidden="true" className="ac-rule flex-1 h-px" />
-            <Icon className="ac-icon w-8 h-10 shrink-0" />
+            <span aria-hidden="true" className="flex-1 h-px bg-gold/45" />
+            <span className="field-label hidden sm:inline">{pair}</span>
+            <Icon className="w-8 h-10 shrink-0 text-gold" />
           </div>
-
-          <p className="font-script text-2xl md:text-3xl text-gold-soft mb-8">{tagline}</p>
 
           <dl className="mb-8">
             {Object.entries(notes).map(([k, v]) => (
               <div
                 key={k}
-                className="ac-border grid grid-cols-[4.5rem_1fr] md:grid-cols-[5.5rem_1fr] gap-4 py-3 border-t"
+                className="grid grid-cols-[5rem_1fr] md:grid-cols-[6rem_1fr] gap-4 py-3 border-t border-gold/35"
               >
-                <dt className="font-display text-xs md:text-[13px] uppercase tracking-[0.2em] text-gold pt-1">
-                  {k}
-                </dt>
-                <dd className="card-fg font-body text-base md:text-lg leading-snug">{v}</dd>
+                <dt className="field-label pt-1">{k}</dt>
+                <dd className="font-body text-base md:text-lg leading-snug text-cream">{v}</dd>
               </div>
             ))}
           </dl>
 
-          <p className="card-fg-dim font-body text-base leading-relaxed mb-4">
-            <span className="font-display text-xs uppercase tracking-[0.2em] text-gold block mb-1.5">
-              Benefits
-            </span>
+          <p className="font-body text-base leading-relaxed mb-4 text-cream-dim">
+            <span className="field-label block mb-1.5">Benefits</span>
             {benefits}
           </p>
 
-          <p className="card-fg-dim font-body text-base leading-relaxed">
-            <span className="font-display text-xs uppercase tracking-[0.2em] text-gold block mb-1.5">
-              Deliverables
-            </span>
+          <p className="font-body text-base leading-relaxed text-cream-dim">
+            <span className="field-label block mb-1.5">Deliverables</span>
             {deliverables}
           </p>
         </Reveal>
@@ -275,9 +232,13 @@ function ProductCard({ product, index, reversed }) {
 }
 
 export default function Products() {
+  useActiveScent();
+
   return (
-    <section id="products" className="py-28 md:py-40 px-5 bg-ink-soft">
-      <div className="max-w-6xl mx-auto">
+    <section id="products" className="relative py-28 md:py-40 px-5 bg-ink-soft">
+      <ScentWorlds />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
         <SectionHeading
           id="products"
           eyebrow="The Collection"

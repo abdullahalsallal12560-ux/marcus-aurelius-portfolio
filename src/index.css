@@ -166,128 +166,192 @@ footer {
 }
 
 /* ---------------------------------------------------------------
-   Per-fragrance accent layer
+   The collection's colourways
 
-   Each product card carries its own muted accent in --accent. Until the card
-   scrolls into view --ac resolves to gold, so the page reads as one identity;
-   on arrival --ac swaps to the fragrance colour and every accented property
-   crosses over together. Only hairlines, the icon, the index numeral and a
-   faint glow ever take it — never body text, headings or backgrounds.
+   Each fragrance owns the page while the reader is standing in front of it.
+   The whole site is already built out of these eight tokens, so re-pointing
+   them on <html data-scent> re-colours the nav, the Contents rail, the
+   section and the type together — not one component knows this exists.
+
+   They are registered with @property so the browser can interpolate them.
+   Unregistered custom properties swap at a frame boundary, which reads as a
+   cut; registered, the page dissolves from one colourway into the next.
+
+   The two pairs documented in Products.jsx carry through: the kinetic pair
+   takes light grounds, the romantic pair deep ones.
    --------------------------------------------------------------- */
 
-.product-card {
-  --ac: var(--color-gold);
-  --card-fg: var(--color-cream);
-  --card-fg-dim: var(--color-cream-dim);
+@property --color-ink       { syntax: "<color>"; inherits: true; initial-value: #100e0b; }
+@property --color-ink-soft  { syntax: "<color>"; inherits: true; initial-value: #16130e; }
+@property --color-cream     { syntax: "<color>"; inherits: true; initial-value: #f5f0e8; }
+@property --color-cream-dim { syntax: "<color>"; inherits: true; initial-value: #d8d0c2; }
+@property --color-gold      { syntax: "<color>"; inherits: true; initial-value: #c9a25c; }
+@property --color-gold-soft { syntax: "<color>"; inherits: true; initial-value: #e0c48d; }
+@property --color-plate     { syntax: "<color>"; inherits: true; initial-value: #c9a25c; }
+@property --color-plate-ink { syntax: "<color>"; inherits: true; initial-value: #100e0b; }
+
+:root {
+  --scent-swap: 950ms;
+
+  /* the plate the product name sits on — solid, so the name stays legible
+     whichever way the ground swings */
+  --color-plate: #c9a25c;
+  --color-plate-ink: #100e0b;
+
+  transition:
+    --color-ink var(--scent-swap) var(--ease-out),
+    --color-ink-soft var(--scent-swap) var(--ease-out),
+    --color-cream var(--scent-swap) var(--ease-out),
+    --color-cream-dim var(--scent-swap) var(--ease-out),
+    --color-gold var(--scent-swap) var(--ease-out),
+    --color-gold-soft var(--scent-swap) var(--ease-out),
+    --color-plate var(--scent-swap) var(--ease-out),
+    --color-plate-ink var(--scent-swap) var(--ease-out);
 }
 
-.product-card.accent-on {
-  --ac: var(--accent);
+/* Maxima — powdered rose under plum. The sweet half of the composition:
+   red berries, caramel, sweet almond. */
+:root[data-scent="maxima"] {
+  --color-ink: #f2d3db;
+  --color-ink-soft: #f7dee4;
+  --color-cream: #4e2333;
+  --color-cream-dim: #7a4b58;
+  --color-gold: #a63e5e;
+  --color-gold-soft: #8c3050;
+  --color-plate: #4e2333;
+  --color-plate-ink: #f7dee4;
 }
 
-/* The two pairs part company only in the relationship between ground and
-   type — never in the gold, the headings or anything outside the card. */
-.product-card[data-pair="kinetic"].accent-on {
-  --card-fg: #fffbf4;
-  --card-fg-dim: #dcd4c6;
+/* Maximus — the beach chair. Navy on warm white, with the lemon from the
+   pool the bottle was shot in kept for nothing but the small marks. */
+:root[data-scent="maximus"] {
+  --color-ink: #f1f0ea;
+  --color-ink-soft: #fbfaf6;
+  --color-cream: #16304f;
+  --color-cream-dim: #47617d;
+  --color-gold: #0f4c86;
+  --color-gold-soft: #0b3a68;
+  --color-plate: #16304f;
+  --color-plate-ink: #fbfaf6;
 }
 
-.product-card[data-pair="romantic"].accent-on {
-  --card-fg: #f2e8d8;
-  --card-fg-dim: #cbbca4;
+/* Romeo di Roma — espresso leather, parchment, saffron. */
+:root[data-scent="romeo-di-roma"] {
+  --color-ink: #251a12;
+  --color-ink-soft: #2e2017;
+  --color-cream: #eddfc8;
+  --color-cream-dim: #b6a288;
+  --color-gold: #d08a3a;
+  --color-gold-soft: #e5a65b;
+  --color-plate: #eddfc8;
+  --color-plate-ink: #2e2017;
 }
 
-.card-fg {
-  color: var(--card-fg);
-  transition: color 900ms var(--ease-out);
+/* Roma Juliette — garnet silk under honeyed amber. */
+:root[data-scent="roma-juliette"] {
+  --color-ink: #33161c;
+  --color-ink-soft: #3b1a21;
+  --color-cream: #f4e2c9;
+  --color-cream-dim: #c1a488;
+  --color-gold: #ce8a3e;
+  --color-gold-soft: #e0a65c;
+  --color-plate: #ce8a3e;
+  --color-plate-ink: #3b1a21;
 }
 
-.card-fg-dim {
-  color: var(--card-fg-dim);
-  transition: color 900ms var(--ease-out);
-}
+/* ---------------------------------------------------------------
+   The pattern behind each colourway
 
-.ac-text,
-.ac-icon {
-  color: var(--ac);
-  transition: color 700ms var(--ease-out);
-}
+   Drawn from the fragrance's own photograph rather than chosen for
+   decoration: the beach chair Maximus was shot beside, the sweets in
+   Maxima's composition, the Venetian loggia Romeo's packaging quotes, the
+   silk Juliette was shot against.
 
-.ac-rule {
-  background-color: color-mix(in srgb, var(--ac) 55%, transparent);
-  transition: background-color 700ms var(--ease-out);
-}
-
-.ac-border {
-  border-color: color-mix(in srgb, var(--ac) 45%, transparent);
-  transition: border-color 700ms var(--ease-out);
-}
-
-/* The pair's ground.
-
-   It must reach the true edges of the section, not the edges of the 1152px
-   content column — otherwise the colour reads as a box sitting on the page
-   instead of as the light in the room changing. The card is horizontally
-   centred, so anchoring to its centre and spanning 100vw lands the band
-   edge-to-edge; #products clips the overflow so the extra scrollbar width
-   cannot produce a horizontal scrollbar.
-
-   Feathering is vertical only, matching the site-wide vignette: the band runs
-   full width and dissolves into the sections above and below. Only the
-   opacity animates — gradients cannot be interpolated — which is what makes
-   the arrival a crossfade rather than a cut. */
-.card-ground {
-  left: 50%;
-  width: 100vw;
-  margin-left: -50vw;
-  top: -5rem;
-  bottom: -5rem;
-  opacity: 0;
-  transition: opacity 1100ms var(--ease-out);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    #000 13%,
-    #000 87%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 13%, #000 87%, transparent 100%);
-}
+   The layer sits inside the section, above its ground and below the cards.
+   The pattern belongs at the edges of the spread: through the middle band,
+   where both columns of type sit, it steps down so it frames the reading
+   rather than running underneath it. How far down depends on the motif —
+   a flat stripe barely disturbs type, line drawing does.
+   --------------------------------------------------------------- */
 
 /* clip, not hidden: clip does not create a scroll container, so the sticky
-   detail column keeps working */
+   detail column keeps working. The name plate is deliberately hung a little
+   past the left edge of its visual, and on a phone that would otherwise push
+   the page sideways. */
 #products {
   overflow-x: clip;
 }
 
-.product-card.accent-on .card-ground {
+.scent-worlds {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.scent-world {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--scent-swap) var(--ease-out);
+  --mid: 0.34;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    rgba(0, 0, 0, var(--mid)) 24%,
+    rgba(0, 0, 0, var(--mid)) 76%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    rgba(0, 0, 0, var(--mid)) 24%,
+    rgba(0, 0, 0, var(--mid)) 76%,
+    #000 100%
+  );
+}
+
+.scent-world[data-w="maxima"] { --mid: 0.46; }
+.scent-world[data-w="maximus"] { --mid: 0.74; }
+.scent-world[data-w="romeo-di-roma"] { --mid: 0.4; }
+.scent-world[data-w="roma-juliette"] { --mid: 0.38; }
+
+.scent-world > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+:root[data-scent="maxima"] .scent-world[data-w="maxima"],
+:root[data-scent="maximus"] .scent-world[data-w="maximus"],
+:root[data-scent="romeo-di-roma"] .scent-world[data-w="romeo-di-roma"],
+:root[data-scent="roma-juliette"] .scent-world[data-w="roma-juliette"] {
   opacity: 1;
 }
 
-/* kinetic — cooler and lifted, with the accent thrown across one diagonal so
-   the panel has a direction of travel */
-.product-card[data-pair="kinetic"] .card-ground {
-  background:
-    linear-gradient(
-      116deg,
-      color-mix(in srgb, var(--accent) 24%, transparent) 0%,
-      color-mix(in srgb, var(--accent) 6%, transparent) 34%,
-      transparent 62%
-    ),
-    linear-gradient(158deg, #191922 0%, #14141b 48%, #0f0f14 100%);
+/* The name rides a solid plate. This is where each colourway states itself
+   at full strength — and it is what lets the ground swing from near-black to
+   powdered rose without the name ever needing a scrim over the photograph. */
+.product-plate {
+  background-color: var(--color-plate);
+  color: var(--color-plate-ink);
 }
 
-/* romantic — deeper and warmer than the house black, gold-forward, and
-   centred: no direction, only depth */
-.product-card[data-pair="romantic"] .card-ground {
-  background:
-    radial-gradient(
-      ellipse 62% 48% at 50% 44%,
-      color-mix(in srgb, var(--accent) 16%, transparent),
-      transparent 72%
-    ),
-    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201, 162, 92, 0.07), transparent 70%),
-    linear-gradient(180deg, #0d0a06 0%, #0a0705 100%);
+/* The small caps that label a field — notes, benefits, deliverables. They
+   carry the fragrance's accent, so they are the most theme-bound type on the
+   page and are set to be read as such rather than as fine print. */
+.field-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+@media (min-width: 768px) {
+  .field-label { font-size: 14px; }
 }
 
 /* ---------------------------------------------------------------
@@ -364,6 +428,12 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  /* the colourway still changes — it carries meaning, not decoration — but it
+     arrives rather than travels */
+  :root {
+    --scent-swap: 1ms;
   }
 
   .reveal,
