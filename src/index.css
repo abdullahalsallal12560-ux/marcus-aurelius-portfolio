@@ -191,22 +191,24 @@ footer {
 @property --color-plate-ink { syntax: "<color>"; inherits: true; initial-value: #100e0b; }
 
 :root {
-  --scent-swap: 950ms;
+  --scent-swap: 600ms;
 
   /* the plate the product name sits on — solid, so the name stays legible
      whichever way the ground swings */
   --color-plate: #c9a25c;
   --color-plate-ink: #100e0b;
 
+  /* Interpolating an inherited custom property on :root invalidates inherited
+     style for every node in the document, on every frame the transition runs.
+     So only the tokens whose change is actually watched are animated here:
+     the plate is four elements and transitions itself below, and gold-soft is
+     a hover colour nobody is looking at mid-handover. */
   transition:
     --color-ink var(--scent-swap) var(--ease-out),
     --color-ink-soft var(--scent-swap) var(--ease-out),
     --color-cream var(--scent-swap) var(--ease-out),
     --color-cream-dim var(--scent-swap) var(--ease-out),
-    --color-gold var(--scent-swap) var(--ease-out),
-    --color-gold-soft var(--scent-swap) var(--ease-out),
-    --color-plate var(--scent-swap) var(--ease-out),
-    --color-plate-ink var(--scent-swap) var(--ease-out);
+    --color-gold var(--scent-swap) var(--ease-out);
 }
 
 /* Maxima — powdered rose under plum. The sweet half of the composition:
@@ -282,10 +284,20 @@ footer {
   overflow-x: clip;
 }
 
+/* Viewport-sized and fixed, not stretched over the section.
+
+   The collection is around 6000px tall, so an absolutely-positioned layer
+   spanning it is an 8.8 megapixel surface — times four, stacked. Measured
+   under a throttled CPU that alone was more than half the style-recalculation
+   cost of scrolling the section, and it showed up as a stutter on every
+   handover. Pinned to the viewport each layer is a seventh of the size, and
+   because the motif is a repeating tile there is nothing to notice: the
+   pattern reads as the texture of the page rather than as a thing that
+   scrolls past. */
 .scent-worlds {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   overflow: hidden;
 }
@@ -336,6 +348,9 @@ footer {
 .product-plate {
   background-color: var(--color-plate);
   color: var(--color-plate-ink);
+  transition:
+    background-color var(--scent-swap) var(--ease-out),
+    color var(--scent-swap) var(--ease-out);
 }
 
 /* The small caps that label a field — notes, benefits, deliverables. They
