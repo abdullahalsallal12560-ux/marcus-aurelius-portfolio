@@ -195,6 +195,37 @@ export default {
     ],
   },
 
+  products: {
+    labels: { top: "Testa", heart: "Cuore", base: "Fondo", benefits: "Vantaggi", deliverables: "Cosa comprende" },
+    pairs: { kinetic: "Coppia cinetica", romantic: "Coppia romantica" },
+    items: {
+      maxima: {
+        tagline: "Per lei",
+        notes: { top: "Frutti rossi, bergamotto, mandorla dolce", heart: "Gelsomino, rosa, caramello", base: "Vaniglia, muschio bianco, legni" },
+        benefits: "Tenuta lunga, lusso quotidiano senza pesantezza e un'identità precisa che la distingue dai profumi di largo consumo.",
+        deliverables: "Flacone da 100 ml, confezione con l'identità del marchio, produzione in piccole serie.",
+      },
+      maximus: {
+        tagline: "Per lui",
+        notes: { top: "Arancia, bergamotto, scorza di limone, brezza marina", heart: "Pompelmo, pepe rosa, cedro, gelsomino", base: "Cuoio, ambra grigia, sandalo, muschio bianco" },
+        benefits: "Un equilibrio tra freschezza e forza, presenza decisa senza sovrastare, ottima tenuta grazie al fondo di cuoio e ambra.",
+        deliverables: "Flacone da 100 ml, confezione ispirata agli acquedotti romani, produzione in piccole serie.",
+      },
+      "romeo-di-roma": {
+        tagline: "Unisex, di tendenza maschile",
+        notes: { top: "Vaniglia, zafferano, ananas", heart: "Cuoio, patchouli, caramello", base: "Oud, sandalo, muschio" },
+        benefits: "Un accostamento raro di zafferano e vaniglia contro oud e cuoio: intenso e sensuale senza additivi vietati, diverso da qualsiasi altra cosa sul mercato.",
+        deliverables: "Flacone da 100 ml, confezione ispirata al campanile veneziano, produzione in piccole serie.",
+      },
+      "roma-juliette": {
+        tagline: "Per lei",
+        notes: { top: "Zafferano, gelsomino, bergamotto, mandarino, arancia", heart: "Tuberosa, frutti rossi, rosa, caramello, mandorla", base: "Vaniglia, fava tonka, muschio bianco, ambra legnosa, sandalo" },
+        benefits: "La composizione più complessa e stratificata delle quattro, opulenza italiana classica, tenuta eccezionale.",
+        deliverables: "Flacone da 100 ml, confezione ispirata al racconto di Romeo e Giulietta, produzione in piccole serie.",
+      },
+    },
+  },
+
   hero: {
     srTitle: "Marcus Aurelius Profumi",
     logoAlt: "Marcus Aurelius Profumi",

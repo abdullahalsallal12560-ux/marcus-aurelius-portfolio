@@ -196,6 +196,37 @@ export default {
     ],
   },
 
+  products: {
+    labels: { top: "Top", heart: "Heart", base: "Base", benefits: "Benefits", deliverables: "Deliverables" },
+    pairs: { kinetic: "Kinetic pair", romantic: "Romantic pair" },
+    items: {
+      maxima: {
+        tagline: "For Her",
+        notes: { top: "Red berries, bergamot, sweet almond", heart: "Jasmine, rose, caramel", base: "Vanilla, white musk, woods" },
+        benefits: "Long-lasting wear, everyday luxury without heaviness, a distinct identity that sets it apart from mainstream perfumes.",
+        deliverables: "100ml bottle, brand-identity packaging, small-batch production.",
+      },
+      maximus: {
+        tagline: "For Him",
+        notes: { top: "Orange, bergamot, lemon zest, sea breeze", heart: "Grapefruit, pink pepper, cedarwood, jasmine", base: "Leather, ambergris, sandalwood, white musk" },
+        benefits: "A balance of freshness and strength, strong presence without being overpowering, excellent longevity from the leather-amber base.",
+        deliverables: "100ml bottle, Roman-aqueduct-themed packaging, small-batch production.",
+      },
+      "romeo-di-roma": {
+        tagline: "Unisex, leaning masculine",
+        notes: { top: "Vanilla, saffron, pineapple", heart: "Leather, patchouli, caramel", base: "Oud, sandalwood, musk" },
+        benefits: "A rare pairing of saffron and vanilla against oud and leather: heavy and sensual without any banned additives, distinct from anything else on the market.",
+        deliverables: "100ml bottle, Venetian-bell-tower-themed packaging, small-batch production.",
+      },
+      "roma-juliette": {
+        tagline: "For Her",
+        notes: { top: "Saffron, jasmine, bergamot, mandarin, orange", heart: "Tuberose, red fruits, rose, caramel, almond", base: "Vanilla, tonka bean, white musk, amberwood, sandalwood" },
+        benefits: "The most complex and layered composition of the four, classic Italian opulence, exceptional longevity.",
+        deliverables: "100ml bottle, packaging themed around the Romeo & Juliette narrative, small-batch production.",
+      },
+    },
+  },
+
   hero: {
     srTitle: "Marcus Aurelius Perfumes",
     logoAlt: "Marcus Aurelius Perfumes",

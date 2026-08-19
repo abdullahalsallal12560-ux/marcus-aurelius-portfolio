@@ -11,6 +11,7 @@ import { FountainIcon, AqueductIcon, CampanileIcon, LoversBalconyIcon } from "..
 import Lightbox from "../shared/Lightbox";
 import { getProductImages } from "../../utils/productGallery";
 import { asset } from "../../utils/asset";
+import { useT } from "../../i18n/useLocale";
 
 // Each fragrance owns the page while the reader is in front of it: ground,
 // type, rules, accent and the pattern behind them all belong to it, and
@@ -100,7 +101,9 @@ const products = [
 ];
 
 function ProductCard({ product, index, reversed }) {
-  const { slug, name, tagline, Icon, notes, benefits, deliverables, video, pair } = product;
+  const t = useT();
+  const copy = t.products.items[product.slug];
+  const { slug, name, Icon, video, pair } = product;
   const { hero, gallery } = getProductImages(slug);
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [parallaxRef, offset] = useParallax({ strength: 26 });
@@ -128,7 +131,7 @@ function ProductCard({ product, index, reversed }) {
       <h3 className="font-display uppercase leading-[0.95] tracking-[0.04em] text-[clamp(1.4rem,3.6vw,2.3rem)]">
         {name}
       </h3>
-      <p className="font-script text-base md:text-lg opacity-85 mt-1">{tagline}</p>
+      <p className="font-script text-base md:text-lg opacity-85 mt-1">{copy.tagline}</p>
     </div>
   );
 
@@ -193,30 +196,30 @@ function ProductCard({ product, index, reversed }) {
               {String(index + 1).padStart(2, "0")} / {String(products.length).padStart(2, "0")}
             </span>
             <span aria-hidden="true" className="flex-1 h-px bg-gold/45" />
-            <span className="field-label hidden sm:inline">{pair}</span>
+            <span className="field-label hidden sm:inline">{t.products.pairs[pair]}</span>
             <Icon className="w-8 h-10 shrink-0 text-gold" />
           </div>
 
           <dl className="mb-8">
-            {Object.entries(notes).map(([k, v]) => (
+            {Object.entries(copy.notes).map(([k, v]) => (
               <div
                 key={k}
                 className="grid grid-cols-[5rem_1fr] md:grid-cols-[6rem_1fr] gap-4 py-3 border-t border-gold/35"
               >
-                <dt className="field-label pt-1">{k}</dt>
+                <dt className="field-label pt-1">{t.products.labels[k]}</dt>
                 <dd className="font-body text-base md:text-lg leading-snug text-cream">{v}</dd>
               </div>
             ))}
           </dl>
 
           <p className="font-body text-base leading-relaxed mb-4 text-cream-dim">
-            <span className="field-label block mb-1.5">Benefits</span>
-            {benefits}
+            <span className="field-label block mb-1.5">{t.products.labels.benefits}</span>
+            {copy.benefits}
           </p>
 
           <p className="font-body text-base leading-relaxed text-cream-dim">
-            <span className="field-label block mb-1.5">Deliverables</span>
-            {deliverables}
+            <span className="field-label block mb-1.5">{t.products.labels.deliverables}</span>
+            {copy.deliverables}
           </p>
         </Reveal>
       </div>
