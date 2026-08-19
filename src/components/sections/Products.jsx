@@ -9,6 +9,7 @@ import useReveal from "../../hooks/useReveal";
 import { FountainIcon, AqueductIcon, CampanileIcon, LoversBalconyIcon } from "../shared/Motifs";
 import Lightbox from "../shared/Lightbox";
 import { getProductImages } from "../../utils/productGallery";
+import { asset } from "../../utils/asset";
 
 // The collection splits into two pairs, and each pair carries its own mood
 // inside the shared house identity:
@@ -33,8 +34,8 @@ const products = [
     pair: "kinetic",
     // shot for the brand: the film leads, the bottle still joins the gallery
     video: {
-      src: "/videos/maxima-accent.mp4",
-      poster: "/videos/maxima-accent-poster.jpg",
+      src: asset("/videos/maxima-accent.mp4"),
+      poster: asset("/videos/maxima-accent-poster.jpg"),
       alt: "Maxima — golden hour, filmed for the house",
     },
     scrim: "default",
@@ -55,8 +56,8 @@ const products = [
     accent: "#5E82A6", // slate blue — sea breeze, citrus, cedar
     pair: "kinetic",
     video: {
-      src: "/videos/maximus-accent.mp4",
-      poster: "/videos/maximus-accent-poster.jpg",
+      src: asset("/videos/maximus-accent.mp4"),
+      poster: asset("/videos/maximus-accent-poster.jpg"),
       alt: "Maximus — ocean, citrus and jasmine, filmed for the house",
     },
     scrim: "strong",

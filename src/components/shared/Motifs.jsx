@@ -1,3 +1,5 @@
+import { asset } from "../../utils/asset";
+
 // Recurring SVG line-art motifs for the Marcus Aurelius brand.
 // All use currentColor so they inherit gold/cream via text color classes.
 
@@ -11,8 +13,8 @@ export function BustMark({ className = "" }) {
       aria-label="Marcus Aurelius bust mark"
       className={`inline-block bg-current ${className}`}
       style={{
-        WebkitMaskImage: "url(/images/brand/logo-bust.png)",
-        maskImage: "url(/images/brand/logo-bust.png)",
+        WebkitMaskImage: `url(${asset("/images/brand/logo-bust.png")})`,
+        maskImage: `url(${asset("/images/brand/logo-bust.png")})`,
         WebkitMaskSize: "contain",
         maskSize: "contain",
         WebkitMaskRepeat: "no-repeat",

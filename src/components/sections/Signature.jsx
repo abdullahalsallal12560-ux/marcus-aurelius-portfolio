@@ -1,5 +1,6 @@
 import Reveal from "../shared/Reveal";
 import { GreekKey } from "../shared/Motifs";
+import { asset } from "../../utils/asset";
 
 /**
  * The closing signature.
@@ -23,7 +24,7 @@ export default function Signature() {
         {/* ---------- portrait ---------- */}
         <Reveal variant="left" className="relative min-h-[62vh] md:min-h-[78vh]">
           <img
-            src="/images/brand/abdullah-portrait.jpg"
+            src={asset("/images/brand/abdullah-portrait.jpg")}
             alt="Abdullah Al-Sallal"
             className="absolute inset-0 w-full h-full object-cover object-[50%_15%]"
             loading="lazy"

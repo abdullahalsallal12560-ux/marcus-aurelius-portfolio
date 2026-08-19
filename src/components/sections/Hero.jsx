@@ -1,4 +1,5 @@
 import { GreekKey } from "../shared/Motifs";
+import { asset } from "../../utils/asset";
 import Reveal from "../shared/Reveal";
 
 /**
@@ -31,7 +32,7 @@ export default function Hero() {
         <h1 className="sr-only">Marcus Aurelius Perfumes</h1>
 
         <img
-          src="/images/brand/logo-lockup.png"
+          src={asset("/images/brand/logo-lockup.png")}
           alt="Marcus Aurelius Perfumes"
           className="w-60 sm:w-72 md:w-[22rem] h-auto"
           fetchPriority="high"
