@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 /**
  * Subscribes to a media query. Starts false on the server / first paint and
- * corrects on mount, so anything gated on this renders its fallback first —
+ * corrects on mount, so anything gated on this renders its fallback first ,
  * which is what we want for video (phones must never start a download).
  */
 export default function useMediaQuery(query) {

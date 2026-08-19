@@ -8,14 +8,14 @@
  * crossfaded, so moving between fragrances dissolves rather than cuts.
  *
  * Drawn at a hairline weight and masked back through the middle of the
- * spread — see .scent-world in index.css, which also carries the per-motif
+ * spread, see .scent-world in index.css, which also carries the per-motif
  * strength, since a flat stripe sits under type far more quietly than line
  * drawing does.
  */
 export default function ScentWorlds() {
   return (
     <div className="scent-worlds" aria-hidden="true">
-      {/* Maxima — macarons, strawberries and berry sprigs. The sweet half of
+      {/* Maxima, macarons, strawberries and berry sprigs. The sweet half of
           the composition, not the floral half. */}
       <div className="scent-world" data-w="maxima">
         <svg>
@@ -57,7 +57,7 @@ export default function ScentWorlds() {
         </svg>
       </div>
 
-      {/* Maximus — the beach-chair stripe, wide and vertical. Blue rather than
+      {/* Maximus, the beach-chair stripe, wide and vertical. Blue rather than
           navy: a stripe dark enough to read as navy would take the body copy
           below a legible contrast, where a saturated blue reads the same and
           does not. */}
@@ -73,7 +73,7 @@ export default function ScentWorlds() {
         </svg>
       </div>
 
-      {/* Romeo di Roma — a Venetian loggia: ogee arches on columns under a
+      {/* Romeo di Roma, a Venetian loggia: ogee arches on columns under a
           band of quatrefoils, which is where the bell-tower packaging in this
           product's own copy comes from. */}
       <div className="scent-world" data-w="romeo-di-roma">
@@ -105,7 +105,7 @@ export default function ScentWorlds() {
         </svg>
       </div>
 
-      {/* Roma Juliette — spiralled roses over the fall of the silk the bottle
+      {/* Roma Juliette, spiralled roses over the fall of the silk the bottle
           was photographed against. */}
       <div className="scent-world" data-w="roma-juliette">
         <svg>

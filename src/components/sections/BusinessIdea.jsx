@@ -10,7 +10,7 @@ const items = [
   {
     n: "02",
     title: "Solution",
-    body: "Marcus Aurelius breaks that binary with exclusive, non-derivative blends, carefully selected oils, and fragrances engineered to be magnetic through composition alone — without relying on banned or synthetic pheromone additives.",
+    body: "Marcus Aurelius breaks that binary with exclusive, non-derivative blends, carefully selected oils, and fragrances engineered to be magnetic through composition alone, without relying on banned or synthetic pheromone additives.",
   },
   {
     n: "03",
@@ -20,7 +20,7 @@ const items = [
   {
     n: "04",
     title: "Target Customers",
-    body: "People who want distinction, not just a pleasant scent — buyers looking for individuality, a story, a persona, and quiet confidence before they are looking for a smell.",
+    body: "People who want distinction, not just a pleasant scent: buyers looking for individuality, a story, a persona, and quiet confidence before they are looking for a smell.",
   },
 ];
 

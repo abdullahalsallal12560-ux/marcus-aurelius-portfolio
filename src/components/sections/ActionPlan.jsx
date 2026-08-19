@@ -19,7 +19,7 @@ const phases = [
     label: "Phase 3",
     title: "Growth",
     status: "Post-validation",
-    body: "Expand through brand-owned boutiques only — no third-party retail placement, to protect the exclusivity of the brand experience. Expand the product line, build a dedicated marketing and logistics team, and explore limited-edition creative collaborations.",
+    body: "Expand through brand-owned boutiques only, with no third-party retail placement, to protect the exclusivity of the brand experience. Expand the product line, build a dedicated marketing and logistics team, and explore limited-edition creative collaborations.",
   },
 ];
 

@@ -18,7 +18,7 @@ export default function WebsiteStrategy() {
           id="website-strategy"
           eyebrow="marcusscent.com"
           title="Website Strategy"
-          subtitle="The company's actual digital presence — built custom, not on a template platform like Shopify, for full control over the user experience."
+          subtitle="The company's actual digital presence, built custom, not on a template platform like Shopify, for full control over the user experience."
         />
 
         <Reveal stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/15">

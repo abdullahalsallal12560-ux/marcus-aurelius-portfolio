@@ -2,7 +2,7 @@ import useReveal from "../../hooks/useReveal";
 import { GreekKey } from "./Motifs";
 
 /**
- * Boundary marker between sections — a meander band that draws itself in as
+ * Boundary marker between sections, a meander band that draws itself in as
  * it enters view, flanked by hairlines that extend to the page edges.
  * Purely decorative, so it is hidden from assistive technology.
  */

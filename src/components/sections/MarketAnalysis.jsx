@@ -15,8 +15,8 @@ const markets = [
     label: "Global",
     body: (
       <>
-        The global perfume market is valued at roughly <Fig>$60–70B</Fig> in 2026. Within it, the
-        niche fragrance segment is the fastest-growing category — projected to reach approximately{" "}
+        The global perfume market is valued at roughly <Fig>$60 to $70B</Fig> in 2026. Within it, the
+        niche fragrance segment is the fastest-growing category, projected to reach approximately{" "}
         <Fig>$4.85B</Fig> by 2026, growing at around <Fig>9.1%</Fig> annually versus roughly 2.7% for
         the mass market. Consumer research shows about <Fig>62%</Fig> of buyers prefer niche
         fragrances over mass-market products, and premium gifting accounts for nearly half of niche
@@ -31,10 +31,10 @@ const markets = [
         The Middle East perfume market is valued at roughly <Fig>$4B</Fig> in 2026 and is projected to
         grow at approximately <Fig>7.5%</Fig> annually. Fragrance is deeply embedded in the
         region&rsquo;s culture and hospitality traditions, and regional fragrance sales are growing at
-        roughly <Fig>11%</Fig> annually — with oud-based compositions growing over <Fig>20%</Fig>{" "}
+        roughly <Fig>11%</Fig> annually, with oud-based compositions growing over <Fig>20%</Fig>{" "}
         year-over-year. Leading regional players include Ajmal, Rasasi, and Swiss Arabian. The
         opportunity lies in the gap between traditional oud-heavy fragrances and Western-style niche
-        perfumes — a space Marcus Aurelius occupies directly through blends like Romeo di Roma.
+        perfumes: a space Marcus Aurelius occupies directly through blends like Romeo di Roma.
       </>
     ),
   },
@@ -47,7 +47,7 @@ const markets = [
         domestic brands offering imitation scents to international niche distributors (like
         Scenti/Samco Trading, carrying brands such as Nishane) selling at premium import prices. The
         gap: no locally designed and produced brand currently competes at true international niche
-        quality and identity — which is exactly the space Marcus Aurelius is built to fill.
+        quality and identity, which is exactly the space Marcus Aurelius is built to fill.
       </>
     ),
   },

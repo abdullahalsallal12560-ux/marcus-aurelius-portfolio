@@ -1,5 +1,5 @@
 // Vite can only glob-import files that live inside the source tree, not
-// public/ (public assets bypass the module graph entirely) — so real product
+// public/ (public assets bypass the module graph entirely), so real product
 // photography lives in src/assets/products/<slug>/ and gets picked up here
 // automatically, with no filename wiring required per product.
 const modules = import.meta.glob("/src/assets/products/*/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", {
@@ -8,7 +8,7 @@ const modules = import.meta.glob("/src/assets/products/*/*.{png,jpg,jpeg,webp,PN
 });
 
 // The hero is chosen by an explicit, reserved filename rather than by
-// "whichever file happens to sort first" — the source photography arrives with
+// "whichever file happens to sort first", the source photography arrives with
 // messy, non-descriptive names (IMG_2181, Gemini_Generated_Image_…), so
 // alphabetical order is not a meaningful editorial order. Every other file in
 // the folder is gallery, ordered numerically.
@@ -31,8 +31,8 @@ for (const slug of Object.keys(bySlug)) {
 /**
  * Returns { hero, gallery } for a product slug.
  *
- *   hero     the file named `0-bottle-main.*`, or — if a folder has not been
- *            normalised yet — the first file, so nothing renders empty.
+ *   hero     the file named `0-bottle-main.*`, or, if a folder has not been
+ *            normalised yet, the first file, so nothing renders empty.
  *   gallery  every remaining image in the folder, numerically ordered. The
  *            full folder is exposed; callers decide how many to show.
  *

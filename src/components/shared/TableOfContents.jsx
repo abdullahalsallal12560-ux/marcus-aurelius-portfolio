@@ -6,7 +6,7 @@ import { GreekKey } from "./Motifs";
 /**
  * The portfolio's Table of Contents, in two coordinated forms:
  *
- *   1. A fixed vertical index rail (desktop) — one row per section, showing
+ *   1. A fixed vertical index rail (desktop), one row per section, showing
  *      the Roman numeral and the section title.
  *   2. A full "Contents" overlay (all breakpoints) opened from the nav,
  *      listing all seventeen sections as an explicit, readable index.
@@ -22,7 +22,7 @@ export function ContentsRail() {
     <nav
       aria-label="Table of contents"
       // The labelled rail needs roughly 200px of gutter beside the 1152px
-      // content column, which only exists from 1536px up — so titles are
+      // content column, which only exists from 1536px up, so titles are
       // permanently visible there. Between 1280 and 1536 the rail stays, at
       // the same enlarged type, with the title revealed on hover rather than
       // printed over the text column.
@@ -38,13 +38,18 @@ export function ContentsRail() {
             className="group relative flex items-center justify-end gap-3 py-[7px] outline-offset-4"
           >
             {/* Below 2xl the title is lifted out of flow and made inert, so the
-                rail reserves no width it is not actually drawing — otherwise
+                rail reserves no width it is not actually drawing, otherwise
                 an invisible 100px+ strip would sit over the text column and
                 swallow its clicks. */}
             <span
               className={`pointer-events-none absolute inset-y-0 right-full mr-3 flex items-center font-body text-sm leading-none whitespace-nowrap transition-opacity duration-500 2xl:static 2xl:mr-0 2xl:inset-auto 2xl:pointer-events-auto 2xl:opacity-100 ${
                 active
-                  ? "text-gold opacity-100"
+                  ? // The active title was the one exception that still printed
+                    // itself over the text column below 2xl, which is where it
+                    // collided with anything sitting near the right edge. It
+                    // now follows the same rule as the rest: hover only until
+                    // there is a gutter wide enough to hold it.
+                    "text-gold opacity-0 group-hover:opacity-100 2xl:opacity-100"
                   : "text-cream-dim/75 opacity-0 group-hover:opacity-100 group-hover:text-cream"
               }`}
             >
@@ -57,7 +62,7 @@ export function ContentsRail() {
             >
               {numeral}
             </span>
-            {/* the active marker is a filled, longer rule — a difference in
+            {/* the active marker is a filled, longer rule, a difference in
                 length and weight, not only in colour */}
             <span
               aria-hidden="true"

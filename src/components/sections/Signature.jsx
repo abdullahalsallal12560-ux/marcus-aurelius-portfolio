@@ -7,7 +7,7 @@ import { asset } from "../../utils/asset";
  *
  * Deliberately outside the seventeen numbered portfolio sections: it carries
  * no Roman numeral, is absent from SECTIONS, and so never appears in the
- * Contents rail or the Contents overlay — the brief requires exactly
+ * Contents rail or the Contents overlay, the brief requires exactly
  * seventeen, and this is not one of them.
  *
  * The portrait is set in a fixed 4:5 frame rather than stretched to fill its

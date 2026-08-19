@@ -3,12 +3,12 @@ import Reveal from "../shared/Reveal";
 import useReveal from "../../hooks/useReveal";
 
 const steps = [
-  { n: "01", title: "Discover", body: "Identifying the real gap in the market — the space between overpriced originality and cheap imitation." },
-  { n: "02", title: "Define", body: "Defining the identity of each fragrance beyond “a nice smell” — a persona, a story, a place." },
+  { n: "01", title: "Discover", body: "Identifying the real gap in the market: the space between overpriced originality and cheap imitation." },
+  { n: "02", title: "Define", body: "Defining the identity of each fragrance beyond “a nice smell”: a persona, a story, a place." },
   { n: "03", title: "Design", body: "Designing the scent composition and the visual identity together, so neither feels separate from the other." },
   { n: "04", title: "Develop", body: "Up to two years of iterative formula development to get every note exactly right." },
-  { n: "05", title: "Deploy", body: "A careful, unrushed launch — nothing reaches the public before it has been reviewed and refined." },
-  { n: "06", title: "Optimize", body: "Continuous refinement, down to how long a single social media post takes to get right — four to five days." },
+  { n: "05", title: "Deploy", body: "A careful, unrushed launch. Nothing reaches the public before it has been reviewed and refined." },
+  { n: "06", title: "Optimize", body: "Continuous refinement, down to how long a single social media post takes to get right: four to five days." },
 ];
 
 export default function ThinkingMethod() {

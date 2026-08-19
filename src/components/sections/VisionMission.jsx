@@ -4,11 +4,11 @@ import Reveal from "../shared/Reveal";
 const blocks = [
   {
     label: "Vision",
-    body: "For Marcus Aurelius to stand among the world’s recognized niche fragrance houses — not a regional brand, but one that competes internationally on quality, identity, and presence.",
+    body: "For Marcus Aurelius to stand among the world’s recognized niche fragrance houses. Not a regional brand, but one that competes internationally on quality, identity, and presence.",
   },
   {
     label: "Mission",
-    body: "Every detail, no matter how small, is reviewed and refined before it reaches the public. Developing a single fragrance can take up to two years to get the notes exactly right; a single social media post can take four or five days to reach the intended look. Precision and patience are not a side detail here — they are the foundation of the work.",
+    body: "Every detail, no matter how small, is reviewed and refined before it reaches the public. Developing a single fragrance can take up to two years to get the notes exactly right; a single social media post can take four or five days to reach the intended look. Precision and patience are not a side detail here. They are the foundation of the work.",
   },
 ];
 

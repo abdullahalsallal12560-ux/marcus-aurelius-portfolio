@@ -15,7 +15,7 @@ export default function BusinessModel() {
 
           <p className="font-body text-lg md:text-xl leading-relaxed text-cream-dim">
             Marcus Aurelius operates on a{" "}
-            <span className="text-cream">Direct-to-Consumer (D2C)</span> model — selling directly to
+            <span className="text-cream">Direct-to-Consumer (D2C)</span> model, selling directly to
             customers through its own website and social channels, without intermediaries in the
             initial phase. This preserves full control over the customer experience, from packaging
             to communication, and protects the exclusivity the brand is built on. Releases are

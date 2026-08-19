@@ -17,7 +17,7 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 export default function Hero() {
   const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   // useMediaQuery reports false until it has mounted, and false here means
-  // "motion is fine" — so trusting it on the first paint would fire off the
+  // "motion is fine", so trusting it on the first paint would fire off the
   // 2.6MB download before we know the visitor asked for stillness. Waiting a
   // commit costs nothing: the poster is the clip's own first frame, so it
   // holds the cover until the video takes over.

@@ -5,7 +5,7 @@ import { useState } from "react";
  * to a soft gold-gradient placeholder bearing the product name, so the
  * layout never breaks before real photography is dropped into the folder.
  *
- * Passing onClick makes the image an enlargeable control — it becomes a real
+ * Passing onClick makes the image an enlargeable control, it becomes a real
  * button, so it is reachable by keyboard and announced as an action rather
  * than as decoration.
  */

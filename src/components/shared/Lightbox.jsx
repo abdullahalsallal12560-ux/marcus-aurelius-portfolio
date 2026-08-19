@@ -3,8 +3,8 @@ import { useCallback, useEffect, useRef } from "react";
 /**
  * Click-to-enlarge for product photography.
  *
- * Opens over a near-opaque ink field with the image contained — never cropped
- * — inside the viewport. Closes on the X, on a click outside the image, and on
+ * Opens over a near-opaque ink field with the image contained, never cropped
+ *, inside the viewport. Closes on the X, on a click outside the image, and on
  * Escape. Stepping between the images of the same product costs almost nothing
  * once the set is already in hand, so the arrow keys and two edge controls are
  * wired up too.
@@ -96,7 +96,7 @@ export default function Lightbox({ images, index, onClose, onStep }) {
         </>
       )}
 
-      {/* the image itself is not a close target — only the field around it */}
+      {/* the image itself is not a close target, only the field around it */}
       <figure
         onClick={(e) => e.stopPropagation()}
         className="m-0 flex flex-col items-center gap-4 max-h-full"

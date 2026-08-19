@@ -8,7 +8,7 @@ const goals = [
   },
   {
     horizon: "2 months",
-    body: "Complete comprehensive market research — competitor analysis, target customer behavior, and final pricing strategy — within 2 months, before going to market.",
+    body: "Complete comprehensive market research (competitor analysis, target customer behavior, and final pricing strategy) within 2 months, before going to market.",
   },
   {
     horizon: "6 months",

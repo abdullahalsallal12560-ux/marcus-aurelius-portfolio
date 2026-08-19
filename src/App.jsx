@@ -38,7 +38,7 @@ export default function App() {
       });
     }
 
-    // ?settled=1 resolves every reveal immediately — for capturing static
+    // ?settled=1 resolves every reveal immediately, for capturing static
     // screenshots (e.g. for the report) with no risk of catching mid-animation.
     if (new URLSearchParams(window.location.search).has("settled")) {
       document.documentElement.classList.add("motion-settled");
@@ -86,7 +86,7 @@ export default function App() {
         <WebsiteStrategy />
         <PortfolioDesign />
         <Contact />
-        {/* outside the seventeen numbered sections — no numeral, not in the rail */}
+        {/* outside the seventeen numbered sections, no numeral, not in the rail */}
         <Signature />
       </main>
 

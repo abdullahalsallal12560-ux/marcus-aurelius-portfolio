@@ -102,7 +102,7 @@ section {
   --reveal-y: 48px;
 }
 
-/* staggered children — direct children cascade in sequence */
+/* staggered children, direct children cascade in sequence */
 .stagger > * {
   opacity: 0;
   transform: translate3d(0, 26px, 0);
@@ -149,7 +149,7 @@ section {
    Ground: depth without lightening
 
    The flatness of the old ground was a temperature problem, not a contrast
-   one — a neutral-cold black under a warm gold reads muddy. The base is now
+   one, a neutral-cold black under a warm gold reads muddy. The base is now
    a warm black at the same value, and every section carries two almost
    invisible layers painted between its background colour and its content:
    a fine noise tile that kills large-area banding, and a soft top-lit gold
@@ -171,7 +171,7 @@ footer {
    Each fragrance owns the page while the reader is standing in front of it.
    The whole site is already built out of these eight tokens, so re-pointing
    them on <html data-scent> re-colours the nav, the Contents rail, the
-   section and the type together — not one component knows this exists.
+   section and the type together, not one component knows this exists.
 
    They are registered with @property so the browser can interpolate them.
    Unregistered custom properties swap at a frame boundary, which reads as a
@@ -193,7 +193,7 @@ footer {
 :root {
   --scent-swap: 600ms;
 
-  /* the plate the product name sits on — solid, so the name stays legible
+  /* the plate the product name sits on, solid, so the name stays legible
      whichever way the ground swings */
   --color-plate: #c9a25c;
   --color-plate-ink: #100e0b;
@@ -211,7 +211,7 @@ footer {
     --color-gold var(--scent-swap) var(--ease-out);
 }
 
-/* Maxima — powdered rose under plum. The sweet half of the composition:
+/* Maxima, powdered rose under plum. The sweet half of the composition:
    red berries, caramel, sweet almond. */
 :root[data-scent="maxima"] {
   --color-ink: #f2d3db;
@@ -224,7 +224,7 @@ footer {
   --color-plate-ink: #f7dee4;
 }
 
-/* Maximus — the beach chair. Navy on warm white, with the lemon from the
+/* Maximus, the beach chair. Navy on warm white, with the lemon from the
    pool the bottle was shot in kept for nothing but the small marks. */
 :root[data-scent="maximus"] {
   --color-ink: #f1f0ea;
@@ -237,7 +237,7 @@ footer {
   --color-plate-ink: #fbfaf6;
 }
 
-/* Romeo di Roma — espresso leather, parchment, saffron. */
+/* Romeo di Roma, espresso leather, parchment, saffron. */
 :root[data-scent="romeo-di-roma"] {
   --color-ink: #251a12;
   --color-ink-soft: #2e2017;
@@ -249,7 +249,7 @@ footer {
   --color-plate-ink: #2e2017;
 }
 
-/* Roma Juliette — garnet silk under honeyed amber. */
+/* Roma Juliette, garnet silk under honeyed amber. */
 :root[data-scent="roma-juliette"] {
   --color-ink: #33161c;
   --color-ink-soft: #3b1a21;
@@ -272,7 +272,7 @@ footer {
    The layer sits inside the section, above its ground and below the cards.
    The pattern belongs at the edges of the spread: through the middle band,
    where both columns of type sit, it steps down so it frames the reading
-   rather than running underneath it. How far down depends on the motif —
+   rather than running underneath it. How far down depends on the motif ,
    a flat stripe barely disturbs type, line drawing does.
    --------------------------------------------------------------- */
 
@@ -287,7 +287,7 @@ footer {
 /* Viewport-sized and fixed, not stretched over the section.
 
    The collection is around 6000px tall, so an absolutely-positioned layer
-   spanning it is an 8.8 megapixel surface — times four, stacked. Measured
+   spanning it is an 8.8 megapixel surface, times four, stacked. Measured
    under a throttled CPU that alone was more than half the style-recalculation
    cost of scrolling the section, and it showed up as a stutter on every
    handover. Pinned to the viewport each layer is a seventh of the size, and
@@ -343,7 +343,7 @@ footer {
 }
 
 /* The name rides a solid plate. This is where each colourway states itself
-   at full strength — and it is what lets the ground swing from near-black to
+   at full strength, and it is what lets the ground swing from near-black to
    powdered rose without the name ever needing a scrim over the photograph. */
 .product-plate {
   background-color: var(--color-plate);
@@ -353,9 +353,43 @@ footer {
     color var(--scent-swap) var(--ease-out);
 }
 
-/* The small caps that label a field — notes, benefits, deliverables. They
+/* The small caps that label a field, notes, benefits, deliverables. They
    carry the fragrance's accent, so they are the most theme-bound type on the
    page and are set to be read as such rather than as fine print. */
+/* The small-caps labels: eyebrows, section numerals, status chips.
+   Letter-spacing this wide destroys the shape of a word at 12px, which is why
+   these were reading as texture rather than as words. Bigger, heavier, and
+   tracked considerably less far. */
+.meta-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+@media (min-width: 768px) {
+  .meta-label { font-size: 15px; }
+}
+
+/* Same treatment for anything sitting inside a border, where the box already
+   does the separating and the tracking has less work to do. */
+.meta-label-sm {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* Playfair italic sets tight, and the slant closes the gaps further, so at
+   lede sizes the words start to touch. */
+.font-script {
+  letter-spacing: 0.02em;
+}
+
 .field-label {
   font-family: var(--font-display);
   font-weight: 600;
@@ -378,7 +412,7 @@ footer {
    house gold. Contrast and brightness are lifted a touch to stop the toning
    flattening the midtones.
 
-   Deliberately no blur and no soft-focus — every one of these operations is
+   Deliberately no blur and no soft-focus, every one of these operations is
    tonal, so the photograph stays exactly as sharp as it was shot.
    --------------------------------------------------------------- */
 
@@ -407,7 +441,7 @@ footer {
    Texture + treatment utilities
    --------------------------------------------------------------- */
 
-/* film grain — sits above the page, never intercepts pointer events */
+/* film grain, sits above the page, never intercepts pointer events */
 .grain::after {
   content: "";
   position: absolute;
@@ -436,7 +470,7 @@ footer {
 }
 
 /* ---------------------------------------------------------------
-   Reduced motion — base layer, applies to every effect above.
+   Reduced motion, base layer, applies to every effect above.
    Everything lands in its final state instantly.
    --------------------------------------------------------------- */
 
@@ -445,7 +479,7 @@ footer {
     scroll-behavior: auto;
   }
 
-  /* the colourway still changes — it carries meaning, not decoration — but it
+  /* the colourway still changes, it carries meaning, not decoration, but it
      arrives rather than travels */
   :root {
     --scent-swap: 1ms;
@@ -483,7 +517,7 @@ footer {
 }
 
 /* ---------------------------------------------------------------
-   Print / static capture — force every reveal into its end state so a
+   Print / static capture, force every reveal into its end state so a
    screenshot or PDF never catches a section mid-animation or empty.
    --------------------------------------------------------------- */
 

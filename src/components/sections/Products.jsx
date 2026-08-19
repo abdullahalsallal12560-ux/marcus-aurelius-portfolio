@@ -16,14 +16,14 @@ import { asset } from "../../utils/asset";
 // type, rules, accent and the pattern behind them all belong to it, and
 // dissolve into the next one on the way down. The colourways themselves live
 // in index.css, keyed off <html data-scent>, because the nav and the Contents
-// rail have to travel with them — the collection is a passage through the
+// rail have to travel with them, the collection is a passage through the
 // house, not four websites.
 //
 // The collection still splits into the two pairs the brand identity section
 // documents, and the split now carries a visual rule:
 //
-//   kinetic   Maximus + Maxima — youth, motion, energy. Light grounds.
-//   romantic  Romeo di Roma + Roma Juliette — stillness and depth. Deep ones.
+//   kinetic   Maximus + Maxima, youth, motion, energy. Light grounds.
+//   romantic  Romeo di Roma + Roma Juliette, stillness and depth. Deep ones.
 const products = [
   {
     slug: "maxima",
@@ -35,7 +35,7 @@ const products = [
     video: {
       src: asset("/videos/maxima-accent.mp4"),
       poster: asset("/videos/maxima-accent-poster.jpg"),
-      alt: "Maxima — golden hour, filmed for the house",
+      alt: "Maxima: golden hour, filmed for the house",
     },
     notes: {
       Top: "Red berries, bergamot, sweet almond",
@@ -55,7 +55,7 @@ const products = [
     video: {
       src: asset("/videos/maximus-accent.mp4"),
       poster: asset("/videos/maximus-accent-poster.jpg"),
-      alt: "Maximus — ocean, citrus and jasmine, filmed for the house",
+      alt: "Maximus: ocean, citrus and jasmine, filmed for the house",
     },
     notes: {
       Top: "Orange, bergamot, lemon zest, sea breeze",
@@ -78,7 +78,7 @@ const products = [
       Base: "Oud, sandalwood, musk",
     },
     benefits:
-      "A rare pairing of saffron and vanilla against oud and leather — heavy and sensual without any banned additives, distinct from anything else on the market.",
+      "A rare pairing of saffron and vanilla against oud and leather: heavy and sensual without any banned additives, distinct from anything else on the market.",
     deliverables: "100ml bottle, Venetian-bell-tower-themed packaging, small-batch production.",
   },
   {
@@ -105,7 +105,7 @@ function ProductCard({ product, index, reversed }) {
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [parallaxRef, offset] = useParallax({ strength: 26 });
 
-  // When footage leads, the bottle photograph is not dropped — it heads up the
+  // When footage leads, the bottle photograph is not dropped, it heads up the
   // gallery, so every card keeps the same structure: one dominant visual, then
   // the full set of stills.
   const thumbs = video && hero ? [hero, ...gallery] : gallery;
@@ -117,7 +117,7 @@ function ProductCard({ product, index, reversed }) {
   const thumbOffset = video ? 0 : 1;
   const lightboxImages = allImages.map((src, i) => ({
     src,
-    alt: i === 0 ? `${name} — eau de parfum` : `${name} — detail ${i}`,
+    alt: i === 0 ? `${name}, eau de parfum` : `${name}, detail ${i}`,
     caption: name,
   }));
 
@@ -153,7 +153,7 @@ function ProductCard({ product, index, reversed }) {
                   <div ref={parallaxRef} style={{ transform: `translate3d(0, ${offset}px, 0)` }}>
                     <ProductImage
                       src={hero}
-                      alt={`${name} — eau de parfum`}
+                      alt={`${name}, eau de parfum`}
                       label={name}
                       aspect="aspect-[4/5]"
                       className="w-full scale-[1.08]"
@@ -173,7 +173,7 @@ function ProductCard({ product, index, reversed }) {
               <div key={url} className="overflow-hidden bg-ink-soft">
                 <ProductImage
                   src={url}
-                  alt={`${name} — detail ${i + 1}`}
+                  alt={`${name}, detail ${i + 1}`}
                   label={name}
                   aspect="aspect-square"
                   className="w-full transition-transform duration-[1200ms] ease-out hover:scale-110"
@@ -243,7 +243,7 @@ export default function Products() {
           id="products"
           eyebrow="The Collection"
           title="Products"
-          subtitle="Four fragrances, four narratives — each produced in limited batches."
+          subtitle="Four fragrances, four narratives, each produced in limited batches."
         />
 
         <div className="flex flex-col gap-28 md:gap-44">

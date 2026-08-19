@@ -16,14 +16,14 @@ export default function SectionHeading({ id, eyebrow, title, subtitle, align = "
       <div className={`flex items-center gap-3 ${centered ? "justify-center" : ""}`}>
         {section && (
           <>
-            <span className="font-display text-xs md:text-[13px] tracking-[0.3em] text-gold/85 tabular-nums">
+            <span className="meta-label tabular-nums">
               {section.numeral}
             </span>
-            <span aria-hidden="true" className="w-6 h-px bg-gold/30" />
+            <span aria-hidden="true" className="w-6 h-px bg-gold/45" />
           </>
         )}
         {eyebrow && (
-          <span className="font-display text-xs md:text-[13px] tracking-[0.35em] uppercase text-gold">
+          <span className="meta-label">
             {eyebrow}
           </span>
         )}

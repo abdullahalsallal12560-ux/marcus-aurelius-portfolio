@@ -73,7 +73,7 @@ export default function BrandIdentity() {
             <p className="font-body text-cream-dim leading-relaxed">
               Black background, cream text, muted gold accents. Used for the website, social media,
               and all online communication. Chosen to convey strength and quiet confidence without
-              visual noise — the fragrance doesn&rsquo;t need loud colors to prove itself.
+              visual noise. The fragrance doesn&rsquo;t need loud colors to prove itself.
             </p>
             <Swatches items={digitalSwatches} />
           </Reveal>
@@ -88,7 +88,7 @@ export default function BrandIdentity() {
             </h3>
             <p className="font-body text-cream-dim leading-relaxed">
               Tan / bronze tones on packaging and labels. Chosen to evoke the warmth of Roman stone,
-              marble, and aged bronze — a different emotional register for the moment the customer
+              marble, and aged bronze: a different emotional register for the moment the customer
               physically holds the product.
             </p>
             <Swatches items={physicalSwatches} />
@@ -101,10 +101,10 @@ export default function BrandIdentity() {
           </h3>
           <p className="font-body text-base text-cream-dim leading-relaxed max-w-3xl mx-auto text-center">
             The collection is built as two pairs, and each pair carries its own visual mood inside the
-            shared house identity. Maximus and Maxima are the energetic pair — youth, motion, and
-            confident wildness — so their cards cool and lift, the type brightens, and colour moves
-            across the panel on a diagonal. Romeo di Roma and Roma Juliette are the romantic pair —
-            stillness, depth, and restrained power — so their ground goes warmer and deeper than the
+            shared house identity. Maximus and Maxima are the energetic pair: youth, motion, and
+            confident wildness, so their cards cool and lift, the type brightens, and colour moves
+            across the panel on a diagonal. Romeo di Roma and Roma Juliette are the romantic pair:
+            stillness, depth, and restrained power, so their ground goes warmer and deeper than the
             house black and the treatment leans back into gold, centred rather than directional. This
             is the same principle established fragrance houses use when a sub-collection is given its
             own visual register while the house identity stays recognisable underneath it. The black,
@@ -135,7 +135,7 @@ export default function BrandIdentity() {
           </p>
           <p className="font-body text-base text-cream-dim/85 max-w-lg text-center leading-relaxed">
             The bust mark, the Greek meander border, and the classical-serif-plus-script pairing recur
-            across every touchpoint — digital and physical alike — tying the two identities together.
+            across every touchpoint, digital and physical alike, tying the two identities together.
           </p>
         </Reveal>
       </div>

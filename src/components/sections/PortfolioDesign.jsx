@@ -3,9 +3,9 @@ import Reveal from "../shared/Reveal";
 import { BustMark, GreekKey } from "../shared/Motifs";
 
 const specimens = [
-  { face: "Cinzel", role: "Display — wordmark & headings", sample: "MARCVS", className: "font-display tracking-[0.1em]" },
-  { face: "Playfair Display Italic", role: "Script accent — flourishes", sample: "Perfumes", className: "font-script" },
-  { face: "EB Garamond", role: "Body — long-form reading", sample: "Aa", className: "font-body" },
+  { face: "Cinzel", role: "Display: wordmark & headings", sample: "MARCVS", className: "font-display tracking-[0.1em]" },
+  { face: "Playfair Display Italic", role: "Script accent: flourishes", sample: "Perfumes", className: "font-script" },
+  { face: "EB Garamond", role: "Body: long-form reading", sample: "Aa", className: "font-body" },
 ];
 
 export default function PortfolioDesign() {
@@ -23,9 +23,9 @@ export default function PortfolioDesign() {
 
           <p className="font-body text-lg md:text-xl leading-relaxed text-cream-dim max-w-2xl">
             The dual color system exists because a brand and a product live in two different moments.
-            Black and gold carry the digital first impression — a screen glanced at in seconds, where
+            Black and gold carry the digital first impression: a screen glanced at in seconds, where
             restraint and contrast do the work of standing out. Tan and bronze carry the physical
-            unboxing moment — a slower, tactile experience where warmth and texture matter more than
+            unboxing moment: a slower, tactile experience where warmth and texture matter more than
             contrast. Neither palette is decorative; each is matched to how the customer is actually
             encountering the brand at that instant.
           </p>
@@ -36,7 +36,7 @@ export default function PortfolioDesign() {
             The same logic drives the typography and the recurring motifs. The classical serif
             wordmark and the script &ldquo;Perfumes&rdquo; pairing echo the brand&rsquo;s Italian,
             Roman-influenced aesthetic without leaning on cliché. The bust mark and the Greek meander
-            border repeat quietly across every section — never shouting, always present — because
+            border repeat quietly across every section, never shouting, always present, because
             exclusivity is communicated through consistency and restraint, not volume.
           </p>
         </Reveal>

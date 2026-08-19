@@ -33,7 +33,7 @@ export function BustMark({ className = "" }) {
 // It is drawn as a CSS mask rather than an inline <svg> for three reasons.
 // The tile repeats natively on the x-axis, so any width joins seamlessly with
 // no half-drawn unit or visible seam. The mask is painted at exactly 1:1, so
-// the stroke is a true hairline at every size — an inline SVG stretched to an
+// the stroke is a true hairline at every size, an inline SVG stretched to an
 // arbitrary width scales its horizontal and vertical strokes by different
 // amounts, which is what made the old band look thick and uneven. And every
 // coordinate sits on a half-pixel, so each 1px stroke lands inside one device
@@ -71,7 +71,7 @@ export function GreekKey({ className = "" }) {
 }
 
 export function CampanileIcon({ className = "" }) {
-  // Venetian bell tower — Romeo di Roma
+  // Venetian bell tower, Romeo di Roma
   return (
     <svg viewBox="0 0 60 100" fill="none" className={className} stroke="currentColor" strokeWidth="1.2">
       <rect x="20" y="30" width="20" height="55" />
@@ -88,7 +88,7 @@ export function CampanileIcon({ className = "" }) {
 }
 
 export function AqueductIcon({ className = "" }) {
-  // Roman aqueduct — Maximus
+  // Roman aqueduct, Maximus
   return (
     <svg viewBox="0 0 100 60" fill="none" className={className} stroke="currentColor" strokeWidth="1.2">
       <line x1="4" y1="52" x2="96" y2="52" />
@@ -102,7 +102,7 @@ export function AqueductIcon({ className = "" }) {
 }
 
 export function FountainIcon({ className = "" }) {
-  // Roman fountain / basin — Maxima
+  // Roman fountain / basin, Maxima
   return (
     <svg viewBox="0 0 60 80" fill="none" className={className} stroke="currentColor" strokeWidth="1.2">
       <ellipse cx="30" cy="66" rx="22" ry="6" />
@@ -118,7 +118,7 @@ export function FountainIcon({ className = "" }) {
 }
 
 export function LoversBalconyIcon({ className = "" }) {
-  // Balcony arch with two rings — Roma Juliette
+  // Balcony arch with two rings, Roma Juliette
   return (
     <svg viewBox="0 0 80 90" fill="none" className={className} stroke="currentColor" strokeWidth="1.2">
       <path d="M14 40 V78 H66 V40" />

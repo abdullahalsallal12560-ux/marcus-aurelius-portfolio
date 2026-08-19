@@ -4,7 +4,7 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 /**
  * The dominant visual for a product that has its own footage.
  *
- * These clips were shot for the brand, so they are shown exactly as filmed —
+ * These clips were shot for the brand, so they are shown exactly as filmed ,
  * no duotone, no grain, no feathered mask. The frame is a plain rectangle
  * with a single gold hairline, which reads as a piece of brand film rather
  * than as a decorative texture.

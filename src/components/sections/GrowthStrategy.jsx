@@ -4,11 +4,11 @@ import Reveal from "../shared/Reveal";
 const pillars = [
   {
     title: "Marketing",
-    body: "High-quality visual content across Instagram rather than broad paid advertising. Scarcity itself is a marketing tool — the waitlist, limited editions, and the brand's own tagline (“This isn't trying to impress you”) create curiosity instead of mass reach.",
+    body: "High-quality visual content across Instagram rather than broad paid advertising. Scarcity itself is a marketing tool: the waitlist, limited editions, and the brand's own tagline (“This isn't trying to impress you”) create curiosity instead of mass reach.",
   },
   {
     title: "Partnerships",
-    body: "Selective, carefully chosen collaborations only — luxury and fashion-aligned voices for exposure, never third-party resale of the product itself.",
+    body: "Selective, carefully chosen collaborations only: luxury and fashion-aligned voices for exposure, never third-party resale of the product itself.",
   },
   {
     title: "Technology",
@@ -16,7 +16,7 @@ const pillars = [
   },
   {
     title: "Expansion",
-    body: "Vertical, not horizontal — brand-owned boutiques only, each designed as a full sensory experience rather than a shelf display, with future geographic expansion (particularly the Gulf) following the same fully-owned model.",
+    body: "Vertical, not horizontal. Brand-owned boutiques only, each designed as a full sensory experience rather than a shelf display, with future geographic expansion (particularly the Gulf) following the same fully-owned model.",
   },
 ];
 
