@@ -33,10 +33,10 @@ export default function SmartGoals() {
               className="group relative bg-ink-soft p-8 md:p-10 transition-colors duration-700 hover:bg-ink"
             >
               <div className="flex items-baseline justify-between mb-5">
-                <span className="font-display text-4xl md:text-6xl text-gold/20 group-hover:text-gold/45 transition-colors duration-700 tabular-nums leading-none">
+                <span className="font-display text-4xl md:text-6xl text-gold/42 group-hover:text-gold/70 transition-colors duration-700 tabular-nums leading-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="font-display text-[9px] md:text-[10px] tracking-[0.28em] uppercase text-gold/70 border border-gold/25 px-3 py-1.5">
+                <span className="font-display text-xs md:text-[13px] tracking-[0.28em] uppercase text-gold/90 border border-gold/45 px-3 py-1.5">
                   {g.horizon}
                 </span>
               </div>

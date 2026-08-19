@@ -22,6 +22,7 @@ import GrowthStrategy from "./components/sections/GrowthStrategy";
 import WebsiteStrategy from "./components/sections/WebsiteStrategy";
 import PortfolioDesign from "./components/sections/PortfolioDesign";
 import Contact from "./components/sections/Contact";
+import Signature from "./components/sections/Signature";
 
 export default function App() {
   const [contentsOpen, setContentsOpen] = useState(false);
@@ -85,6 +86,8 @@ export default function App() {
         <WebsiteStrategy />
         <PortfolioDesign />
         <Contact />
+        {/* outside the seventeen numbered sections — no numeral, not in the rail */}
+        <Signature />
       </main>
 
       <div inert={contentsOpen ? "" : undefined}>

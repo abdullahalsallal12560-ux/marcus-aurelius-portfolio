@@ -34,7 +34,7 @@ export default function GrowthStrategy() {
                 className="block h-px bg-gold/35 mb-5 origin-left transition-all duration-700 group-hover:bg-gold"
               />
               <div className="flex items-baseline gap-3 mb-4">
-                <span className="font-display text-[10px] text-gold/45 tabular-nums">
+                <span className="font-display text-xs text-gold/75 tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display text-sm md:text-base tracking-[0.2em] uppercase text-gold">

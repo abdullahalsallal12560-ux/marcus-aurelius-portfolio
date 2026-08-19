@@ -24,21 +24,47 @@ export function BustMark({ className = "" }) {
   );
 }
 
-export function GreekKey({ className = "", repeat = 6 }) {
-  const unit = "M0 12 L0 0 L12 0 L12 8 L4 8 L4 4 L12 4";
+// A true classical meander: one continuous baseline with a square spiral
+// rising from it at every repeat, so the band reads as interlocking linework
+// rather than as a row of separate bracket shapes.
+//
+// It is drawn as a CSS mask rather than an inline <svg> for three reasons.
+// The tile repeats natively on the x-axis, so any width joins seamlessly with
+// no half-drawn unit or visible seam. The mask is painted at exactly 1:1, so
+// the stroke is a true hairline at every size — an inline SVG stretched to an
+// arbitrary width scales its horizontal and vertical strokes by different
+// amounts, which is what made the old band look thick and uneven. And every
+// coordinate sits on a half-pixel, so each 1px stroke lands inside one device
+// pixel instead of straddling two and smearing into what looked like a glow.
+//
+// bg-current keeps it inheriting text-* colour exactly as the old SVG did.
+const MEANDER_TILE_W = 10;
+const MEANDER_TILE_H = 10;
+
+const MEANDER_MASK =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E" +
+  "%3Cpath d='M0 8.5H10M2.5 8.5V2.5H8.5V5.5H5.5' fill='none' stroke='%23000' stroke-width='1'/%3E" +
+  "%3C/svg%3E\")";
+
+export function GreekKey({ className = "" }) {
   return (
-    <svg
-      viewBox={`0 0 ${12 * repeat} 12`}
-      preserveAspectRatio="none"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1"
-    >
-      {Array.from({ length: repeat }).map((_, i) => (
-        <path key={i} d={unit} pathLength="1" transform={`translate(${i * 12},0)`} />
-      ))}
-    </svg>
+    <span
+      aria-hidden="true"
+      className={`block bg-current ${className}`}
+      style={{
+        height: `${MEANDER_TILE_H}px`,
+        WebkitMaskImage: MEANDER_MASK,
+        maskImage: MEANDER_MASK,
+        WebkitMaskRepeat: "repeat-x",
+        maskRepeat: "repeat-x",
+        WebkitMaskSize: `${MEANDER_TILE_W}px ${MEANDER_TILE_H}px`,
+        maskSize: `${MEANDER_TILE_W}px ${MEANDER_TILE_H}px`,
+        // left-aligned rather than centred: centring can land the tile on a
+        // half-pixel and undo the crispness the half-pixel geometry buys
+        WebkitMaskPosition: "0 0",
+        maskPosition: "0 0",
+      }}
+    />
   );
 }
 

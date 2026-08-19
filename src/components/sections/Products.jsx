@@ -1,25 +1,43 @@
+import { useState } from "react";
+
 import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
 import ProductImage from "../shared/ProductImage";
-import VideoAccent from "../shared/VideoAccent";
+import ProductVideo from "../shared/ProductVideo";
 import useParallax from "../../hooks/useParallax";
+import useReveal from "../../hooks/useReveal";
 import { FountainIcon, AqueductIcon, CampanileIcon, LoversBalconyIcon } from "../shared/Motifs";
+import Lightbox from "../shared/Lightbox";
 import { getProductImages } from "../../utils/productGallery";
 
+// The collection splits into two pairs, and each pair carries its own mood
+// inside the shared house identity:
+//
+//   kinetic   Maximus + Maxima — youth, motion, energy. The card ground cools
+//             and lifts, the type brightens, and a diagonal sweep carries the
+//             accent across the panel.
+//   romantic  Romeo di Roma + Roma Juliette — stillness and depth. The ground
+//             goes warmer and deeper than the house black and the treatment
+//             leans back into gold, centred rather than directional.
+//
+// Each fragrance also keeps its own muted accent, drawn from its composition.
+// Everything here is contained to the card: the nav and the Contents rail
+// never leave the fixed black-and-gold identity.
 const products = [
   {
     slug: "maxima",
     name: "Maxima",
     tagline: "For Her",
     Icon: FountainIcon,
-    // hero sits on dark grass — the default scrim carries the name comfortably
-    scrim: "default",
-    accent: {
+    accent: "#B5697C", // dusty rose — red berries, rose, caramel
+    pair: "kinetic",
+    // shot for the brand: the film leads, the bottle still joins the gallery
+    video: {
       src: "/videos/maxima-accent.mp4",
       poster: "/videos/maxima-accent-poster.jpg",
-      alt: "Golden hour on the water — the Maxima mood",
-      caption: "Warmth, worn lightly",
+      alt: "Maxima — golden hour, filmed for the house",
     },
+    scrim: "default",
     notes: {
       Top: "Red berries, bergamot, sweet almond",
       Heart: "Jasmine, rose, caramel",
@@ -34,14 +52,14 @@ const products = [
     name: "Maximus",
     tagline: "For Him",
     Icon: AqueductIcon,
-    // brightest hero of the four (turquoise water + lemons) — needs the deep scrim
-    scrim: "strong",
-    accent: {
+    accent: "#5E82A6", // slate blue — sea breeze, citrus, cedar
+    pair: "kinetic",
+    video: {
       src: "/videos/maximus-accent.mp4",
       poster: "/videos/maximus-accent-poster.jpg",
-      alt: "Ocean, citrus and jasmine — the Maximus note pyramid",
-      caption: "Sea breeze, citrus, jasmine",
+      alt: "Maximus — ocean, citrus and jasmine, filmed for the house",
     },
+    scrim: "strong",
     notes: {
       Top: "Orange, bergamot, lemon zest, sea breeze",
       Heart: "Grapefruit, pink pepper, cedarwood, jasmine",
@@ -56,6 +74,8 @@ const products = [
     name: "Romeo di Roma",
     tagline: "Unisex, leaning masculine",
     Icon: CampanileIcon,
+    accent: "#7A5240", // oud espresso — oud, leather, patchouli
+    pair: "romantic",
     // mid-tone tan background — lifted a step for the long name
     scrim: "strong",
     notes: {
@@ -72,6 +92,8 @@ const products = [
     name: "Roma Juliette",
     tagline: "For Her",
     Icon: LoversBalconyIcon,
+    accent: "#A8672E", // dark honeyed amber — the liquid itself, aged roses
+    pair: "romantic",
     // warm amber silk — smooth but light toward the base of the frame
     scrim: "strong",
     notes: {
@@ -95,42 +117,84 @@ const SCRIMS = {
 };
 
 function ProductCard({ product, index, reversed }) {
-  const { slug, name, tagline, Icon, notes, benefits, deliverables, scrim, accent } = product;
+  const { slug, name, tagline, Icon, notes, benefits, deliverables, scrim, video, accent, pair } =
+    product;
   const { hero, gallery } = getProductImages(slug);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
   const [parallaxRef, offset] = useParallax({ strength: 26 });
+  // one-way: the accent settles in as the card arrives and stays put
+  const [accentRef, accentOn] = useReveal({ threshold: 0.15 });
 
-  const thumbs = gallery.slice(0, 4);
+  // When footage leads, the bottle photograph is not dropped — it heads up the
+  // gallery, so every card keeps the same structure: one dominant visual, then
+  // the full set of stills.
+  const thumbs = video && hero ? [hero, ...gallery] : gallery;
+
+  // Every photograph of this product, in display order, is enlargeable. When
+  // the film leads there is no separate hero image, so the thumbnail row and
+  // this list line up exactly; otherwise the hero occupies index 0.
+  const allImages = [hero, ...gallery].filter(Boolean);
+  const thumbOffset = video ? 0 : 1;
+  const lightboxImages = allImages.map((src, i) => ({
+    src,
+    alt: i === 0 ? `${name} — eau de parfum` : `${name} — detail ${i}`,
+    caption: name,
+  }));
 
   return (
-    <article className="grid md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-10 items-start">
+    <article
+      ref={accentRef}
+      style={{ "--accent": accent }}
+      data-pair={pair}
+      className={`product-card relative grid md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-10 items-start ${
+        accentOn ? "accent-on" : ""
+      }`}
+    >
+      {/* the pair's ground, dissolved at its edges so it reads as a shift in
+          the light rather than as a pasted-on panel */}
+      <div aria-hidden="true" className="card-ground pointer-events-none absolute z-0" />
+
       {/* ---------- imagery ---------- */}
-      <div className={reversed ? "md:order-2" : ""}>
+      <div className={`relative z-10 ${reversed ? "md:order-2" : ""}`}>
         <Reveal variant={reversed ? "right" : "left"}>
           <figure className="relative mb-14 md:mb-20">
-            <div className="relative overflow-hidden bg-ink-soft">
-              <div ref={parallaxRef} style={{ transform: `translate3d(0, ${offset}px, 0)` }}>
-                <ProductImage
-                  src={hero}
-                  alt={`${name} — eau de parfum`}
-                  label={name}
-                  aspect="aspect-[4/5]"
-                  className="w-full scale-[1.08]"
+            {video ? (
+              // Portrait footage, shown at its native ratio and untreated. No
+              // scrim here — the name's own shadow carries it, so nothing is
+              // laid over the film.
+              <ProductVideo
+                src={video.src}
+                poster={video.poster}
+                alt={video.alt}
+                className="max-w-[430px] mx-auto"
+              />
+            ) : (
+              <div className="relative overflow-hidden bg-ink-soft">
+                <div ref={parallaxRef} style={{ transform: `translate3d(0, ${offset}px, 0)` }}>
+                  <ProductImage
+                    src={hero}
+                    alt={`${name} — eau de parfum`}
+                    label={name}
+                    aspect="aspect-[4/5]"
+                    className="w-full scale-[1.08]"
+                    onClick={() => setLightboxIndex(0)}
+                  />
+                </div>
+                {/* legibility scrim, tuned per hero image */}
+                <div
+                  aria-hidden="true"
+                  className={`absolute inset-x-0 bottom-0 pointer-events-none ${SCRIMS[scrim] ?? SCRIMS.default}`}
                 />
               </div>
-              {/* legibility scrim, tuned per hero image */}
-              <div
-                aria-hidden="true"
-                className={`absolute inset-x-0 bottom-0 pointer-events-none ${SCRIMS[scrim] ?? SCRIMS.default}`}
-              />
-            </div>
+            )}
 
-            {/* the name straddles the lower edge — half on the photograph,
+            {/* the name straddles the lower edge — half on the visual,
                 half on the page, so the descenders always sit on pure ink */}
             <figcaption className="absolute left-0 right-0 bottom-0 translate-y-1/2 px-4 md:px-6">
               <h3
                 className="font-display uppercase text-cream leading-[0.95] tracking-[0.02em]
                            text-[clamp(1.9rem,5.2vw,3.6rem)]"
-                style={{ textShadow: "0 2px 24px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.7)" }}
+                style={{ textShadow: "0 2px 24px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8)" }}
               >
                 {name}
               </h3>
@@ -139,7 +203,7 @@ function ProductCard({ product, index, reversed }) {
         </Reveal>
 
         {thumbs.length > 0 && (
-          <Reveal stagger className="grid grid-cols-4 gap-2 md:gap-3">
+          <Reveal className="grid grid-cols-4 gap-2 md:gap-3">
             {thumbs.map((url, i) => (
               <div key={url} className="overflow-hidden bg-ink-soft">
                 <ProductImage
@@ -148,34 +212,23 @@ function ProductCard({ product, index, reversed }) {
                   label={name}
                   aspect="aspect-square"
                   className="w-full transition-transform duration-[1200ms] ease-out hover:scale-110"
+                  onClick={() => setLightboxIndex(i + thumbOffset)}
                 />
               </div>
             ))}
           </Reveal>
         )}
-
-        {accent && (
-          <Reveal className="mt-8 md:mt-10 flex justify-center">
-            <VideoAccent
-              src={accent.src}
-              poster={accent.poster}
-              alt={accent.alt}
-              caption={accent.caption}
-              className="w-[210px] md:w-[250px] aspect-[9/16]"
-            />
-          </Reveal>
-        )}
       </div>
 
       {/* ---------- detail ---------- */}
-      <div className={`${reversed ? "md:order-1" : ""} md:sticky md:top-28`}>
+      <div className={`relative z-10 ${reversed ? "md:order-1" : ""} md:sticky md:top-28`}>
         <Reveal stagger variant="fade">
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-display text-xs tracking-[0.3em] text-gold/60 tabular-nums">
+            <span className="ac-text font-display text-xs tracking-[0.3em] tabular-nums">
               {String(index + 1).padStart(2, "0")} / {String(products.length).padStart(2, "0")}
             </span>
-            <span aria-hidden="true" className="flex-1 h-px bg-gold/20" />
-            <Icon className="w-8 h-10 text-gold shrink-0" />
+            <span aria-hidden="true" className="ac-rule flex-1 h-px" />
+            <Icon className="ac-icon w-8 h-10 shrink-0" />
           </div>
 
           <p className="font-script text-2xl md:text-3xl text-gold-soft mb-8">{tagline}</p>
@@ -184,31 +237,38 @@ function ProductCard({ product, index, reversed }) {
             {Object.entries(notes).map(([k, v]) => (
               <div
                 key={k}
-                className="grid grid-cols-[4.5rem_1fr] md:grid-cols-[5.5rem_1fr] gap-4 py-3 border-t border-gold/20"
+                className="ac-border grid grid-cols-[4.5rem_1fr] md:grid-cols-[5.5rem_1fr] gap-4 py-3 border-t"
               >
-                <dt className="font-display text-[10px] md:text-xs uppercase tracking-[0.2em] text-gold pt-1">
+                <dt className="font-display text-xs md:text-[13px] uppercase tracking-[0.2em] text-gold pt-1">
                   {k}
                 </dt>
-                <dd className="font-body text-base md:text-lg text-cream leading-snug">{v}</dd>
+                <dd className="card-fg font-body text-base md:text-lg leading-snug">{v}</dd>
               </div>
             ))}
           </dl>
 
-          <p className="font-body text-sm md:text-base text-cream-dim leading-relaxed mb-4">
-            <span className="font-display text-[10px] uppercase tracking-[0.2em] text-gold block mb-1.5">
+          <p className="card-fg-dim font-body text-base leading-relaxed mb-4">
+            <span className="font-display text-xs uppercase tracking-[0.2em] text-gold block mb-1.5">
               Benefits
             </span>
             {benefits}
           </p>
 
-          <p className="font-body text-sm md:text-base text-cream-dim/80 leading-relaxed">
-            <span className="font-display text-[10px] uppercase tracking-[0.2em] text-gold block mb-1.5">
+          <p className="card-fg-dim font-body text-base leading-relaxed">
+            <span className="font-display text-xs uppercase tracking-[0.2em] text-gold block mb-1.5">
               Deliverables
             </span>
             {deliverables}
           </p>
         </Reveal>
       </div>
+
+      <Lightbox
+        images={lightboxImages}
+        index={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onStep={setLightboxIndex}
+      />
     </article>
   );
 }

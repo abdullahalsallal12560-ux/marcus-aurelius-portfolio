@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #111111;
-  --color-ink-soft: #17161a;
+  --color-ink: #100e0b;
+  --color-ink-soft: #16130e;
   --color-cream: #f5f0e8;
   --color-cream-dim: #d8d0c2;
   --color-gold: #c9a25c;
@@ -145,16 +145,149 @@ section {
   transform-origin: center;
 }
 
-/* self-drawing SVG stroke (Greek key dividers) — paths use pathLength="1" */
-.draw-stroke path,
-.draw-stroke line {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 1800ms var(--ease-out);
+/* ---------------------------------------------------------------
+   Ground: depth without lightening
+
+   The flatness of the old ground was a temperature problem, not a contrast
+   one — a neutral-cold black under a warm gold reads muddy. The base is now
+   a warm black at the same value, and every section carries two almost
+   invisible layers painted between its background colour and its content:
+   a fine noise tile that kills large-area banding, and a soft top-lit gold
+   vignette that gives each section its own centre of gravity.
+   --------------------------------------------------------------- */
+
+section,
+footer {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(201, 162, 92, 0.05), transparent 68%);
+  background-repeat: repeat, no-repeat;
+  background-size: 160px 160px, 100% 100%;
 }
-.draw-stroke.is-visible path,
-.draw-stroke.is-visible line {
-  stroke-dashoffset: 0;
+
+/* ---------------------------------------------------------------
+   Per-fragrance accent layer
+
+   Each product card carries its own muted accent in --accent. Until the card
+   scrolls into view --ac resolves to gold, so the page reads as one identity;
+   on arrival --ac swaps to the fragrance colour and every accented property
+   crosses over together. Only hairlines, the icon, the index numeral and a
+   faint glow ever take it — never body text, headings or backgrounds.
+   --------------------------------------------------------------- */
+
+.product-card {
+  --ac: var(--color-gold);
+  --card-fg: var(--color-cream);
+  --card-fg-dim: var(--color-cream-dim);
+}
+
+.product-card.accent-on {
+  --ac: var(--accent);
+}
+
+/* The two pairs part company only in the relationship between ground and
+   type — never in the gold, the headings or anything outside the card. */
+.product-card[data-pair="kinetic"].accent-on {
+  --card-fg: #fffbf4;
+  --card-fg-dim: #dcd4c6;
+}
+
+.product-card[data-pair="romantic"].accent-on {
+  --card-fg: #f2e8d8;
+  --card-fg-dim: #cbbca4;
+}
+
+.card-fg {
+  color: var(--card-fg);
+  transition: color 900ms var(--ease-out);
+}
+
+.card-fg-dim {
+  color: var(--card-fg-dim);
+  transition: color 900ms var(--ease-out);
+}
+
+.ac-text,
+.ac-icon {
+  color: var(--ac);
+  transition: color 700ms var(--ease-out);
+}
+
+.ac-rule {
+  background-color: color-mix(in srgb, var(--ac) 55%, transparent);
+  transition: background-color 700ms var(--ease-out);
+}
+
+.ac-border {
+  border-color: color-mix(in srgb, var(--ac) 45%, transparent);
+  transition: border-color 700ms var(--ease-out);
+}
+
+/* The pair's ground.
+
+   It must reach the true edges of the section, not the edges of the 1152px
+   content column — otherwise the colour reads as a box sitting on the page
+   instead of as the light in the room changing. The card is horizontally
+   centred, so anchoring to its centre and spanning 100vw lands the band
+   edge-to-edge; #products clips the overflow so the extra scrollbar width
+   cannot produce a horizontal scrollbar.
+
+   Feathering is vertical only, matching the site-wide vignette: the band runs
+   full width and dissolves into the sections above and below. Only the
+   opacity animates — gradients cannot be interpolated — which is what makes
+   the arrival a crossfade rather than a cut. */
+.card-ground {
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  top: -5rem;
+  bottom: -5rem;
+  opacity: 0;
+  transition: opacity 1100ms var(--ease-out);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 13%,
+    #000 87%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 13%, #000 87%, transparent 100%);
+}
+
+/* clip, not hidden: clip does not create a scroll container, so the sticky
+   detail column keeps working */
+#products {
+  overflow-x: clip;
+}
+
+.product-card.accent-on .card-ground {
+  opacity: 1;
+}
+
+/* kinetic — cooler and lifted, with the accent thrown across one diagonal so
+   the panel has a direction of travel */
+.product-card[data-pair="kinetic"] .card-ground {
+  background:
+    linear-gradient(
+      116deg,
+      color-mix(in srgb, var(--accent) 24%, transparent) 0%,
+      color-mix(in srgb, var(--accent) 6%, transparent) 34%,
+      transparent 62%
+    ),
+    linear-gradient(158deg, #191922 0%, #14141b 48%, #0f0f14 100%);
+}
+
+/* romantic — deeper and warmer than the house black, gold-forward, and
+   centred: no direction, only depth */
+.product-card[data-pair="romantic"] .card-ground {
+  background:
+    radial-gradient(
+      ellipse 62% 48% at 50% 44%,
+      color-mix(in srgb, var(--accent) 16%, transparent),
+      transparent 72%
+    ),
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201, 162, 92, 0.07), transparent 70%),
+    linear-gradient(180deg, #0d0a06 0%, #0a0705 100%);
 }
 
 /* ---------------------------------------------------------------
@@ -170,27 +303,6 @@ section {
   opacity: 0.32;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-}
-
-/* gold duotone for footage — makes stock video read as art-directed */
-.duotone-gold {
-  filter: grayscale(1) sepia(1) saturate(2.1) hue-rotate(-12deg) contrast(1.08)
-    brightness(0.92);
-}
-
-/* feathered "light shaft" mask — dissolves a contained video into the page
-   on every edge instead of butting against a hard rectangle */
-.mask-shaft {
-  -webkit-mask-image: radial-gradient(
-    ellipse 72% 64% at 50% 50%,
-    #000 46%,
-    transparent 90%
-  );
-  mask-image: radial-gradient(
-    ellipse 72% 64% at 50% 50%,
-    #000 46%,
-    transparent 90%
-  );
 }
 
 .mask-fade-y {
@@ -236,13 +348,6 @@ section {
     transition: none !important;
   }
 
-  .draw-stroke path,
-  .draw-stroke line,
-  .draw-stroke.is-visible path,
-  .draw-stroke.is-visible line {
-    stroke-dashoffset: 0 !important;
-    transition: none !important;
-  }
 
   .parallax {
     transform: none !important;
@@ -272,10 +377,6 @@ section {
   .draw-line {
     transform: scaleX(1) !important;
   }
-  .draw-stroke path,
-  .draw-stroke line {
-    stroke-dashoffset: 0 !important;
-  }
 }
 
 /* Escape hatch: adding .motion-settled to <html> resolves every animation
@@ -288,11 +389,6 @@ html.motion-settled .stagger > * {
 }
 html.motion-settled .draw-line {
   transform: scaleX(1) !important;
-  transition: none !important;
-}
-html.motion-settled .draw-stroke path,
-html.motion-settled .draw-stroke line {
-  stroke-dashoffset: 0 !important;
   transition: none !important;
 }
 

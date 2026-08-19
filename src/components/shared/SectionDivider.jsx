@@ -21,10 +21,11 @@ export default function SectionDivider({ className = "" }) {
         }`}
         style={{ transformOrigin: "right center" }}
       />
-      <GreekKey
-        repeat={8}
-        className={`w-28 md:w-40 h-3 text-gold/45 draw-stroke ${visible ? "is-visible" : ""}`}
-      />
+      <span
+        className={`draw-line draw-line-center shrink-0 ${visible ? "is-visible" : ""}`}
+      >
+        <GreekKey className="w-28 md:w-40 text-gold/55" />
+      </span>
       <span
         className={`h-px flex-1 max-w-[22vw] bg-gradient-to-l from-transparent to-gold/30 draw-line ${
           visible ? "is-visible" : ""

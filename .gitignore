@@ -25,3 +25,6 @@ dist-ssr
 
 # original uncompressed media (kept locally, not deployed)
 media-source
+
+# local screenshot review set (not deployed)
+review

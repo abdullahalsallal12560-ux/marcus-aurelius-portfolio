@@ -52,7 +52,7 @@ export default function BusinessIdea() {
             >
               <Corners />
               <div className="flex items-baseline gap-4 mb-4">
-                <span className="font-display text-3xl md:text-4xl text-gold/25 group-hover:text-gold/50 transition-colors duration-700 tabular-nums">
+                <span className="font-display text-3xl md:text-4xl text-gold/45 group-hover:text-gold/70 transition-colors duration-700 tabular-nums">
                   {item.n}
                 </span>
                 <h3 className="font-display text-base md:text-lg tracking-[0.18em] uppercase text-gold">

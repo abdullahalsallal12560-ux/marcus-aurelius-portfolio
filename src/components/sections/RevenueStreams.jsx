@@ -16,12 +16,12 @@ export default function RevenueStreams() {
           stagger
           className="flex flex-col items-center text-center border border-gold/20 px-8 py-16 md:py-20"
         >
-          <GreekKey repeat={10} className="w-40 h-3 text-gold/35 mb-8" />
+          <GreekKey className="w-40 text-gold/55 mb-8" />
           <p className="font-script text-3xl md:text-4xl text-gold-soft mb-4">In development</p>
-          <p className="font-display text-[10px] md:text-xs tracking-[0.32em] uppercase text-cream-dim/60 max-w-sm leading-relaxed">
+          <p className="font-display text-xs md:text-[13px] tracking-[0.32em] uppercase text-cream-dim/85 max-w-sm leading-relaxed">
             This section is being finalised with the brand
           </p>
-          <GreekKey repeat={10} className="w-40 h-3 text-gold/35 mt-8" />
+          <GreekKey className="w-40 text-gold/55 mt-8" />
         </Reveal>
       </div>
     </section>

@@ -30,7 +30,7 @@ export default function PortfolioDesign() {
             encountering the brand at that instant.
           </p>
 
-          <GreekKey repeat={12} className="w-56 h-4 text-gold/45" />
+          <GreekKey className="w-56 text-gold/55" />
 
           <p className="font-body text-lg md:text-xl leading-relaxed text-cream-dim max-w-2xl">
             The same logic drives the typography and the recurring motifs. The classical serif
@@ -49,10 +49,10 @@ export default function PortfolioDesign() {
                 {s.sample}
               </span>
               <span aria-hidden="true" className="block w-8 h-px bg-gold/35" />
-              <span className="font-display text-[10px] tracking-[0.24em] uppercase text-gold">
+              <span className="font-display text-xs tracking-[0.24em] uppercase text-gold">
                 {s.face}
               </span>
-              <span className="font-body text-xs text-cream-dim/70">{s.role}</span>
+              <span className="font-body text-sm text-cream-dim/85">{s.role}</span>
             </div>
           ))}
         </Reveal>

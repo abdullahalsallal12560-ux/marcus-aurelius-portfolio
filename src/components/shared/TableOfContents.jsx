@@ -6,8 +6,8 @@ import { GreekKey } from "./Motifs";
 /**
  * The portfolio's Table of Contents, in two coordinated forms:
  *
- *   1. A fixed vertical index rail (desktop) — one marker per section,
- *      showing the Roman numeral, expanding to the full title on hover.
+ *   1. A fixed vertical index rail (desktop) — one row per section, showing
+ *      the Roman numeral and the section title.
  *   2. A full "Contents" overlay (all breakpoints) opened from the nav,
  *      listing all seventeen sections as an explicit, readable index.
  *
@@ -21,7 +21,12 @@ export function ContentsRail() {
   return (
     <nav
       aria-label="Table of contents"
-      className="hidden xl:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col gap-1"
+      // The labelled rail needs roughly 200px of gutter beside the 1152px
+      // content column, which only exists from 1536px up — so titles are
+      // permanently visible there. Between 1280 and 1536 the rail stays, at
+      // the same enlarged type, with the title revealed on hover rather than
+      // printed over the text column.
+      className="hidden xl:flex fixed right-5 2xl:right-8 top-1/2 -translate-y-1/2 z-40 flex-col gap-0.5"
     >
       {SECTIONS.map(({ id, numeral, label }) => {
         const active = id === activeId;
@@ -30,30 +35,36 @@ export function ContentsRail() {
             key={id}
             href={`#${id}`}
             aria-current={active ? "true" : undefined}
-            className="group flex items-center justify-end gap-3 py-[3px] outline-offset-4"
+            className="group relative flex items-center justify-end gap-3 py-[7px] outline-offset-4"
           >
+            {/* Below 2xl the title is lifted out of flow and made inert, so the
+                rail reserves no width it is not actually drawing — otherwise
+                an invisible 100px+ strip would sit over the text column and
+                swallow its clicks. */}
             <span
-              className={`font-body text-[11px] tracking-wide whitespace-nowrap transition-all duration-500 ${
+              className={`pointer-events-none absolute inset-y-0 right-full mr-3 flex items-center font-body text-sm leading-none whitespace-nowrap transition-opacity duration-500 2xl:static 2xl:mr-0 2xl:inset-auto 2xl:pointer-events-auto 2xl:opacity-100 ${
                 active
-                  ? "text-gold opacity-100 translate-x-0"
-                  : "text-cream-dim/70 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
+                  ? "text-gold opacity-100"
+                  : "text-cream-dim/75 opacity-0 group-hover:opacity-100 group-hover:text-cream"
               }`}
             >
               {label}
             </span>
             <span
-              className={`font-display text-[9px] tabular-nums transition-colors duration-500 ${
-                active ? "text-gold" : "text-cream-dim/40 group-hover:text-gold-soft"
+              className={`font-display text-[13px] leading-none tabular-nums transition-colors duration-500 ${
+                active ? "text-gold" : "text-cream-dim/75 group-hover:text-gold-soft"
               }`}
             >
               {numeral}
             </span>
+            {/* the active marker is a filled, longer rule — a difference in
+                length and weight, not only in colour */}
             <span
               aria-hidden="true"
-              className={`h-px transition-all duration-500 ${
+              className={`transition-all duration-500 ${
                 active
-                  ? "w-6 bg-gold"
-                  : "w-2.5 bg-cream-dim/35 group-hover:w-4 group-hover:bg-gold-soft"
+                  ? "w-9 h-0.5 bg-gold"
+                  : "w-3.5 h-px bg-cream-dim/45 group-hover:w-6 group-hover:bg-gold-soft"
               }`}
             />
           </a>
@@ -99,7 +110,7 @@ export function ContentsOverlay({ open, onClose }) {
         <div className="max-w-3xl mx-auto">
           <div className="flex items-start justify-between mb-8 md:mb-12">
             <div>
-              <p className="font-display text-[10px] md:text-xs tracking-[0.35em] uppercase text-gold mb-2">
+              <p className="font-display text-xs md:text-sm tracking-[0.35em] uppercase text-gold mb-2">
                 Contents
               </p>
               <p className="font-script text-2xl md:text-3xl text-cream">
@@ -110,13 +121,13 @@ export function ContentsOverlay({ open, onClose }) {
               ref={closeRef}
               type="button"
               onClick={onClose}
-              className="font-display text-[10px] md:text-xs tracking-[0.25em] uppercase text-cream-dim hover:text-gold transition-colors border border-gold/30 hover:border-gold px-4 py-2.5"
+              className="font-display text-xs md:text-sm tracking-[0.25em] uppercase text-cream-dim hover:text-gold transition-colors border border-gold/40 hover:border-gold px-4 py-2.5"
             >
               Close
             </button>
           </div>
 
-          <GreekKey repeat={20} className="w-full h-3 text-gold/30 mb-8" />
+          <GreekKey className="w-full text-gold/50 mb-8" />
 
           <ol className="flex flex-col">
             {SECTIONS.map(({ id, numeral, label }) => {
@@ -130,8 +141,8 @@ export function ContentsOverlay({ open, onClose }) {
                     className="group flex items-baseline gap-4 md:gap-6 py-2.5 md:py-3 border-b border-cream-dim/10 hover:border-gold/40 transition-colors"
                   >
                     <span
-                      className={`font-display text-[11px] md:text-sm w-10 md:w-14 shrink-0 tracking-widest transition-colors ${
-                        active ? "text-gold" : "text-gold/50 group-hover:text-gold"
+                      className={`font-display text-[13px] md:text-base w-10 md:w-14 shrink-0 tracking-widest transition-colors ${
+                        active ? "text-gold" : "text-gold/70 group-hover:text-gold"
                       }`}
                     >
                       {numeral}
@@ -145,7 +156,7 @@ export function ContentsOverlay({ open, onClose }) {
                     </span>
                     <span
                       aria-hidden="true"
-                      className="flex-1 border-b border-dotted border-cream-dim/20 translate-y-[-3px]"
+                      className="flex-1 border-b border-dotted border-cream-dim/25 translate-y-[-3px]"
                     />
                   </a>
                 </li>

@@ -25,7 +25,7 @@ export default function CoreValues() {
               key={v.n}
               className="group grid grid-cols-[3.5rem_1fr] md:grid-cols-[8rem_16rem_1fr] items-baseline gap-x-5 gap-y-2 py-7 md:py-9 border-t border-gold/15 transition-colors duration-700 hover:border-gold/40"
             >
-              <span className="font-display text-3xl md:text-6xl text-gold/25 group-hover:text-gold/60 transition-colors duration-700 tabular-nums leading-none">
+              <span className="font-display text-3xl md:text-6xl text-gold/45 group-hover:text-gold/75 transition-colors duration-700 tabular-nums leading-none">
                 {v.n}
               </span>
               <h3 className="font-display text-base md:text-2xl tracking-[0.14em] uppercase text-cream col-start-2">

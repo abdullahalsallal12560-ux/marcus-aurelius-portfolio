@@ -46,7 +46,7 @@ export default function ActionPlan() {
                 aria-hidden="true"
                 className="hidden md:block w-[0.85rem] h-[0.85rem] rounded-full bg-gold ring-4 ring-ink mb-8"
               />
-              <span className="font-display text-[10px] tracking-[0.3em] uppercase text-gold/60 mb-3">
+              <span className="font-display text-xs tracking-[0.3em] uppercase text-gold/80 mb-3">
                 {p.label}
               </span>
               <h3 className="font-display text-2xl md:text-3xl tracking-[0.1em] uppercase text-cream mb-2">

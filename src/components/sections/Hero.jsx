@@ -37,21 +37,21 @@ export default function Hero() {
           fetchPriority="high"
         />
 
-        <GreekKey repeat={10} className="w-44 md:w-60 h-4 text-gold/55" />
+        <GreekKey className="w-44 md:w-60 text-gold/55" />
 
-        <p className="font-display text-[11px] md:text-sm tracking-[0.42em] uppercase text-cream-dim">
+        <p className="font-display text-xs md:text-sm tracking-[0.42em] uppercase text-cream-dim">
           Not for everyone.
           <span className="block mt-2 text-gold">That&rsquo;s the point.</span>
         </p>
 
-        <div className="flex flex-col items-center gap-1.5 mt-8 font-body text-sm text-cream-dim/70">
+        <div className="flex flex-col items-center gap-1.5 mt-8 font-body text-base text-cream-dim/85">
           <a href="https://marcusscent.com" className="hover:text-gold transition-colors">
             marcusscent.com
           </a>
           <a href="mailto:info@marcusscent.com" className="hover:text-gold transition-colors">
             info@marcusscent.com
           </a>
-          <span className="font-display text-[10px] tracking-[0.3em] text-gold/50 mt-3">2026</span>
+          <span className="font-display text-xs tracking-[0.3em] text-gold/75 mt-3">2026</span>
         </div>
       </Reveal>
 
@@ -60,7 +60,7 @@ export default function Hero() {
         aria-label="Scroll to the business idea"
         className="group absolute bottom-10 z-10 flex flex-col items-center gap-3"
       >
-        <span className="font-display text-[9px] tracking-[0.4em] uppercase text-cream-dim/50 group-hover:text-gold transition-colors">
+        <span className="font-display text-xs tracking-[0.4em] uppercase text-cream-dim/75 group-hover:text-gold transition-colors">
           Scroll
         </span>
         <span aria-hidden="true" className="relative block w-px h-12 bg-cream-dim/20 overflow-hidden">
