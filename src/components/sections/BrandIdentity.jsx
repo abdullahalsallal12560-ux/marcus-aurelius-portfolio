@@ -1,6 +1,7 @@
 import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
 import { BustMark, GreekKey } from "../shared/Motifs";
+import { useT } from "../../i18n/useLocale";
 
 const digitalSwatches = [
   { hex: "#100E0B", name: "Ink", className: "bg-ink" },
@@ -41,6 +42,7 @@ const pairs = [
 ];
 
 function Swatches({ items }) {
+  const t = useT();
   return (
     <div className="flex justify-center gap-3 mt-7">
       {items.map((s) => (
@@ -50,7 +52,7 @@ function Swatches({ items }) {
             style={s.className ? undefined : { background: s.hex }}
           />
           <span className="meta-label-sm text-cream-dim text-center">
-            {s.name}
+            {t.brandIdentity.swatchNames[s.name] ?? s.name}
           </span>
           <span className="font-body text-[13px] text-cream-dim tabular-nums">{s.hex}</span>
         </div>
@@ -60,6 +62,7 @@ function Swatches({ items }) {
 }
 
 export default function BrandIdentity() {
+  const t = useT();
   return (
     <section id="brand-identity" className="py-28 md:py-40 px-5 bg-ink">
       <div className="max-w-5xl mx-auto">
@@ -68,12 +71,10 @@ export default function BrandIdentity() {
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-20">
           <Reveal variant="left" className="border border-gold/25 bg-black/40 p-8 md:p-10 text-center">
             <h3 className="font-display text-lg tracking-[0.2em] uppercase text-cream mb-4">
-              Digital Identity
+              {t.brandIdentity.digital.title}
             </h3>
             <p className="font-body text-cream-dim leading-relaxed">
-              Black background, cream text, muted gold accents. Used for the website, social media,
-              and all online communication. Chosen to convey strength and quiet confidence without
-              visual noise. The fragrance doesn&rsquo;t need loud colors to prove itself.
+              {t.brandIdentity.digital.body}
             </p>
             <Swatches items={digitalSwatches} />
           </Reveal>
@@ -84,12 +85,10 @@ export default function BrandIdentity() {
             style={{ background: "linear-gradient(160deg, #3a2c18, #201808)" }}
           >
             <h3 className="font-display text-lg tracking-[0.2em] uppercase text-cream mb-4">
-              Physical Identity
+              {t.brandIdentity.physical.title}
             </h3>
             <p className="font-body text-cream-dim leading-relaxed">
-              Tan / bronze tones on packaging and labels. Chosen to evoke the warmth of Roman stone,
-              marble, and aged bronze: a different emotional register for the moment the customer
-              physically holds the product.
+              {t.brandIdentity.physical.body}
             </p>
             <Swatches items={physicalSwatches} />
           </Reveal>
@@ -97,25 +96,16 @@ export default function BrandIdentity() {
 
         <Reveal className="border border-gold/25 p-8 md:p-10 mb-20">
           <h3 className="font-display text-lg tracking-[0.2em] uppercase text-cream mb-4 text-center">
-            Collection Registers
+            {t.brandIdentity.registers.title}
           </h3>
           <p className="font-body text-base text-cream-dim leading-relaxed max-w-3xl mx-auto text-center">
-            The collection is built as two pairs, and each pair carries its own visual mood inside the
-            shared house identity. Maximus and Maxima are the energetic pair: youth, motion, and
-            confident wildness, so their cards cool and lift, the type brightens, and colour moves
-            across the panel on a diagonal. Romeo di Roma and Roma Juliette are the romantic pair:
-            stillness, depth, and restrained power, so their ground goes warmer and deeper than the
-            house black and the treatment leans back into gold, centred rather than directional. This
-            is the same principle established fragrance houses use when a sub-collection is given its
-            own visual register while the house identity stays recognisable underneath it. The black,
-            cream and gold never leave: the navigation and the index rail hold that identity fixed on
-            every screen, so the page always keeps its anchor.
+            {t.brandIdentity.registers.body}
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 mt-10">
             {pairs.map((p) => (
               <div key={p.name} className="text-center">
-                <p className="font-script text-2xl text-gold-soft mb-1">{p.name}</p>
+                <p className="font-script text-2xl text-gold-soft mb-1">{t.brandIdentity.pairNames[p.name] ?? p.name}</p>
                 <p className="meta-label text-gold mb-3">
                   {p.members}
                 </p>
@@ -134,8 +124,7 @@ export default function BrandIdentity() {
             <span className="font-script text-gold-soft normal-case">Perfumes</span>
           </p>
           <p className="font-body text-base text-cream-dim/85 max-w-lg text-center leading-relaxed">
-            The bust mark, the Greek meander border, and the classical-serif-plus-script pairing recur
-            across every touchpoint, digital and physical alike, tying the two identities together.
+            {t.brandIdentity.motifs}
           </p>
         </Reveal>
       </div>

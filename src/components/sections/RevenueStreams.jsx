@@ -4,6 +4,7 @@ import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
 import useReveal from "../../hooks/useReveal";
 import useMediaQuery from "../../hooks/useMediaQuery";
+import { useT } from "../../i18n/useLocale";
 
 // Three streams, tagged with the phase they belong to rather than listed flat,
 // so the section reads against the Action Plan instead of floating free of it.
@@ -86,6 +87,7 @@ function Figure({ value, decimals = 0, suffix = "", running }) {
 }
 
 export default function RevenueStreams() {
+  const t = useT();
   // Measured on the figures themselves, not on a wrapper: a tall wrapper can
   // never show 35% of itself on a short viewport, and the count would never
   // run. The negative margins hold the trigger back until the strip is well
@@ -109,7 +111,7 @@ export default function RevenueStreams() {
         <Reveal stagger className="grid md:grid-cols-3 gap-px bg-gold/15 mb-20">
           {streams.map((s, i) => (
             <div
-              key={s.title}
+              key={t.revenueStreams.streams[i].title}
               className="group relative bg-ink-soft p-8 md:p-9 flex flex-col gap-4 transition-colors duration-700 hover:bg-ink"
             >
               <div className="flex items-baseline justify-between gap-3">
@@ -117,19 +119,19 @@ export default function RevenueStreams() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="meta-label-sm text-gold border border-gold/50 px-3 py-1.5">
-                  {s.phase}
+                  {t.revenueStreams.streams[i].phase}
                 </span>
               </div>
 
               <div>
-                <h3 className="field-label mb-1.5">{s.role}</h3>
+                <h3 className="field-label mb-1.5">{t.revenueStreams.streams[i].role}</h3>
                 <p className="font-display text-xl md:text-2xl uppercase tracking-[0.04em] text-cream leading-tight">
-                  {s.title}
+                  {t.revenueStreams.streams[i].title}
                 </p>
               </div>
 
-              <p className="font-script text-lg md:text-xl text-gold-soft leading-snug">{s.lede}</p>
-              <p className="font-body text-base text-cream-dim leading-relaxed">{s.body}</p>
+              <p className="font-script text-lg md:text-xl text-gold-soft leading-snug">{t.revenueStreams.streams[i].lede}</p>
+              <p className="font-body text-base text-cream-dim leading-relaxed">{t.revenueStreams.streams[i].body}</p>
             </div>
           ))}
         </Reveal>
@@ -138,26 +140,26 @@ export default function RevenueStreams() {
         <div>
           <Reveal className="text-center mb-8">
             <h3 className="font-script text-3xl md:text-4xl text-gold-soft mb-3">
-              What the first two weeks did
+              {t.revenueStreams.tractionTitle}
             </h3>
             <p className="font-body text-base md:text-lg text-cream-dim max-w-2xl mx-auto leading-relaxed">
-              A private soft launch at founding-circle pricing, before any public marketing existed.
+              {t.revenueStreams.tractionLede}
             </p>
           </Reveal>
 
           <div ref={tallyRef} className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gold/15">
-            {tally.map((t) => (
-              <div key={t.label} className="bg-ink-soft px-5 py-9 text-center flex flex-col gap-2.5">
+            {tally.map((figure, i) => (
+              <div key={figure.label} className="bg-ink-soft px-5 py-9 text-center flex flex-col gap-2.5">
                 <span className="font-display text-3xl md:text-[2.6rem] text-gold leading-none">
                   <Figure
-                    value={t.value}
-                    decimals={t.decimals}
-                    suffix={t.suffix}
+                    value={figure.value}
+                    decimals={figure.decimals}
+                    suffix={figure.suffix}
                     running={tallyOn}
                   />
                 </span>
                 <span className="meta-label text-cream-dim">
-                  {t.label}
+                  {t.revenueStreams.tally[i]}
                 </span>
               </div>
             ))}
@@ -165,9 +167,18 @@ export default function RevenueStreams() {
 
           <Reveal delay={200}>
             <p className="font-body text-base md:text-lg text-cream-dim leading-relaxed text-center max-w-2xl mx-auto mt-10">
-              That covered <span className="text-cream">68% of two years of development</span> in
-              fourteen days. Seventeen more bottles clears the rest of it, and the goal set
-              out in SMART Goals asks for fifty sales in three months.
+              {t.revenueStreams.tractionNote
+                .split(t.revenueStreams.tractionEmphasis)
+                .flatMap((part, i) =>
+                  i === 0
+                    ? [part]
+                    : [
+                        <span key="em" className="text-cream">
+                          {t.revenueStreams.tractionEmphasis}
+                        </span>,
+                        part,
+                      ]
+                )}
             </p>
           </Reveal>
         </div>

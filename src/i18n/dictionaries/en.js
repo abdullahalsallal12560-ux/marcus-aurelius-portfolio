@@ -227,6 +227,53 @@ export default {
     },
   },
 
+  brandIdentity: {
+    digital: {
+      title: "Digital Identity",
+      body: "Black background, cream text, muted gold accents. Used for the website, social media, and all online communication. Chosen to convey strength and quiet confidence without visual noise. The fragrance does not need loud colors to prove itself.",
+    },
+    physical: {
+      title: "Physical Identity",
+      body: "Tan and bronze tones on packaging and labels. Chosen to evoke the warmth of Roman stone, marble, and aged bronze: a different emotional register for the moment the customer physically holds the product.",
+    },
+    registers: {
+      title: "Collection Registers",
+      body: "The collection is built as two pairs, and each pair carries its own visual mood inside the shared house identity. Maximus and Maxima are the energetic pair: youth, motion, and confident wildness. Romeo di Roma and Roma Juliette are the romantic pair: stillness, depth, and restrained power. This is the same principle established fragrance houses use when a sub-collection is given its own visual register while the house identity stays recognisable underneath it. Here the register is not confined to a card: the page itself takes the colourway of whichever fragrance you are standing in front of, navigation and index rail included, and returns to the house black and gold between them, so the collection reads as a passage through four worlds rather than as four separate websites.",
+    },
+    motifs: "The bust mark, the Greek meander border, and the classical-serif-plus-script pairing recur across every touchpoint, digital and physical alike, tying the two identities together.",
+    swatchNames: {
+      Ink: "Ink", Cream: "Cream", Gold: "Gold", Tan: "Tan", Bronze: "Bronze", Gilt: "Gilt",
+      Slate: "Slate", Rose: "Rose", "Lifted Ink": "Lifted Ink",
+      Oud: "Oud", Amber: "Amber", "Deep Ink": "Deep Ink",
+    },
+    pairNames: { "The Kinetic Pair": "The Kinetic Pair", "The Romantic Pair": "The Romantic Pair" },
+  },
+
+  revenueStreams: {
+    streams: [
+      {
+        role: "Primary", phase: "Active", title: "Direct sales",
+        lede: "100ml Eau de Parfum, sold only from marcusscent.com",
+        body: "No shop, no distributor, no reseller taking a cut. This is not a limitation being explained away: rent, retail markup and distribution margin are what normally consume the price of a fragrance. Removing all three is what allows the oil to be the expensive part.",
+      },
+      {
+        role: "Acquisition", phase: "Launching", title: "The discovery set",
+        lede: "The full collection, four fragrances at 10ml each",
+        body: "Ten millilitres is a size you can actually wear, not a vial. Nobody commits to a 100ml niche fragrance they have never smelled, and this answers that without ever quoting a lower price for a bottle: what the set costs is credited against the first full bottle. The trial pays for itself, and a buyer who liked it arrives already paid up.",
+      },
+      {
+        role: "Growth", phase: "Planned", title: "Limited numbered edition",
+        lede: "A fifth fragrance, made once. 100 numbered units, reserved and paid before production",
+        body: "Packaging will cost more than the oil, which is the intention: at this price the buyer should be holding the reason, not just wearing it. Payment at reservation funds the run, so nothing is manufactured on speculation and no capital sits in stock that has not sold.",
+      },
+    ],
+    tractionTitle: "What the first two weeks did",
+    tractionLede: "A private soft launch at founding-circle pricing, before any public marketing existed.",
+    tally: ["Bottles sold", "JOD revenue", "Gross margin", "JOD on marketing"],
+    tractionNote: "That covered 68% of two years of development in fourteen days. Seventeen more bottles clears the rest of it, and the goal set out in SMART Goals asks for fifty sales in three months.",
+    tractionEmphasis: "68% of two years of development",
+  },
+
   hero: {
     srTitle: "Marcus Aurelius Perfumes",
     logoAlt: "Marcus Aurelius Perfumes",

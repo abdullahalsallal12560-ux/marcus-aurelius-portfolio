@@ -226,6 +226,53 @@ export default {
     },
   },
 
+  brandIdentity: {
+    digital: {
+      title: "Identità digitale",
+      body: "Fondo nero, testo crema, accenti d'oro spenti. Usata per il sito, i social e ogni comunicazione online. Scelta per trasmettere forza e sicurezza silenziosa senza rumore visivo. La fragranza non ha bisogno di colori accesi per dimostrare qualcosa.",
+    },
+    physical: {
+      title: "Identità fisica",
+      body: "Toni sabbia e bronzo su confezioni ed etichette. Scelti per evocare il calore della pietra romana, del marmo e del bronzo invecchiato: un registro emotivo diverso per il momento in cui il cliente tiene il prodotto in mano.",
+    },
+    registers: {
+      title: "I registri della collezione",
+      body: "La collezione è costruita come due coppie, e ogni coppia porta il proprio umore visivo dentro l'identità comune della casa. Maximus e Maxima sono la coppia energica: giovinezza, movimento e una sicurezza spavalda. Romeo di Roma e Roma Juliette sono la coppia romantica: quiete, profondità e forza trattenuta. È lo stesso principio che le case di profumeria affermate usano quando una sotto-collezione riceve un proprio registro visivo mentre l'identità della casa resta riconoscibile sotto. Qui il registro non resta chiuso in una scheda: è la pagina stessa a prendere il colore della fragranza davanti a cui ci si trova, barra di navigazione e indice compresi, per poi tornare al nero e all'oro della casa tra l'una e l'altra, così che la collezione si legga come un passaggio tra quattro mondi e non come quattro siti distinti.",
+    },
+    motifs: "Il busto, la greca e l'accostamento tra il serif classico e il corsivo tornano su ogni punto di contatto, digitale e fisico, legando le due identità.",
+    swatchNames: {
+      Ink: "Inchiostro", Cream: "Crema", Gold: "Oro", Tan: "Sabbia", Bronze: "Bronzo", Gilt: "Dorato",
+      Slate: "Ardesia", Rose: "Rosa", "Lifted Ink": "Inchiostro chiaro",
+      Oud: "Oud", Amber: "Ambra", "Deep Ink": "Inchiostro profondo",
+    },
+    pairNames: { "The Kinetic Pair": "La coppia cinetica", "The Romantic Pair": "La coppia romantica" },
+  },
+
+  revenueStreams: {
+    streams: [
+      {
+        role: "Principale", phase: "Attivo", title: "Vendita diretta",
+        lede: "Eau de Parfum da 100 ml, in vendita solo su marcusscent.com",
+        body: "Nessun negozio, nessun distributore, nessun rivenditore che trattiene una quota. Non è un limite da giustificare: affitto, ricarico del negozio e margine di distribuzione sono ciò che di solito consuma il prezzo di una fragranza. Toglierli tutti e tre è ciò che permette all'olio di essere la parte cara.",
+      },
+      {
+        role: "Acquisizione", phase: "In lancio", title: "Il cofanetto scoperta",
+        lede: "La collezione completa, quattro fragranze da 10 ml ciascuna",
+        body: "Dieci millilitri sono una misura che si porta davvero, non una fialetta. Nessuno si impegna su un 100 ml di nicchia che non ha mai annusato, e questo risponde a quell'obiezione senza mai dichiarare un prezzo più basso per il flacone: quanto costa il cofanetto viene scalato dal primo flacone intero. La prova si ripaga da sola, e chi si è trovato bene arriva già pagato.",
+      },
+      {
+        role: "Crescita", phase: "In programma", title: "Edizione limitata numerata",
+        lede: "Una quinta fragranza, fatta una volta sola. Cento pezzi numerati, prenotati e pagati prima della produzione",
+        body: "La confezione costerà più dell'olio, ed è voluto: a questo prezzo chi compra deve tenere in mano la ragione, non solo indossarla. Il pagamento alla prenotazione finanzia la serie, così nulla viene prodotto su previsione e nessun capitale resta fermo in magazzino.",
+      },
+    ],
+    tractionTitle: "Cosa hanno fatto le prime due settimane",
+    tractionLede: "Un soft launch privato a prezzo riservato alla cerchia dei fondatori, prima di qualsiasi marketing pubblico.",
+    tally: ["Flaconi venduti", "JOD di ricavo", "Margine lordo", "JOD in marketing"],
+    tractionNote: "Ha coperto il 68% di due anni di sviluppo in quattordici giorni. Altri diciassette flaconi chiudono il resto, e l'obiettivo fissato negli Obiettivi SMART chiede cinquanta vendite in tre mesi.",
+    tractionEmphasis: "68% di due anni di sviluppo",
+  },
+
   hero: {
     srTitle: "Marcus Aurelius Profumi",
     logoAlt: "Marcus Aurelius Profumi",
