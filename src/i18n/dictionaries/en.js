@@ -74,6 +74,53 @@ export default {
     "portfolio-design": { eyebrow: "Design Reasoning", title: "Portfolio Appearance & Design" },
   },
 
+  businessIdea: [
+    {
+      title: "Problem",
+      body: "The niche perfume market is split between two extremes: original, high-quality niche houses priced at $300 and above, and cheap niche-styled brands that cut corners on oil quality to compete on price. There is no middle ground offering real craftsmanship without exploitation.",
+    },
+    {
+      title: "Solution",
+      body: "Marcus Aurelius breaks that binary with exclusive, non-derivative blends, carefully selected oils, and fragrances engineered to be magnetic through composition alone, without relying on banned or synthetic pheromone additives.",
+    },
+    {
+      title: "Unique Value Proposition",
+      body: "This is not a perfume made to please everyone, and it is not meant to be wearable by everyone. That exclusivity is the point: a selective fragrance built for a defined identity, not a mass-market crowd-pleaser.",
+    },
+    {
+      title: "Target Customers",
+      body: "People who want distinction, not just a pleasant scent: buyers looking for individuality, a story, a persona, and quiet confidence before they are looking for a smell.",
+    },
+  ],
+
+  coreValues: {
+    items: [
+      { title: "Precision", body: "Every detail is reviewed multiple times before release, without rushing." },
+      { title: "Authenticity", body: "No imitation, no cutting corners. Every fragrance is an original blend." },
+      { title: "Exclusivity", body: "Not for everyone, by design. Built for those who can carry a strong identity." },
+      { title: "Patience over Speed", body: "Time is treated as an investment, not an obstacle." },
+      { title: "Confidence & Pride", body: "The brand sells a feeling of distinction, and that feeling shows in every decision, from product to marketing." },
+    ],
+  },
+
+  visionMission: [
+    {
+      label: "Vision",
+      body: "For Marcus Aurelius to stand among the world's recognized niche fragrance houses. Not a regional brand, but one that competes internationally on quality, identity, and presence.",
+    },
+    {
+      label: "Mission",
+      body: "Every detail, no matter how small, is reviewed and refined before it reaches the public. Developing a single fragrance can take up to two years to get the notes exactly right; a single social media post can take four or five days to reach the intended look. Precision and patience are not a side detail here. They are the foundation of the work.",
+    },
+  ],
+
+  businessModel: {
+    headline: "Direct-to-Consumer",
+    lead: "Marcus Aurelius operates on a ",
+    emphasis: "Direct-to-Consumer (D2C)",
+    rest: " model, selling directly to customers through its own website and social channels, without intermediaries in the initial phase. This preserves full control over the customer experience, from packaging to communication, and protects the exclusivity the brand is built on. Releases are produced in limited batches to reinforce demand and maintain brand value.",
+  },
+
   hero: {
     srTitle: "Marcus Aurelius Perfumes",
     logoAlt: "Marcus Aurelius Perfumes",

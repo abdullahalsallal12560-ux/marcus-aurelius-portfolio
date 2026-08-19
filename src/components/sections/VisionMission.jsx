@@ -1,5 +1,6 @@
 import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
+import { useT } from "../../i18n/useLocale";
 
 const blocks = [
   {
@@ -13,6 +14,7 @@ const blocks = [
 ];
 
 export default function VisionMission() {
+  const t = useT();
   return (
     <section id="vision-mission" className="py-28 md:py-40 px-5 bg-ink">
       <div className="max-w-5xl mx-auto">
@@ -21,9 +23,9 @@ export default function VisionMission() {
         <div className="grid md:grid-cols-2 gap-14 md:gap-20">
           {blocks.map((b, i) => (
             <Reveal key={b.label} variant={i === 0 ? "left" : "right"} delay={i * 120}>
-              <h3 className="font-script text-4xl md:text-5xl text-gold mb-6">{b.label}</h3>
+              <h3 className="font-script text-4xl md:text-5xl text-gold mb-6">{t.visionMission[i].label}</h3>
               <span aria-hidden="true" className="block w-14 h-px bg-gold/40 mb-6" />
-              <p className="font-body text-lg md:text-xl leading-relaxed text-cream-dim">{b.body}</p>
+              <p className="font-body text-lg md:text-xl leading-relaxed text-cream-dim">{t.visionMission[i].body}</p>
             </Reveal>
           ))}
         </div>

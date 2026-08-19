@@ -1,5 +1,6 @@
 import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
+import { useT } from "../../i18n/useLocale";
 
 const items = [
   {
@@ -39,15 +40,16 @@ function Corners() {
 }
 
 export default function BusinessIdea() {
+  const t = useT();
   return (
     <section id="business-idea" className="py-28 md:py-40 px-5 bg-ink">
       <div className="max-w-5xl mx-auto">
         <SectionHeading id="business-idea" eyebrow="Why We Exist" title="The Business Idea" />
 
         <Reveal stagger className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {items.map((item) => (
+          {items.map((item, i) => (
             <div
-              key={item.title}
+              key={item.n}
               className="group relative border border-gold/20 p-7 md:p-10 transition-colors duration-700 hover:border-gold/45"
             >
               <Corners />
@@ -56,11 +58,11 @@ export default function BusinessIdea() {
                   {item.n}
                 </span>
                 <h3 className="font-display text-base md:text-lg tracking-[0.18em] uppercase text-gold">
-                  {item.title}
+                  {t.businessIdea[i].title}
                 </h3>
               </div>
               <p className="font-body text-base md:text-lg leading-relaxed text-cream-dim">
-                {item.body}
+                {t.businessIdea[i].body}
               </p>
             </div>
           ))}

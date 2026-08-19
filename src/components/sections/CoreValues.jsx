@@ -1,5 +1,6 @@
 import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
+import { useT } from "../../i18n/useLocale";
 
 const values = [
   { n: "01", title: "Precision", body: "Every detail is reviewed multiple times before release, without rushing." },
@@ -14,13 +15,14 @@ const values = [
 ];
 
 export default function CoreValues() {
+  const t = useT();
   return (
     <section id="core-values" className="py-28 md:py-40 px-5 bg-ink-soft">
       <div className="max-w-5xl mx-auto">
         <SectionHeading id="core-values" eyebrow="What We Stand For" title="Core Values" />
 
         <Reveal stagger className="flex flex-col">
-          {values.map((v) => (
+          {values.map((v, i) => (
             <div
               key={v.n}
               className="group grid grid-cols-[3.5rem_1fr] md:grid-cols-[8rem_16rem_1fr] items-baseline gap-x-5 gap-y-2 py-7 md:py-9 border-t border-gold/15 transition-colors duration-700 hover:border-gold/40"
@@ -29,10 +31,10 @@ export default function CoreValues() {
                 {v.n}
               </span>
               <h3 className="font-display text-base md:text-2xl tracking-[0.14em] uppercase text-cream col-start-2">
-                {v.title}
+                {t.coreValues.items[i].title}
               </h3>
               <p className="font-body text-base md:text-lg text-cream-dim leading-relaxed col-start-2 md:col-start-3">
-                {v.body}
+                {t.coreValues.items[i].body}
               </p>
             </div>
           ))}

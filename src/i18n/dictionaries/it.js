@@ -73,6 +73,53 @@ export default {
     "portfolio-design": { eyebrow: "Le ragioni del progetto", title: "Presentazione e design" },
   },
 
+  businessIdea: [
+    {
+      title: "Il problema",
+      body: "Il mercato della profumeria di nicchia è diviso in due estremi: case autentiche e di alta qualità che partono da 300 dollari, e marchi economici travestiti da nicchia che tagliano sulla qualità degli oli per competere sul prezzo. Nel mezzo non c'è nulla che offra vera artigianalità senza approfittarne.",
+    },
+    {
+      title: "La soluzione",
+      body: "Marcus Aurelius rompe questa alternativa con miscele esclusive e non derivative, oli scelti con cura e fragranze costruite per essere magnetiche per sola composizione, senza ricorrere ad additivi feromonici vietati o sintetici.",
+    },
+    {
+      title: "La proposta di valore",
+      body: "Non è un profumo fatto per piacere a tutti, e non è pensato per essere portato da tutti. È proprio questa l'esclusività: una fragranza selettiva costruita su un'identità precisa, non un successo di massa.",
+    },
+    {
+      title: "I clienti",
+      body: "Chi cerca distinzione, non solo un buon profumo: acquirenti che cercano individualità, un racconto, un carattere e una sicurezza silenziosa prima ancora di cercare un odore.",
+    },
+  ],
+
+  coreValues: {
+    items: [
+      { title: "Precisione", body: "Ogni dettaglio viene rivisto più volte prima dell'uscita, senza fretta." },
+      { title: "Autenticità", body: "Nessuna imitazione, nessuna scorciatoia. Ogni fragranza è una miscela originale." },
+      { title: "Esclusività", body: "Non per tutti, per scelta. Costruito per chi sa portare un'identità forte." },
+      { title: "La pazienza prima della velocità", body: "Il tempo è trattato come un investimento, non come un ostacolo." },
+      { title: "Sicurezza e orgoglio", body: "Il marchio vende una sensazione di distinzione, e quella sensazione si vede in ogni decisione, dal prodotto alla comunicazione." },
+    ],
+  },
+
+  visionMission: [
+    {
+      label: "Visione",
+      body: "Che Marcus Aurelius stia tra le case di profumeria di nicchia riconosciute nel mondo. Non un marchio regionale, ma uno che compete a livello internazionale su qualità, identità e presenza.",
+    },
+    {
+      label: "Missione",
+      body: "Ogni dettaglio, per quanto piccolo, viene rivisto e rifinito prima di arrivare al pubblico. Sviluppare una sola fragranza può richiedere due anni perché le note siano esatte; un solo post può richiedere quattro o cinque giorni per raggiungere l'aspetto voluto. Precisione e pazienza non sono un dettaglio secondario. Sono il fondamento del lavoro.",
+    },
+  ],
+
+  businessModel: {
+    headline: "Vendita diretta",
+    lead: "Marcus Aurelius opera su un modello ",
+    emphasis: "Direct-to-Consumer (D2C)",
+    rest: ", vendendo direttamente ai clienti attraverso il proprio sito e i propri canali social, senza intermediari nella fase iniziale. Così resta il controllo completo dell'esperienza, dalla confezione alla comunicazione, e si protegge l'esclusività su cui il marchio è costruito. Le uscite sono prodotte in serie limitate per sostenere la domanda e mantenere il valore del marchio.",
+  },
+
   hero: {
     srTitle: "Marcus Aurelius Profumi",
     logoAlt: "Marcus Aurelius Profumi",
