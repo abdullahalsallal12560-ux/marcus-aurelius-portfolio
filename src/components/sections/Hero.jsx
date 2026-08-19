@@ -3,6 +3,7 @@ import { GreekKey } from "../shared/Motifs";
 import { asset } from "../../utils/asset";
 import Reveal from "../shared/Reveal";
 import useMediaQuery from "../../hooks/useMediaQuery";
+import { useT } from "../../i18n/useLocale";
 
 /**
  * The cover. The brand's own film runs behind the mark, but held well back:
@@ -15,6 +16,7 @@ import useMediaQuery from "../../hooks/useMediaQuery";
  * clip is never downloaded.
  */
 export default function Hero() {
+  const t = useT();
   const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   // useMediaQuery reports false until it has mounted, and false here means
   // "motion is fine", so trusting it on the first paint would fire off the
@@ -88,11 +90,11 @@ export default function Hero() {
         className="relative z-10 flex flex-col items-center text-center gap-7 max-w-2xl"
         style={{ "--stagger-step": "160ms" }}
       >
-        <h1 className="sr-only">Marcus Aurelius Perfumes</h1>
+        <h1 className="sr-only">{t.hero.srTitle}</h1>
 
         <img
           src={asset("/images/brand/logo-lockup.png")}
-          alt="Marcus Aurelius Perfumes"
+          alt={t.hero.logoAlt}
           className="w-60 sm:w-72 md:w-[22rem] h-auto"
           fetchPriority="high"
         />
@@ -100,8 +102,8 @@ export default function Hero() {
         <GreekKey className="w-44 md:w-60 text-gold/55" />
 
         <p className="font-display font-semibold text-[13px] md:text-base tracking-[0.42em] uppercase text-cream-dim">
-          Not for everyone.
-          <span className="block mt-2 text-gold">That&rsquo;s the point.</span>
+          {t.hero.lineOne}
+          <span className="block mt-2 text-gold">{t.hero.lineTwo}</span>
         </p>
 
         <div className="flex flex-col items-center gap-1.5 mt-8 font-body text-base text-cream-dim/85">
@@ -111,17 +113,17 @@ export default function Hero() {
           <a href="mailto:info@marcusscent.com" className="hover:text-gold transition-colors">
             info@marcusscent.com
           </a>
-          <span className="meta-label text-gold/85 mt-3">2026</span>
+          <span className="meta-label text-gold/85 mt-3">{t.hero.year}</span>
         </div>
       </Reveal>
 
       <a
         href="#business-idea"
-        aria-label="Scroll to the business idea"
+        aria-label={t.hero.scrollAria}
         className="group absolute bottom-10 z-10 flex flex-col items-center gap-3"
       >
         <span className="meta-label-sm tracking-[0.3em] text-cream-dim group-hover:text-gold transition-colors">
-          Scroll
+          {t.hero.scroll}
         </span>
         <span aria-hidden="true" className="relative block w-px h-12 bg-cream-dim/20 overflow-hidden">
           <span className="absolute inset-x-0 top-0 h-5 bg-gold animate-[heroCue_2.6s_ease-in-out_infinite]" />

@@ -31,7 +31,7 @@ export default function GrowthStrategy() {
             <div key={p.title} className="group">
               <span
                 aria-hidden="true"
-                className="block h-px bg-gold/35 mb-5 origin-left transition-all duration-700 group-hover:bg-gold"
+                className="block h-px bg-gold/35 mb-5 origin-left rtl:origin-right transition-all duration-700 group-hover:bg-gold"
               />
               <div className="flex items-baseline gap-3 mb-4">
                 <span className="meta-label-sm text-gold/80 tabular-nums">

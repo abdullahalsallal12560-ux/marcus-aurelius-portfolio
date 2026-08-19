@@ -64,7 +64,7 @@ export default function Lightbox({ images, index, onClose, onStep }) {
         type="button"
         onClick={onClose}
         aria-label="Close enlarged image"
-        className="absolute top-4 right-4 md:top-6 md:right-8 z-10 font-display text-lg leading-none text-cream-dim hover:text-gold transition-colors border border-gold/40 hover:border-gold w-11 h-11 flex items-center justify-center"
+        className="absolute top-4 end-4 md:top-6 md:end-8 z-10 font-display text-lg leading-none text-cream-dim hover:text-gold transition-colors border border-gold/40 hover:border-gold w-11 h-11 flex items-center justify-center"
       >
         &times;
       </button>
@@ -78,7 +78,7 @@ export default function Lightbox({ images, index, onClose, onStep }) {
               e.stopPropagation();
               step(-1);
             }}
-            className="absolute left-2 md:left-6 z-10 font-display text-2xl leading-none text-cream-dim hover:text-gold transition-colors w-11 h-16 flex items-center justify-center"
+            className="absolute start-2 md:start-6 z-10 font-display text-2xl leading-none text-cream-dim hover:text-gold transition-colors w-11 h-16 flex items-center justify-center"
           >
             &lsaquo;
           </button>
@@ -89,7 +89,7 @@ export default function Lightbox({ images, index, onClose, onStep }) {
               e.stopPropagation();
               step(1);
             }}
-            className="absolute right-2 md:right-6 z-10 font-display text-2xl leading-none text-cream-dim hover:text-gold transition-colors w-11 h-16 flex items-center justify-center"
+            className="absolute end-2 md:end-6 z-10 font-display text-2xl leading-none text-cream-dim hover:text-gold transition-colors w-11 h-16 flex items-center justify-center"
           >
             &rsaquo;
           </button>

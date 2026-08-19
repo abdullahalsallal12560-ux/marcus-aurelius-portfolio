@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-gold/20 py-10 px-5">
       <GreekKey className="w-full text-gold/50 mb-8" />
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-start">
         <div className="flex items-center gap-2">
           <BustMark className="w-5 h-6 text-gold" />
           <span className="meta-label-sm text-cream-dim">

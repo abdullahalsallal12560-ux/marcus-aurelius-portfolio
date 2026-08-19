@@ -42,7 +42,7 @@ export default function Signature() {
         {/* ---------- attribution ---------- */}
         <Reveal
           stagger
-          className="flex flex-col items-center md:items-start text-center md:text-left gap-7"
+          className="flex flex-col items-center md:items-start text-center md:text-start gap-7"
           style={{ "--stagger-step": "140ms" }}
         >
           <GreekKey className="w-40 text-gold/55" />

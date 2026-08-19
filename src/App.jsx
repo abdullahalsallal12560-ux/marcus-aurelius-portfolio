@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+import { LocaleProvider } from "./i18n/LocaleProvider";
+import { useT } from "./i18n/useLocale";
+
 import Nav from "./components/shared/Nav";
 import Footer from "./components/shared/Footer";
 import SectionDivider from "./components/shared/SectionDivider";
@@ -24,7 +27,8 @@ import PortfolioDesign from "./components/sections/PortfolioDesign";
 import Contact from "./components/sections/Contact";
 import Signature from "./components/sections/Signature";
 
-export default function App() {
+function Portfolio() {
+  const t = useT();
   const [contentsOpen, setContentsOpen] = useState(false);
 
   useEffect(() => {
@@ -49,9 +53,9 @@ export default function App() {
     <>
       <a
         href="#business-idea"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-gold focus:text-ink focus:px-4 focus:py-2 focus:font-display focus:font-semibold focus:text-[13px] focus:tracking-[0.2em] focus:uppercase"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-[70] focus:bg-gold focus:text-ink focus:px-4 focus:py-2 focus:font-display focus:font-semibold focus:text-[13px] focus:tracking-[0.2em] focus:uppercase"
       >
-        Skip to content
+        {t.nav.skip}
       </a>
 
       {/* While the Contents overlay is open everything behind it is inert, so
@@ -94,5 +98,18 @@ export default function App() {
         <Footer />
       </div>
     </>
+  );
+}
+
+/**
+ * The provider wraps the page rather than living inside it, because switching
+ * language rewrites <html lang> and <html dir> and every section below has to
+ * re-render against the new dictionary at the same moment.
+ */
+export default function App() {
+  return (
+    <LocaleProvider>
+      <Portfolio />
+    </LocaleProvider>
   );
 }

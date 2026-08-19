@@ -28,7 +28,7 @@ export default function CompanyOverview() {
     <section id="company-overview" className="relative py-28 md:py-40 px-5 bg-ink-soft overflow-hidden">
       {/* the mark, enlarged and barely there, anchoring the founding story */}
       <BustMark
-        className="pointer-events-none absolute -right-16 top-1/3 w-[26rem] h-[32rem] text-gold/[0.04] hidden lg:block"
+        className="pointer-events-none absolute -end-16 top-1/3 w-[26rem] h-[32rem] text-gold/[0.04] hidden lg:block"
       />
 
       <div className="relative max-w-4xl mx-auto">
@@ -48,7 +48,7 @@ export default function CompanyOverview() {
             The Founding Story
           </h3>
 
-          <p className="font-body text-lg md:text-xl leading-relaxed md:leading-loose text-cream-dim first-letter:font-display first-letter:text-6xl first-letter:leading-[0.85] first-letter:text-gold first-letter:mr-3 first-letter:mt-1 first-letter:float-left">
+          <p className="font-body text-lg md:text-xl leading-relaxed md:leading-loose text-cream-dim first-letter:font-display first-letter:text-6xl first-letter:leading-[0.85] first-letter:text-gold first-letter:me-3 first-letter:mt-1 first-letter:float-start">
             It began as a coffee-shop conversation between two friends: why does no fragrance carry
             these particular notes, and why not make one ourselves? There was no brand in
             mind. There was curiosity, and a rooftop.

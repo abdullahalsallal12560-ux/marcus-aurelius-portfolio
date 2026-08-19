@@ -124,7 +124,7 @@ function ProductCard({ product, index, reversed }) {
   // the plate carries the name in the colourway's own contrast pair, so it
   // reads the same whether the ground behind it is near-black or near-white
   const plate = (
-    <div className="product-plate absolute -left-3 right-10 -bottom-6 z-10 px-5 py-3 md:px-6 md:py-4">
+    <div className="product-plate absolute -start-3 end-10 -bottom-6 z-10 px-5 py-3 md:px-6 md:py-4">
       <h3 className="font-display uppercase leading-[0.95] tracking-[0.04em] text-[clamp(1.4rem,3.6vw,2.3rem)]">
         {name}
       </h3>

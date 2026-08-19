@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { BustMark } from "./Motifs";
+import LanguageSwitch from "./LanguageSwitch";
+import { useT } from "../../i18n/useLocale";
 
 export default function Nav({ onOpenContents }) {
+  const t = useT();
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
 
@@ -39,11 +42,12 @@ export default function Nav({ onOpenContents }) {
         <a href="#hero" className="flex items-center gap-2 md:gap-3 group">
           <BustMark className="w-7 h-8 md:w-8 md:h-9 text-gold group-hover:text-gold-soft transition-colors duration-500" />
           <span className="font-display font-semibold text-[13px] sm:text-sm md:text-base tracking-[0.16em] sm:tracking-[0.2em] uppercase text-cream whitespace-nowrap">
-            Marcus Aurelius
+            {t.nav.brand}
           </span>
         </a>
 
-        <div className="flex items-center gap-2 md:gap-4">
+        <div className="flex items-center gap-1.5 md:gap-3">
+          <LanguageSwitch className="me-0.5 md:me-1" />
           <button
             type="button"
             onClick={onOpenContents}
@@ -55,15 +59,15 @@ export default function Nav({ onOpenContents }) {
               <span className="block w-4 h-px bg-current" />
               <span className="block w-2.5 h-px bg-current transition-all duration-500 group-hover:w-4" />
             </span>
-            Contents
+            {t.nav.contents}
           </button>
 
           <a
             href="#contact"
             className="meta-label-sm border border-gold text-gold px-3 py-2 md:px-5 md:py-2.5 hover:bg-gold hover:text-ink transition-colors duration-500"
           >
-            <span className="hidden sm:inline">Join the Waitlist</span>
-            <span className="sm:hidden">Waitlist</span>
+            <span className="hidden sm:inline">{t.nav.waitlist}</span>
+            <span className="sm:hidden">{t.nav.waitlistShort}</span>
           </a>
         </div>
       </div>
@@ -71,7 +75,7 @@ export default function Nav({ onOpenContents }) {
       {/* reading progress */}
       <div
         aria-hidden="true"
-        className="absolute bottom-0 left-0 h-px bg-gold/70 origin-left"
+        className="absolute bottom-0 start-0 h-px bg-gold/70"
         style={{ width: `${progress * 100}%` }}
       />
     </nav>

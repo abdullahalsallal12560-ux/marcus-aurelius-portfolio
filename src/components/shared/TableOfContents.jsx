@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { SECTIONS } from "../../data/sections";
+import { useT } from "../../i18n/useLocale";
 import useActiveSection from "../../hooks/useActiveSection";
 import { GreekKey } from "./Motifs";
 
@@ -16,11 +17,12 @@ import { GreekKey } from "./Motifs";
  */
 
 export function ContentsRail() {
+  const t = useT();
   const activeId = useActiveSection();
 
   return (
     <nav
-      aria-label="Table of contents"
+      aria-label={t.contents.railAria}
       // The labelled rail needs roughly 200px of gutter beside the 1152px
       // content column, which only exists from 1536px up, so titles are
       // permanently visible there. Below that the rail stays, numerals only,
@@ -32,7 +34,7 @@ export function ContentsRail() {
       // and 1280 it draws itself tighter instead, pulling in against the edge
       // and shortening the marker, which buys back the ~30px it needs to
       // clear the widest section.
-      className="hidden min-[1240px]:flex fixed right-2 xl:right-5 2xl:right-8 top-1/2 -translate-y-1/2 z-40 flex-col gap-0.5"
+      className="hidden min-[1240px]:flex fixed end-2 xl:end-5 2xl:end-8 top-1/2 -translate-y-1/2 z-40 flex-col gap-0.5"
     >
       {SECTIONS.map(({ id, numeral, label }) => {
         const active = id === activeId;
@@ -48,7 +50,7 @@ export function ContentsRail() {
                 an invisible 100px+ strip would sit over the text column and
                 swallow its clicks. */}
             <span
-              className={`pointer-events-none absolute inset-y-0 right-full mr-3 flex items-center font-body text-sm leading-none whitespace-nowrap transition-opacity duration-500 2xl:static 2xl:mr-0 2xl:inset-auto 2xl:pointer-events-auto 2xl:opacity-100 ${
+              className={`pointer-events-none absolute inset-y-0 end-full me-3 flex items-center font-body text-sm leading-none whitespace-nowrap transition-opacity duration-500 2xl:static 2xl:me-0 2xl:inset-auto 2xl:pointer-events-auto 2xl:opacity-100 ${
                 active
                   ? // The active title was the one exception that still printed
                     // itself over the text column below 2xl, which is where it
@@ -59,7 +61,7 @@ export function ContentsRail() {
                   : "text-cream-dim/75 opacity-0 group-hover:opacity-100 group-hover:text-cream"
               }`}
             >
-              {label}
+              {t.sections[id] ?? label}
             </span>
             <span
               className={`font-display text-[13px] leading-none tabular-nums transition-colors duration-500 ${
@@ -86,6 +88,7 @@ export function ContentsRail() {
 }
 
 export function ContentsOverlay({ open, onClose }) {
+  const t = useT();
   const activeId = useActiveSection();
   const closeRef = useRef(null);
 
@@ -111,7 +114,7 @@ export function ContentsOverlay({ open, onClose }) {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Table of contents"
+      aria-label={t.contents.railAria}
       hidden={!open}
       className={`fixed inset-0 z-[60] bg-ink/97 backdrop-blur-sm transition-opacity duration-500 ${
         open ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -122,7 +125,7 @@ export function ContentsOverlay({ open, onClose }) {
           <div className="flex items-start justify-between mb-8 md:mb-12">
             <div>
               <p className="meta-label text-gold mb-2">
-                Contents
+                {t.contents.title}
               </p>
               <p className="font-script text-2xl md:text-3xl text-cream">
                 Marcus Aurelius Perfumes
@@ -163,7 +166,7 @@ export function ContentsOverlay({ open, onClose }) {
                         active ? "text-gold" : "text-cream group-hover:text-gold-soft"
                       }`}
                     >
-                      {label}
+                      {t.sections[id] ?? label}
                     </span>
                     <span
                       aria-hidden="true"

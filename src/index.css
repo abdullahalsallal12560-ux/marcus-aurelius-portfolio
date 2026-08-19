@@ -406,6 +406,72 @@ footer {
 }
 
 /* ---------------------------------------------------------------
+   Arabic
+
+   The house faces carry no Arabic glyphs, so the language gets its own
+   three, chosen to hold the same three roles rather than to resemble the
+   Latin shapes: Reem Kufi for display, because Kufi is the Arabic script
+   cut for stone and Cinzel is the Latin one; Amiri for reading, a revival
+   of the Bulaq naskh and the nearest Arabic has to an old-style book face;
+   Aref Ruqaa for the flourish Playfair italic carries.
+   --------------------------------------------------------------- */
+
+:root[lang="ar"] {
+  --font-display: "Reem Kufi", "Amiri", serif;
+  --font-script: "Aref Ruqaa", "Amiri", serif;
+  --font-body: "Amiri", Georgia, serif;
+}
+
+/* Arabic is cursive: the letters of a word are joined. Letter-spacing pulls
+   those joins apart and the word stops being a word, so every tracking value
+   on the page, and there are a great many, has to be overridden rather than
+   inherited. This is the one place !important is the correct tool. */
+:root[lang="ar"] body,
+:root[lang="ar"] body * {
+  letter-spacing: normal !important;
+}
+
+/* Naskh sits on a deeper body with more above and below it than a Latin face
+   needs, and the diacritics need somewhere to go. */
+:root[lang="ar"] body {
+  line-height: 1.9;
+}
+
+:root[lang="ar"] h1,
+:root[lang="ar"] h2,
+:root[lang="ar"] h3 {
+  line-height: 1.45;
+}
+
+/* Each block of text takes its direction from its own first strong character
+   rather than from the page. Two things depend on this. A latin string sitting
+   inside arabic copy, a domain, a product name, a figure, keeps its own order
+   instead of being reversed. And any string not yet translated still reads
+   correctly while the page around it is right-to-left, so a partial
+   translation degrades to plain english rather than to nonsense. */
+:root[lang="ar"] p,
+:root[lang="ar"] li,
+:root[lang="ar"] dt,
+:root[lang="ar"] dd,
+:root[lang="ar"] h1,
+:root[lang="ar"] h2,
+:root[lang="ar"] h3,
+:root[lang="ar"] figcaption,
+:root[lang="ar"] blockquote {
+  unicode-bidi: plaintext;
+}
+
+/* The reveals travel inward from the outer edge, so which edge that is has to
+   follow the reading direction. */
+[dir="rtl"] .reveal-left {
+  --reveal-x: 32px;
+}
+
+[dir="rtl"] .reveal-right {
+  --reveal-x: -32px;
+}
+
+/* ---------------------------------------------------------------
    Portrait treatment
 
    The source is already black and white, so "vintage" here means toning
