@@ -291,6 +291,40 @@ footer {
 }
 
 /* ---------------------------------------------------------------
+   Portrait treatment
+
+   The source is already black and white, so "vintage" here means toning
+   rather than desaturating: sepia lays down a warm base, saturate deepens it
+   and the small negative hue-rotate pulls it off sepia-brown and toward the
+   house gold. Contrast and brightness are lifted a touch to stop the toning
+   flattening the midtones.
+
+   Deliberately no blur and no soft-focus — every one of these operations is
+   tonal, so the photograph stays exactly as sharp as it was shot.
+   --------------------------------------------------------------- */
+
+.portrait-vintage {
+  filter: sepia(0.45) saturate(1.4) hue-rotate(-14deg) contrast(1.09) brightness(1.03);
+}
+
+.portrait-vintage-soft {
+  filter: sepia(0.26) saturate(1.22) hue-rotate(-12deg) contrast(1.05) brightness(1.02);
+}
+
+.portrait-vintage-strong {
+  filter: sepia(0.68) saturate(1.55) hue-rotate(-16deg) contrast(1.14) brightness(1.04);
+}
+
+/* darkened corners, so the frame reads as a print rather than a crop */
+.portrait-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 78% 68% at 50% 42%, transparent 52%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* ---------------------------------------------------------------
    Texture + treatment utilities
    --------------------------------------------------------------- */
 

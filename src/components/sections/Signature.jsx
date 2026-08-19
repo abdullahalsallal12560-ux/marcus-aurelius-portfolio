@@ -10,42 +10,39 @@ import { asset } from "../../utils/asset";
  * Contents rail or the Contents overlay — the brief requires exactly
  * seventeen, and this is not one of them.
  *
- * A split: the portrait holds one half outright, the attribution the other.
- * The photograph is already lit for this palette, so nothing is laid over it.
+ * The portrait is set in a fixed 4:5 frame rather than stretched to fill its
+ * half of the grid. Filling the half meant the crop was decided by the
+ * window: the source is a tall 9:16 portrait, so on a wide screen the
+ * photograph had to scale up until it covered the full width and the head was
+ * cut off top and bottom. A frame with its own aspect ratio crops the same
+ * way at every size, so the composition is fixed and the face always sits
+ * where it was placed.
  */
 export default function Signature() {
   return (
     <section
       id="signature"
       aria-label="Site credit"
-      className="relative bg-ink border-t border-gold/20"
+      className="relative bg-ink border-t border-gold/20 py-20 md:py-28"
     >
-      <div className="grid md:grid-cols-2 items-stretch">
+      <div className="grid md:grid-cols-2 items-center gap-12 md:gap-8 max-w-6xl mx-auto px-6">
         {/* ---------- portrait ---------- */}
-        <Reveal variant="left" className="relative min-h-[62vh] md:min-h-[78vh]">
-          <img
-            src={asset("/images/brand/abdullah-portrait.jpg")}
-            alt="Abdullah Al-Sallal"
-            className="absolute inset-0 w-full h-full object-cover object-[50%_15%]"
-            loading="lazy"
-            decoding="async"
-          />
-          {/* only where the two halves meet, so the edge dissolves into the
-              page instead of ending on a hard seam */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-y-0 right-0 w-24 pointer-events-none hidden md:block bg-gradient-to-r from-transparent to-ink"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-x-0 bottom-0 h-24 pointer-events-none md:hidden bg-gradient-to-b from-transparent to-ink"
-          />
+        <Reveal variant="left" className="flex justify-center md:justify-end">
+          <figure className="relative m-0 w-full max-w-[340px] md:max-w-[380px] aspect-[4/5] overflow-hidden border border-gold/40 grain portrait-vignette">
+            <img
+              src={asset("/images/brand/abdullah-portrait.jpg")}
+              alt="Abdullah Al-Sallal"
+              className="portrait-vintage absolute inset-0 w-full h-full object-cover object-[50%_26%]"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
         </Reveal>
 
         {/* ---------- attribution ---------- */}
         <Reveal
           stagger
-          className="flex flex-col items-center justify-center text-center gap-7 px-6 py-20 md:py-28 xl:pr-[190px] 2xl:pr-[210px]"
+          className="flex flex-col items-center md:items-start text-center md:text-left gap-7"
           style={{ "--stagger-step": "140ms" }}
         >
           <GreekKey className="w-40 text-gold/55" />
