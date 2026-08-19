@@ -23,10 +23,16 @@ export function ContentsRail() {
       aria-label="Table of contents"
       // The labelled rail needs roughly 200px of gutter beside the 1152px
       // content column, which only exists from 1536px up, so titles are
-      // permanently visible there. Between 1280 and 1536 the rail stays, at
-      // the same enlarged type, with the title revealed on hover rather than
-      // printed over the text column.
-      className="hidden xl:flex fixed right-5 2xl:right-8 top-1/2 -translate-y-1/2 z-40 flex-col gap-0.5"
+      // permanently visible there. Below that the rail stays, numerals only,
+      // with the title revealed on hover rather than printed over the text.
+      //
+      // It used to disappear entirely under 1280px, which on a 125%-scaled
+      // Windows display is what a maximised window reports at default zoom:
+      // the rail vanished at the most ordinary setting there is. Between 1240
+      // and 1280 it draws itself tighter instead, pulling in against the edge
+      // and shortening the marker, which buys back the ~30px it needs to
+      // clear the widest section.
+      className="hidden min-[1240px]:flex fixed right-2 xl:right-5 2xl:right-8 top-1/2 -translate-y-1/2 z-40 flex-col gap-0.5"
     >
       {SECTIONS.map(({ id, numeral, label }) => {
         const active = id === activeId;
@@ -35,7 +41,7 @@ export function ContentsRail() {
             key={id}
             href={`#${id}`}
             aria-current={active ? "true" : undefined}
-            className="group relative flex items-center justify-end gap-3 py-[7px] outline-offset-4"
+            className="group relative flex items-center justify-end gap-2 xl:gap-3 py-[7px] outline-offset-4"
           >
             {/* Below 2xl the title is lifted out of flow and made inert, so the
                 rail reserves no width it is not actually drawing, otherwise
@@ -68,8 +74,8 @@ export function ContentsRail() {
               aria-hidden="true"
               className={`transition-all duration-500 ${
                 active
-                  ? "w-9 h-0.5 bg-gold"
-                  : "w-3.5 h-px bg-cream-dim/45 group-hover:w-6 group-hover:bg-gold-soft"
+                  ? "w-5 xl:w-9 h-0.5 bg-gold"
+                  : "w-2.5 xl:w-3.5 h-px bg-cream-dim/45 group-hover:w-4 xl:group-hover:w-6 group-hover:bg-gold-soft"
               }`}
             />
           </a>
