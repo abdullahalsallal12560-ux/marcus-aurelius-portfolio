@@ -1,19 +1,78 @@
+import { useEffect, useState } from "react";
 import { GreekKey } from "../shared/Motifs";
 import { asset } from "../../utils/asset";
 import Reveal from "../shared/Reveal";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 /**
- * The cover. Deliberately typographic: no video, no photograph — just the
- * mark, the wordmark and a great deal of air. The brand's own line is that
- * the fragrance "doesn't need loud colors to prove itself", and the cover is
- * the first place to demonstrate that rather than assert it.
+ * The cover. The brand's own film runs behind the mark, but held well back:
+ * darkened, desaturated and carrying the same grain as the rest of the page,
+ * so it reads as atmosphere rather than as a showreel. The brand's line is
+ * that the fragrance "doesn't need loud colors to prove itself", and a hero
+ * that lets its own footage shout would contradict it.
+ *
+ * Under prefers-reduced-motion the poster frame is rendered instead and the
+ * clip is never downloaded.
  */
 export default function Hero() {
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+  // useMediaQuery reports false until it has mounted, and false here means
+  // "motion is fine" — so trusting it on the first paint would fire off the
+  // 2.6MB download before we know the visitor asked for stillness. Waiting a
+  // commit costs nothing: the poster is the clip's own first frame, so it
+  // holds the cover until the video takes over.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const showVideo = mounted && !reducedMotion;
+
   return (
     <section
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-ink px-5 grain"
     >
+      {/* the film, and everything that holds it back */}
+      <div aria-hidden="true" className="absolute inset-0">
+        <img
+          src={asset("/videos/hero-background-poster.jpg")}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: "saturate(0.7) brightness(0.82)" }}
+          fetchPriority="high"
+        />
+        {showVideo && (
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src={asset("/videos/hero-background.mp4")}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            style={{ filter: "saturate(0.7) brightness(0.82)" }}
+          />
+        )}
+
+        {/* Three passes, because the footage swings from near-black smoke to a
+            sunlit face and the wordmark has to hold at both ends: a flat scrim,
+            a pool of ink under the centre so the mark never lands on bare skin,
+            and a vignette to close the corners. */}
+        <div className="absolute inset-0 bg-ink/62" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 58% 62% at 50% 48%, rgba(16,14,11,0.66) 0%, rgba(16,14,11,0.34) 52%, transparent 80%)",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, transparent 28%, rgba(16,14,11,0.5) 74%, rgba(16,14,11,0.9) 100%)",
+          }}
+        />
+      </div>
+
       {/* a single, very soft pool of warmth behind the mark */}
       <div
         aria-hidden="true"
