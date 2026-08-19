@@ -49,10 +49,10 @@ function Swatches({ items }) {
             className={`block w-12 h-12 md:w-14 md:h-14 rounded-full border border-cream/15 ${s.className ?? ""}`}
             style={s.className ? undefined : { background: s.hex }}
           />
-          <span className="font-display text-[11px] md:text-xs tracking-[0.16em] uppercase text-cream-dim/85 text-center">
+          <span className="meta-label-sm text-cream-dim text-center">
             {s.name}
           </span>
-          <span className="font-body text-xs text-cream-dim/75 tabular-nums">{s.hex}</span>
+          <span className="font-body text-[13px] text-cream-dim tabular-nums">{s.hex}</span>
         </div>
       ))}
     </div>
@@ -116,7 +116,7 @@ export default function BrandIdentity() {
             {pairs.map((p) => (
               <div key={p.name} className="text-center">
                 <p className="font-script text-2xl text-gold-soft mb-1">{p.name}</p>
-                <p className="font-display text-xs tracking-[0.24em] uppercase text-gold mb-3">
+                <p className="meta-label text-gold mb-3">
                   {p.members}
                 </p>
                 <p className="font-body text-base text-cream-dim/90 leading-relaxed">{p.mood}</p>

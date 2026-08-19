@@ -49,7 +49,7 @@ export default function App() {
     <>
       <a
         href="#business-idea"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-gold focus:text-ink focus:px-4 focus:py-2 focus:font-display focus:text-xs focus:tracking-[0.2em] focus:uppercase"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-gold focus:text-ink focus:px-4 focus:py-2 focus:font-display focus:font-semibold focus:text-[13px] focus:tracking-[0.2em] focus:uppercase"
       >
         Skip to content
       </a>

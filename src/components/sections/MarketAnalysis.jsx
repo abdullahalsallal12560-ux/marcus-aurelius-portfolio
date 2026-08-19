@@ -66,7 +66,7 @@ export default function MarketAnalysis() {
               className="group relative border-t-2 border-gold/40 pt-6 md:pt-8 transition-colors duration-700 hover:border-gold"
             >
               <div className="flex items-baseline gap-3 mb-5">
-                <span className="font-display text-xs tracking-[0.3em] text-gold/80 tabular-nums">
+                <span className="meta-label text-gold/90 tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display text-sm md:text-base tracking-[0.2em] uppercase text-cream">

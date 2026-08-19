@@ -38,7 +38,7 @@ export default function Nav({ onOpenContents }) {
       <div className="max-w-6xl mx-auto flex items-center justify-between px-5 md:px-10 py-3 md:py-4">
         <a href="#hero" className="flex items-center gap-2 md:gap-3 group">
           <BustMark className="w-7 h-8 md:w-8 md:h-9 text-gold group-hover:text-gold-soft transition-colors duration-500" />
-          <span className="font-display text-xs sm:text-[13px] md:text-sm tracking-[0.18em] sm:tracking-[0.25em] uppercase text-cream whitespace-nowrap">
+          <span className="font-display font-semibold text-[13px] sm:text-sm md:text-base tracking-[0.16em] sm:tracking-[0.2em] uppercase text-cream whitespace-nowrap">
             Marcus Aurelius
           </span>
         </a>
@@ -48,7 +48,7 @@ export default function Nav({ onOpenContents }) {
             type="button"
             onClick={onOpenContents}
             aria-haspopup="dialog"
-            className="group flex items-center gap-2 font-display text-xs md:text-[13px] tracking-[0.2em] uppercase text-cream-dim hover:text-gold transition-colors px-2 py-2"
+            className="group flex items-center gap-2 meta-label-sm text-cream-dim hover:text-gold transition-colors px-2 py-2"
           >
             <span aria-hidden="true" className="flex flex-col gap-[3px]">
               <span className="block w-4 h-px bg-current" />
@@ -60,7 +60,7 @@ export default function Nav({ onOpenContents }) {
 
           <a
             href="#contact"
-            className="font-display text-xs md:text-[13px] tracking-[0.2em] uppercase border border-gold text-gold px-3 py-2 md:px-5 md:py-2.5 hover:bg-gold hover:text-ink transition-colors duration-500"
+            className="meta-label-sm border border-gold text-gold px-3 py-2 md:px-5 md:py-2.5 hover:bg-gold hover:text-ink transition-colors duration-500"
           >
             <span className="hidden sm:inline">Join the Waitlist</span>
             <span className="sm:hidden">Waitlist</span>

@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <div className="flex items-center gap-2">
           <BustMark className="w-5 h-6 text-gold" />
-          <span className="font-display text-xs tracking-[0.25em] uppercase text-cream-dim">
+          <span className="meta-label-sm text-cream-dim">
             Marcus Aurelius Perfumes
           </span>
         </div>

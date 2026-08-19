@@ -27,7 +27,7 @@ export default function WebsiteStrategy() {
               key={p.name}
               className="group relative bg-ink-soft p-7 md:p-8 transition-colors duration-700 hover:bg-ink"
             >
-              <span className="font-display text-xs text-gold/70 tabular-nums block mb-3">
+              <span className="meta-label-sm text-gold/80 tabular-nums block mb-3">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="font-display text-sm md:text-base tracking-[0.16em] uppercase text-gold mb-2.5 transition-colors duration-700 group-hover:text-gold-soft">

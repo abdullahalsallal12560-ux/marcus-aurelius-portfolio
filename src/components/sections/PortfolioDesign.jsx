@@ -49,7 +49,7 @@ export default function PortfolioDesign() {
                 {s.sample}
               </span>
               <span aria-hidden="true" className="block w-8 h-px bg-gold/35" />
-              <span className="font-display text-xs tracking-[0.24em] uppercase text-gold">
+              <span className="meta-label text-gold">
                 {s.face}
               </span>
               <span className="font-body text-sm text-cream-dim/85">{s.role}</span>

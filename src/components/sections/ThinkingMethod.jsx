@@ -35,7 +35,7 @@ export default function ThinkingMethod() {
               >
                 <div className="relative flex justify-start">
                   <span className="relative z-10 flex items-center justify-center w-[2.3rem] h-[2.3rem] md:w-[4.3rem] md:h-[4.3rem] rounded-full bg-ink-soft border border-gold/30 group-hover:border-gold transition-colors duration-700">
-                    <span className="font-display text-xs md:text-lg text-gold/70 group-hover:text-gold transition-colors duration-700 tabular-nums">
+                    <span className="font-display text-sm md:text-lg text-gold/80 group-hover:text-gold transition-colors duration-700 tabular-nums">
                       {s.n}
                     </span>
                   </span>

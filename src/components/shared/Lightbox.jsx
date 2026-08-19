@@ -106,7 +106,7 @@ export default function Lightbox({ images, index, onClose, onStep }) {
           alt={current.alt}
           className="max-h-[80vh] max-w-[90vw] object-contain border border-gold/25"
         />
-        <figcaption className="font-display text-xs tracking-[0.25em] uppercase text-cream-dim/80 text-center">
+        <figcaption className="meta-label-sm text-cream-dim text-center">
           {current.caption ?? current.alt}
           {multiple && (
             <span className="ml-3 tabular-nums text-gold/80">

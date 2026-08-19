@@ -36,7 +36,7 @@ export default function SmartGoals() {
                 <span className="font-display text-4xl md:text-6xl text-gold/42 group-hover:text-gold/70 transition-colors duration-700 tabular-nums leading-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="font-display text-xs md:text-[13px] tracking-[0.28em] uppercase text-gold/90 border border-gold/45 px-3 py-1.5">
+                <span className="meta-label-sm text-gold border border-gold/50 px-3 py-1.5">
                   {g.horizon}
                 </span>
               </div>

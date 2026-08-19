@@ -115,7 +115,7 @@ export function ContentsOverlay({ open, onClose }) {
         <div className="max-w-3xl mx-auto">
           <div className="flex items-start justify-between mb-8 md:mb-12">
             <div>
-              <p className="font-display text-xs md:text-sm tracking-[0.35em] uppercase text-gold mb-2">
+              <p className="meta-label text-gold mb-2">
                 Contents
               </p>
               <p className="font-script text-2xl md:text-3xl text-cream">
@@ -126,7 +126,7 @@ export function ContentsOverlay({ open, onClose }) {
               ref={closeRef}
               type="button"
               onClick={onClose}
-              className="font-display text-xs md:text-sm tracking-[0.25em] uppercase text-cream-dim hover:text-gold transition-colors border border-gold/40 hover:border-gold px-4 py-2.5"
+              className="meta-label text-cream-dim hover:text-gold transition-colors border border-gold/40 hover:border-gold px-4 py-2.5"
             >
               Close
             </button>

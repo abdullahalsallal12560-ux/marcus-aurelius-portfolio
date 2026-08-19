@@ -113,10 +113,10 @@ export default function RevenueStreams() {
               className="group relative bg-ink-soft p-8 md:p-9 flex flex-col gap-4 transition-colors duration-700 hover:bg-ink"
             >
               <div className="flex items-baseline justify-between gap-3">
-                <span className="meta-label-sm tabular-nums text-gold/75">
+                <span className="meta-label-sm text-gold/75 tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="meta-label-sm border border-gold/50 px-3 py-1.5">
+                <span className="meta-label-sm text-gold border border-gold/50 px-3 py-1.5">
                   {s.phase}
                 </span>
               </div>

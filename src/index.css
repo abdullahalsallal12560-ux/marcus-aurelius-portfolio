@@ -366,7 +366,6 @@ footer {
   font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-gold);
 }
 
 @media (min-width: 768px) {
@@ -381,7 +380,10 @@ footer {
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-gold);
+}
+
+@media (min-width: 768px) {
+  .meta-label-sm { font-size: 13px; }
 }
 
 /* Playfair italic sets tight, and the slant closes the gaps further, so at

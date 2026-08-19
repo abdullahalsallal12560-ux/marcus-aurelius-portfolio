@@ -45,11 +45,11 @@ export default function Contact() {
         style={{ "--stagger-step": "120ms" }}
       >
         <div className="flex items-center gap-3">
-          <span className="font-display text-xs tracking-[0.3em] text-gold/80">
+          <span className="meta-label text-gold/90">
             {section?.numeral}
           </span>
           <span aria-hidden="true" className="w-6 h-px bg-gold/30" />
-          <span className="font-display text-xs md:text-[13px] tracking-[0.35em] uppercase text-gold">
+          <span className="meta-label text-gold">
             Contact
           </span>
         </div>
@@ -71,7 +71,7 @@ export default function Contact() {
               rel="noreferrer"
               className="group flex flex-col items-center gap-2 border border-gold/35 hover:border-gold px-6 py-7 md:py-8 transition-colors duration-500"
             >
-              <span className="font-display text-xs tracking-[0.3em] uppercase text-gold/80 group-hover:text-gold transition-colors duration-500">
+              <span className="meta-label text-gold/85 group-hover:text-gold transition-colors duration-500">
                 {d.kind}
               </span>
               <span className="font-display text-lg md:text-2xl tracking-[0.06em] text-cream group-hover:text-gold-soft transition-colors duration-500 break-all">
@@ -88,7 +88,7 @@ export default function Contact() {
               href={d.href}
               className="group flex flex-col items-center gap-1.5 hover:text-gold transition-colors duration-500"
             >
-              <span className="font-display text-xs tracking-[0.28em] uppercase text-gold/70">
+              <span className="meta-label-sm text-gold/85">
                 {d.kind}
               </span>
               <span className="font-body text-lg md:text-xl text-cream-dim group-hover:text-gold transition-colors duration-500 tabular-nums">
@@ -100,7 +100,7 @@ export default function Contact() {
 
         <a
           href="mailto:info@marcusscent.com?subject=Waitlist"
-          className="group relative mt-5 overflow-hidden border border-gold px-10 py-4 font-display text-xs md:text-[13px] tracking-[0.28em] uppercase text-gold transition-colors duration-500 hover:text-ink"
+          className="group relative mt-5 overflow-hidden border border-gold px-10 py-4 meta-label text-gold transition-colors duration-500 hover:text-ink"
         >
           <span
             aria-hidden="true"
