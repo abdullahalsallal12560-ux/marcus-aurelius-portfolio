@@ -120,6 +120,59 @@ export default {
     rest: ", vendendo direttamente ai clienti attraverso il proprio sito e i propri canali social, senza intermediari nella fase iniziale. Così resta il controllo completo dell'esperienza, dalla confezione alla comunicazione, e si protegge l'esclusività su cui il marchio è costruito. Le uscite sono prodotte in serie limitate per sostenere la domanda e mantenere il valore del marchio.",
   },
 
+  thinkingMethod: [
+    { title: "Scoprire", body: "Individuare il vero vuoto nel mercato: lo spazio tra un'originalità sovrapprezzata e un'imitazione a basso costo." },
+    { title: "Definire", body: "Definire l'identità di ogni fragranza oltre il buon odore: un carattere, un racconto, un luogo." },
+    { title: "Progettare", body: "Progettare insieme la composizione olfattiva e l'identità visiva, perché nessuna delle due sembri estranea all'altra." },
+    { title: "Sviluppare", body: "Fino a due anni di sviluppo per tentativi successivi, finché ogni nota non è esatta." },
+    { title: "Lanciare", body: "Un lancio attento e senza fretta. Nulla arriva al pubblico prima di essere rivisto e rifinito." },
+    { title: "Ottimizzare", body: "Rifinitura continua, fino al tempo che serve per un solo post: quattro o cinque giorni." },
+  ],
+
+  actionPlan: [
+    {
+      label: "Fase 1",
+      title: "Avvio",
+      status: "Quasi conclusa",
+      body: "Identità del marchio, tutte e quattro le fragranze pronte alla produzione con confezione definitiva, sito attivo (marcusscent.com) e presenza attiva su Instagram. Resta: la fotografia finale e il consolidamento dei materiali prima del lancio ufficiale.",
+    },
+    {
+      label: "Fase 2",
+      title: "Lancio",
+      status: "Prossimi 6 mesi",
+      body: "Completare la ricerca di mercato (primi 2 mesi), aprire ufficialmente la vendita online (oggi solo soft launch e lista d'attesa), condurre una campagna social strutturata, puntare alle prime 50 vendite entro tre mesi dal lancio e costruire i primi accordi con rivenditori di nicchia selezionati.",
+    },
+    {
+      label: "Fase 3",
+      title: "Crescita",
+      status: "Dopo la validazione",
+      body: "Crescere solo attraverso boutique di proprietà, senza alcuna collocazione presso terzi, per proteggere l'esclusività dell'esperienza. Ampliare la linea, costruire un team dedicato a marketing e logistica, ed esplorare collaborazioni creative in edizione limitata.",
+    },
+  ],
+
+  growthStrategy: [
+    { title: "Marketing", body: "Contenuti visivi di alta qualità su Instagram invece di pubblicità a pagamento su larga scala. La scarsità stessa è uno strumento: la lista d'attesa, le edizioni limitate e il claim del marchio creano curiosità invece di portata di massa." },
+    { title: "Collaborazioni", body: "Solo collaborazioni selettive e scelte con cura: voci del lusso e della moda per farsi vedere, mai rivendita del prodotto da parte di terzi." },
+    { title: "Tecnologia", body: "Il sito costruito su misura (marcusscent.com) resta l'unico canale di vendita diretta. Gli investimenti vanno nel migliorare l'esperienza del sito e non nell'espandersi su marketplace di terzi, per mantenere il controllo completo del percorso del cliente." },
+    { title: "Espansione", body: "Verticale, non orizzontale. Solo boutique di proprietà, ciascuna pensata come esperienza sensoriale completa e non come scaffale, con una successiva espansione geografica, in particolare nel Golfo, sullo stesso modello di piena proprietà." },
+  ],
+
+  smartGoals: [
+    { horizon: "6 mesi", body: "Aprire il negozio online e concludere la prima vendita reale entro sei mesi, comprese la fotografia finale, l'assemblaggio del prodotto e l'attivazione dei canali di vendita." },
+    { horizon: "2 mesi", body: "Completare una ricerca di mercato approfondita (analisi dei concorrenti, comportamento del cliente target e strategia di prezzo definitiva) entro due mesi, prima di andare sul mercato." },
+    { horizon: "6 mesi", body: "Raggiungere 1.000 follower realmente coinvolti entro sei mesi, come base di clientela prima del lancio." },
+    { horizon: "3 mesi", body: "Realizzare le prime 50 vendite entro tre mesi dal lancio, come primo segnale di accettazione del mercato." },
+  ],
+
+  websiteStrategy: [
+    { name: "Home", body: "Apertura in video con collegamenti diretti alla Collezione e alla Storia del marchio." },
+    { name: "Shop / Collezione", body: "Tutte e quattro le fragranze con codice, prezzo e immagini sia di prodotto sia d'ambiente." },
+    { name: "Storia", body: "Il racconto delle origini." },
+    { name: "Atelier / Ingredienti", body: "Contenuti editoriali sulla filosofia degli ingredienti e sull'artigianalità." },
+    { name: "Fondatori", body: "Presentazione personale di chi sta dietro al marchio." },
+    { name: "Contatti e tracciamento", body: "Canale di contatto diretto e sistema di tracciamento degli ordini." },
+  ],
+
   hero: {
     srTitle: "Marcus Aurelius Profumi",
     logoAlt: "Marcus Aurelius Profumi",

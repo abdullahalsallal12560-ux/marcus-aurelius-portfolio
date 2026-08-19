@@ -1,5 +1,6 @@
 import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
+import { useT } from "../../i18n/useLocale";
 
 const pages = [
   { name: "Home", body: "Video hero (“Luxury, Captured in Scent”) with direct links to the Collection and the brand Story." },
@@ -11,6 +12,7 @@ const pages = [
 ];
 
 export default function WebsiteStrategy() {
+  const t = useT();
   return (
     <section id="website-strategy" className="py-28 md:py-40 px-5 bg-ink-soft">
       <div className="max-w-5xl mx-auto">
@@ -24,16 +26,16 @@ export default function WebsiteStrategy() {
         <Reveal stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/15">
           {pages.map((p, i) => (
             <div
-              key={p.name}
+              key={t.websiteStrategy[i].name}
               className="group relative bg-ink-soft p-7 md:p-8 transition-colors duration-700 hover:bg-ink"
             >
               <span className="meta-label-sm text-gold/80 tabular-nums block mb-3">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="font-display text-sm md:text-base tracking-[0.16em] uppercase text-gold mb-2.5 transition-colors duration-700 group-hover:text-gold-soft">
-                {p.name}
+                {t.websiteStrategy[i].name}
               </h3>
-              <p className="font-body text-base text-cream-dim leading-relaxed">{p.body}</p>
+              <p className="font-body text-base text-cream-dim leading-relaxed">{t.websiteStrategy[i].body}</p>
             </div>
           ))}
         </Reveal>

@@ -1,5 +1,6 @@
 import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
+import { useT } from "../../i18n/useLocale";
 
 const goals = [
   {
@@ -21,6 +22,7 @@ const goals = [
 ];
 
 export default function SmartGoals() {
+  const t = useT();
   return (
     <section id="smart-goals" className="py-28 md:py-40 px-5 bg-ink-soft">
       <div className="max-w-5xl mx-auto">
@@ -37,10 +39,10 @@ export default function SmartGoals() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="meta-label-sm text-gold border border-gold/50 px-3 py-1.5">
-                  {g.horizon}
+                  {t.smartGoals[i].horizon}
                 </span>
               </div>
-              <p className="font-body text-base md:text-lg text-cream-dim leading-relaxed">{g.body}</p>
+              <p className="font-body text-base md:text-lg text-cream-dim leading-relaxed">{t.smartGoals[i].body}</p>
             </div>
           ))}
         </Reveal>

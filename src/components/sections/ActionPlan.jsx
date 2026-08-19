@@ -1,6 +1,7 @@
 import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
 import useReveal from "../../hooks/useReveal";
+import { useT } from "../../i18n/useLocale";
 
 const phases = [
   {
@@ -24,6 +25,7 @@ const phases = [
 ];
 
 export default function ActionPlan() {
+  const t = useT();
   const [railRef, railVisible] = useReveal({ threshold: 0.2 });
 
   return (
@@ -41,19 +43,19 @@ export default function ActionPlan() {
           />
 
           {phases.map((p, i) => (
-            <Reveal key={p.label} delay={i * 160} className="relative flex flex-col">
+            <Reveal key={t.actionPlan[i].label} delay={i * 160} className="relative flex flex-col">
               <span
                 aria-hidden="true"
                 className="hidden md:block w-[0.85rem] h-[0.85rem] rounded-full bg-gold ring-4 ring-ink mb-8"
               />
               <span className="meta-label text-gold mb-3">
-                {p.label}
+                {t.actionPlan[i].label}
               </span>
               <h3 className="font-display text-2xl md:text-3xl tracking-[0.1em] uppercase text-cream mb-2">
-                {p.title}
+                {t.actionPlan[i].title}
               </h3>
-              <span className="font-script text-lg text-gold-soft mb-5">{p.status}</span>
-              <p className="font-body text-base md:text-lg text-cream-dim leading-relaxed">{p.body}</p>
+              <span className="font-script text-lg text-gold-soft mb-5">{t.actionPlan[i].status}</span>
+              <p className="font-body text-base md:text-lg text-cream-dim leading-relaxed">{t.actionPlan[i].body}</p>
             </Reveal>
           ))}
         </div>

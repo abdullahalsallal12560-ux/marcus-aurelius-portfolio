@@ -1,6 +1,7 @@
 import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
 import useReveal from "../../hooks/useReveal";
+import { useT } from "../../i18n/useLocale";
 
 const steps = [
   { n: "01", title: "Discover", body: "Identifying the real gap in the market: the space between overpriced originality and cheap imitation." },
@@ -12,6 +13,7 @@ const steps = [
 ];
 
 export default function ThinkingMethod() {
+  const t = useT();
   const [railRef, railVisible] = useReveal({ threshold: 0.05 });
 
   return (
@@ -28,7 +30,7 @@ export default function ThinkingMethod() {
           />
 
           <Reveal stagger className="flex flex-col">
-            {steps.map((s) => (
+            {steps.map((s, i) => (
               <div
                 key={s.n}
                 className="group relative grid grid-cols-[2.4rem_1fr] md:grid-cols-[4.4rem_1fr] gap-5 md:gap-8 pb-10 md:pb-14 last:pb-0"
@@ -43,10 +45,10 @@ export default function ThinkingMethod() {
 
                 <div className="pt-1 md:pt-4">
                   <h3 className="font-display text-lg md:text-2xl tracking-[0.16em] uppercase text-cream mb-2">
-                    {s.title}
+                    {t.thinkingMethod[i].title}
                   </h3>
                   <p className="font-body text-base md:text-lg text-cream-dim leading-relaxed max-w-xl">
-                    {s.body}
+                    {t.thinkingMethod[i].body}
                   </p>
                 </div>
               </div>

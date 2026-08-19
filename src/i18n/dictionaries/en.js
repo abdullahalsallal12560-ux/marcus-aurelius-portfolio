@@ -121,6 +121,59 @@ export default {
     rest: " model, selling directly to customers through its own website and social channels, without intermediaries in the initial phase. This preserves full control over the customer experience, from packaging to communication, and protects the exclusivity the brand is built on. Releases are produced in limited batches to reinforce demand and maintain brand value.",
   },
 
+  thinkingMethod: [
+    { title: "Discover", body: "Identifying the real gap in the market: the space between overpriced originality and cheap imitation." },
+    { title: "Define", body: "Defining the identity of each fragrance beyond a nice smell: a persona, a story, a place." },
+    { title: "Design", body: "Designing the scent composition and the visual identity together, so neither feels separate from the other." },
+    { title: "Develop", body: "Up to two years of iterative formula development to get every note exactly right." },
+    { title: "Deploy", body: "A careful, unrushed launch. Nothing reaches the public before it has been reviewed and refined." },
+    { title: "Optimize", body: "Continuous refinement, down to how long a single social media post takes to get right: four to five days." },
+  ],
+
+  actionPlan: [
+    {
+      label: "Phase 1",
+      title: "Setup",
+      status: "Largely complete",
+      body: "Brand identity, all four fragrances production-ready with finalized packaging, live website (marcusscent.com), and active Instagram presence. Remaining: final photography and asset consolidation before official launch.",
+    },
+    {
+      label: "Phase 2",
+      title: "Launch",
+      status: "Next 6 months",
+      body: "Complete market research (first 2 months), officially launch online sales (currently soft-launch and waitlist only), run a structured social media campaign, target the first 50 sales within 3 months of launch, and build early placement partnerships with select niche retailers.",
+    },
+    {
+      label: "Phase 3",
+      title: "Growth",
+      status: "Post-validation",
+      body: "Expand through brand-owned boutiques only, with no third-party retail placement, to protect the exclusivity of the brand experience. Expand the product line, build a dedicated marketing and logistics team, and explore limited-edition creative collaborations.",
+    },
+  ],
+
+  growthStrategy: [
+    { title: "Marketing", body: "High-quality visual content across Instagram rather than broad paid advertising. Scarcity itself is a marketing tool: the waitlist, limited editions, and the brand's own tagline create curiosity instead of mass reach." },
+    { title: "Partnerships", body: "Selective, carefully chosen collaborations only: luxury and fashion-aligned voices for exposure, never third-party resale of the product itself." },
+    { title: "Technology", body: "The existing custom-built website (marcusscent.com) remains the sole direct sales channel. Investment goes into improving the site experience itself rather than expanding to third-party marketplaces, to preserve full control over the customer journey." },
+    { title: "Expansion", body: "Vertical, not horizontal. Brand-owned boutiques only, each designed as a full sensory experience rather than a shelf display, with future geographic expansion, particularly the Gulf, following the same fully-owned model." },
+  ],
+
+  smartGoals: [
+    { horizon: "6 months", body: "Launch the online store and complete the first real sale within 6 months, including final photography, product assembly, and activating sales channels." },
+    { horizon: "2 months", body: "Complete comprehensive market research (competitor analysis, target customer behavior, and final pricing strategy) within 2 months, before going to market." },
+    { horizon: "6 months", body: "Reach 1,000 engaged social media followers within 6 months, as a customer base foundation ahead of launch." },
+    { horizon: "3 months", body: "Achieve the first 50 sales within 3 months of launch, as an early signal of market acceptance." },
+  ],
+
+  websiteStrategy: [
+    { name: "Home", body: "Video hero with direct links to the Collection and the brand Story." },
+    { name: "Shop / Collection", body: "All four fragrances with SKU, pricing, and dual product and lifestyle imagery." },
+    { name: "Story", body: "The founding narrative." },
+    { name: "Atelier / Ingredients", body: "Editorial content on ingredient philosophy and craftsmanship." },
+    { name: "Founders", body: "Personal introduction to the people behind the brand." },
+    { name: "Contact & Order Tracking", body: "Direct contact channel and order tracking system." },
+  ],
+
   hero: {
     srTitle: "Marcus Aurelius Perfumes",
     logoAlt: "Marcus Aurelius Perfumes",

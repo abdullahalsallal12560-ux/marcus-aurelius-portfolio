@@ -1,5 +1,6 @@
 import SectionHeading from "../shared/SectionHeading";
 import Reveal from "../shared/Reveal";
+import { useT } from "../../i18n/useLocale";
 
 const pillars = [
   {
@@ -21,6 +22,7 @@ const pillars = [
 ];
 
 export default function GrowthStrategy() {
+  const t = useT();
   return (
     <section id="growth-strategy" className="py-28 md:py-40 px-5 bg-ink">
       <div className="max-w-6xl mx-auto">
@@ -28,7 +30,7 @@ export default function GrowthStrategy() {
 
         <Reveal stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {pillars.map((p, i) => (
-            <div key={p.title} className="group">
+            <div key={t.growthStrategy[i].title} className="group">
               <span
                 aria-hidden="true"
                 className="block h-px bg-gold/35 mb-5 origin-left rtl:origin-right transition-all duration-700 group-hover:bg-gold"
@@ -38,10 +40,10 @@ export default function GrowthStrategy() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display text-sm md:text-base tracking-[0.2em] uppercase text-gold">
-                  {p.title}
+                  {t.growthStrategy[i].title}
                 </h3>
               </div>
-              <p className="font-body text-base text-cream-dim leading-relaxed">{p.body}</p>
+              <p className="font-body text-base text-cream-dim leading-relaxed">{t.growthStrategy[i].body}</p>
             </div>
           ))}
         </Reveal>
