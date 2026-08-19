@@ -76,7 +76,10 @@ export default function Contact() {
               <span className="meta-label text-gold/85 group-hover:text-gold transition-colors duration-500">
                 {t.contactSection.kinds[d.kind.toLowerCase()] ?? d.kind}
               </span>
-              <span className="font-display text-lg md:text-2xl tracking-[0.06em] text-cream group-hover:text-gold-soft transition-colors duration-500 break-all">
+              <span
+                dir="ltr"
+                className="font-display text-lg md:text-2xl tracking-[0.06em] text-cream group-hover:text-gold-soft transition-colors duration-500 break-all"
+              >
                 {d.label}
               </span>
             </a>
@@ -93,7 +96,10 @@ export default function Contact() {
               <span className="meta-label-sm text-gold/85">
                 {t.contactSection.kinds[d.kind.toLowerCase()] ?? d.kind}
               </span>
-              <span className="font-body text-lg md:text-xl text-cream-dim group-hover:text-gold transition-colors duration-500 tabular-nums">
+              <span
+                dir="ltr"
+                className="font-body text-lg md:text-xl text-cream-dim group-hover:text-gold transition-colors duration-500 tabular-nums"
+              >
                 {d.label}
               </span>
             </a>
