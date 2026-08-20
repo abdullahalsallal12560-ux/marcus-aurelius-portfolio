@@ -1,6 +1,6 @@
 # Submission
 
-`Marcus-Aurelius-Portfolio.pdf` is the document to upload to eLearning. 34 pages,
+`Marcus-Aurelius-Portfolio.pdf` is the document to upload to eLearning. 55 pages,
 A4, real vector text rather than page images, so it is selectable and searchable.
 
 ## Why this exists alongside the website
@@ -20,10 +20,12 @@ full here and deliberately left off the public site.
 cd source && node build.cjs
 ```
 
-The five `part*.html` files are concatenated in order and rendered through headless
-Chromium. `part1.html` holds the stylesheet and the cover; the brand lockup is
+The `part*.html` files are concatenated in the order listed in `build.cjs` and
+rendered through headless Chromium. `pagegeom.py` reads the finished PDF back and
+reports any page whose content breaks into a margin, which is how the geometry is
+checked rather than eyeballed. `part1.html` holds the stylesheet and the cover; the brand lockup is
 embedded in it as base64 from `lockup.b64`, so the document has no external
 dependencies except the Google Fonts request.
 
 Editing the copy means editing the part files. The build is deterministic: same
-input, same 34 pages.
+input, same 55 pages.

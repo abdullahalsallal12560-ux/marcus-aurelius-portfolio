@@ -16,7 +16,13 @@
    seventy characters.
    --------------------------------------------------------------- */
 
-@page { size: A4; margin: 0; }
+@page {
+  size: A4;
+  /* Zero, because Chrome paints no background into an @page margin by any
+     means: not from html, not from body, not from a fixed element. Measured
+     rather than assumed. The vertical space comes from .sheet instead. */
+  margin: 0;
+}
 
 :root {
   --ink:        #14110D;
@@ -41,6 +47,7 @@ html, body {
   margin: 0;
   padding: 0;
   background: var(--ink);
+  /* see .ground below: this alone does not reach the page margins */
   color: var(--body);
   font-family: var(--text);
   font-size: 11.4pt;
@@ -49,11 +56,53 @@ html, body {
   print-color-adjust: exact;
 }
 
-.sheet { padding: 20mm 20mm 18mm; }
+/* The ground has to be painted by something that repeats on every page.
+   A background on the root element covers only the area inside the @page
+   margins once those margins exist, which left a white band at the head and
+   foot of every sheet. A fixed element is painted onto each page in paged
+   media, so this one covers the paper edge to edge. */
+.sheet {
+  /* Padding on a fragmented box normally applies to its first fragment only,
+     which is what left page two of every section running to the paper edge.
+     Cloning the decoration repeats it on every fragment, so each page carries
+     the same margins while the ground still reaches the edge. */
+  padding: 22mm 20mm 20mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Nothing is allowed to strand a line on its own at the top or bottom of a
+   page, and a heading always travels with the thing it introduces. */
+p, li, td { orphans: 2; widows: 2; }
+
+h2, h3, h4, caption, .eyebrow {
+  break-after: avoid-page;
+  page-break-after: avoid;
+}
+
+h2 { break-before: avoid-page; }
+
+.card, .stat, .pull, .note, .grid2, .grid3, .grid4 {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* A long table held together whole takes a page of its own and leaves the
+   one before it half empty. It breaks between rows instead, never through
+   one, and carries its own header onto the continuation. */
+table { break-inside: auto; }
+tr    { break-inside: avoid; page-break-inside: avoid; }
+thead { display: table-header-group; }
+caption { break-after: avoid-page; page-break-after: avoid; }
+
+/* A pull quote cannot break internally, so when it did not fit at the foot of
+   a page it took a page of its own. It travels with what precedes it instead. */
+.pull, .note { break-before: avoid-page; page-break-before: avoid; }
 
 /* ---------- cover ---------- */
 .cover {
   height: 297mm;
+  width: 210mm;
   page-break-after: always;
   display: flex;
   flex-direction: column;
@@ -314,70 +363,39 @@ ul.plain li::marker { color: var(--gold); }
   case. This states the evidence.</p>
 
   <ul class="toc">
-    <li class="part">I &nbsp;&middot;&nbsp; The company</li>
+    <li class="part">I · The company</li>
     <li><span class="num">01</span><span class="name">The business idea</span></li>
     <li><span class="num">02</span><span class="name">Company overview</span></li>
     <li><span class="num">03</span><span class="name">The founding story</span></li>
-    <li><span class="num">04</span><span class="name">Two years of development, in detail</span></li>
-    <li><span class="num">05</span><span class="name">Vision &amp; mission</span></li>
-    <li><span class="num">06</span><span class="name">Core values</span></li>
-
-    <li class="part">II &nbsp;&middot;&nbsp; The business</li>
-    <li><span class="num">07</span><span class="name">Business model, and why nobody else sells it</span></li>
-    <li><span class="num">08</span><span class="name">Unit economics</span></li>
-    <li><span class="num">09</span><span class="name">Revenue streams</span></li>
-    <li><span class="num">10</span><span class="name">Traction: the first two weeks</span></li>
-    <li><span class="num">11</span><span class="name">SMART goals</span></li>
-    <li><span class="num">12</span><span class="name">Action plan</span></li>
-    <li><span class="num">13</span><span class="name">Growth strategy</span></li>
-    <li><span class="num">14</span><span class="name">Market analysis</span></li>
-
-    <li class="part">III &nbsp;&middot;&nbsp; The brand</li>
-    <li><span class="num">15</span><span class="name">The collection</span></li>
-    <li><span class="num">16</span><span class="name">Thinking method</span></li>
-    <li><span class="num">17</span><span class="name">Brand identity</span></li>
-    <li><span class="num">18</span><span class="name">Website strategy</span></li>
-    <li><span class="num">19</span><span class="name">Portfolio appearance &amp; design</span></li>
-    <li><span class="num">20</span><span class="name">Contact</span></li>
+    <li><span class="num">04</span><span class="name">Development, in detail</span></li>
+    <li><span class="num">05</span><span class="name">Operations: how a bottle is made</span></li>
+    <li><span class="num">06</span><span class="name">Product specification</span></li>
+    <li><span class="num">07</span><span class="name">Vision &amp; mission</span></li>
+    <li><span class="num">08</span><span class="name">Core values</span></li>
+    <li class="part">II · The business</li>
+    <li><span class="num">09</span><span class="name">Business model, and why nobody else sells it</span></li>
+    <li><span class="num">10</span><span class="name">Unit economics</span></li>
+    <li><span class="num">11</span><span class="name">Competitive position</span></li>
+    <li><span class="num">12</span><span class="name">Revenue streams</span></li>
+    <li><span class="num">13</span><span class="name">Pricing philosophy</span></li>
+    <li><span class="num">14</span><span class="name">The customer journey</span></li>
+    <li><span class="num">15</span><span class="name">Traction: the first two weeks</span></li>
+    <li><span class="num">16</span><span class="name">SMART goals</span></li>
+    <li><span class="num">17</span><span class="name">Action plan</span></li>
+    <li><span class="num">18</span><span class="name">Growth strategy</span></li>
+    <li><span class="num">19</span><span class="name">Risk analysis</span></li>
+    <li><span class="num">20</span><span class="name">Sustainability and ethics</span></li>
+    <li><span class="num">21</span><span class="name">Financial outlook</span></li>
+    <li><span class="num">22</span><span class="name">Market analysis</span></li>
+    <li class="part">III · The brand</li>
+    <li><span class="num">23</span><span class="name">The collection</span></li>
+    <li><span class="num">24</span><span class="name">Thinking method</span></li>
+    <li><span class="num">25</span><span class="name">Brand identity</span></li>
+    <li><span class="num">26</span><span class="name">Website strategy</span></li>
+    <li><span class="num">27</span><span class="name">Portfolio appearance &amp; design</span></li>
+    <li><span class="num">28</span><span class="name">Contact</span></li>
+    <li class="part">IV · Reference</li>
+    <li><span class="num">29</span><span class="name">Lessons</span></li>
+    <li><span class="num">30</span><span class="name">Glossary</span></li>
   </ul>
-</div>
-
-<!-- ============================= 01 BUSINESS IDEA ============================= -->
-<div class="sheet section">
-  <p class="eyebrow">01 &nbsp;&middot;&nbsp; Why we exist</p>
-  <h2>The business idea</h2>
-
-  <h3>Problem</h3>
-  <p>The niche perfume market is split between two extremes. At one end sit the original,
-  high-quality niche houses, priced at <span class="fig">$300</span> and above. At the other sit
-  cheap niche-styled brands that cut corners on oil quality in order to compete on price, selling
-  the appearance of niche without the substance of it.</p>
-  <p>There is no middle ground offering real craftsmanship without exploitation. A buyer who wants
-  a composition that was actually developed rather than copied has to pay for a European house's
-  overheads to get it.</p>
-
-  <h3>Solution</h3>
-  <p>Marcus Aurelius breaks that binary with exclusive, non-derivative blends, carefully selected
-  oils, and fragrances engineered to be magnetic through composition alone, without relying on
-  banned or synthetic pheromone additives.</p>
-  <p>The claim that the cheap end cuts corners on oil quality is one this company is in a position
-  to make, because it did the opposite and can show what that cost: two years, more than thirty
-  formulations and <span class="fig">1,800 JOD</span> spent before a single bottle was sold.
-  Section 04 sets out exactly where that went.</p>
-
-  <h3>Unique value proposition</h3>
-  <p>This is not a perfume made to please everyone, and it is not meant to be wearable by everyone.
-  That exclusivity is the point: a selective fragrance built for a defined identity, not a
-  mass-market crowd-pleaser.</p>
-  <p>What cannot be copied quickly is not the formula but the time. Anyone can buy the same oils
-  tomorrow. Nobody can buy two years of iteration, and a serious trial cannot be hurried, because
-  a single one takes forty days to finish.</p>
-
-  <h3>Target customers</h3>
-  <p>People who want distinction, not just a pleasant scent: buyers looking for individuality, a
-  story, a persona, and quiet confidence before they are looking for a smell. In practice this is
-  a buyer who already knows what mass-market fragrance smells like on everyone else, and has
-  decided against it.</p>
-
-  <div class="pull">A perfume that has to announce itself has already lost the argument.</div>
 </div>

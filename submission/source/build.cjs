@@ -4,7 +4,19 @@ const NPX = path.join(process.env.LOCALAPPDATA, "npm-cache/_npx/e41f203b7505f1fb
 const { chromium } = require(path.join(NPX, "playwright"));
 
 const DIR = __dirname;
-const parts = ["part1", "part2", "part3", "part4", "part5"];
+const parts = [
+  "part1",    // stylesheet, cover, contents
+  "part0",    // executive summary
+  "part1b",   // 01 business idea
+  "part2",    // 02 overview, 03 founding story, 04 development, 07 vision, 08 values
+  "part2b",   // 05 operations, 06 product specification
+  "part3",    // 09 business model, 10 unit economics, 12 revenue streams
+  "part3b",   // 11 competitive position, 13 pricing, 14 customer journey
+  "part4",    // 15 traction, 16 smart goals, 17 action plan, 18 growth, 22 market
+  "part4b",   // 19 risk, 20 sustainability, 21 financial outlook
+  "part5",    // 23 collection, 24 thinking, 25 identity, 26 website, 27 design, 28 contact
+  "part6",    // 29 lessons, 30 glossary
+];
 const html = parts.map((p) => fs.readFileSync(path.join(DIR, p + ".html"), "utf8")).join("\n");
 const combined = path.join(DIR, "portfolio.html");
 fs.writeFileSync(combined, html, "utf8");
