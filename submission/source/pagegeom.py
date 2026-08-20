@@ -22,13 +22,18 @@ bad_top, bad_bottom, empty = [], [], []
 
 for i, page in enumerate(doc):
     h = page.rect.height
-    blocks = [b for b in page.get_text("blocks") if b[4].strip()]
-    if not blocks:
+    # images count as ink. Reading only text blocks is how a portrait sitting
+    # one point from the paper edge went unnoticed through several checks.
+    boxes = [(b[1], b[3]) for b in page.get_text("blocks") if b[4].strip()]
+    for img in page.get_images(full=True):
+        for r in page.get_image_rects(img[0]):
+            boxes.append((r.y0, r.y1))
+    if not boxes:
         empty.append(i + 1)
         continue
 
-    first = min(b[1] for b in blocks)
-    last = max(b[3] for b in blocks)
+    first = min(b[0] for b in boxes)
+    last = max(b[1] for b in boxes)
     top_gap = first
     bottom_gap = h - last
 

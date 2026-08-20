@@ -18,6 +18,7 @@ const parts = [
   "part4b",   // 19 risk, 20 sustainability, 21 financial outlook
   "part5",    // 23 collection, 24 thinking, 25 identity, 26 website, 27 design, 28 contact
   "part6",    // 29 lessons, 30 glossary
+  "partcredit", // closing credit
 ];
 const html = parts.map((p) => fs.readFileSync(path.join(DIR, p + ".html"), "utf8")).join("\n");
 const combined = path.join(DIR, "portfolio.html");
@@ -41,6 +42,24 @@ const out = path.join(DIR, "Marcus-Aurelius-Portfolio.pdf");
     playfair: document.fonts.check('italic 16px "Playfair Display"'),
   }));
   console.log("fonts:", JSON.stringify(fonts));
+
+  // Chrome shrinks the entire document to fit when any element is wider than
+  // the page, silently and without warning. It cost nine pages and two points
+  // of body size before it was noticed, so it is checked rather than trusted.
+  const overflow = await p.evaluate(() => {
+    const limit = document.documentElement.clientWidth;
+    const wide = [];
+    document.querySelectorAll("body *").forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.width > limit + 1) wide.push((el.className || el.tagName) + " " + Math.round(r.width) + "px");
+    });
+    return { limit, wide: wide.slice(0, 5) };
+  });
+  if (overflow.wide.length) {
+    console.log("** WIDER THAN THE PAGE (" + overflow.limit + "px): " + overflow.wide.join(" | "));
+  } else {
+    console.log("nothing overflows the page width");
+  }
 
   await p.pdf({
     path: out,

@@ -315,9 +315,9 @@ ul.plain li::marker { color: var(--gold); }
 }
 .linkcard {
   border: 1px solid var(--bronze);
-  padding: 18mm 16mm;
+  padding: 16mm 12mm;
   text-align: center;
-  max-width: 150mm;
+  max-width: 162mm;
   width: 100%;
 }
 .linkcard .eyebrow::after { display: none; }
@@ -331,8 +331,9 @@ ul.plain li::marker { color: var(--gold); }
 .bigurl {
   display: block;
   font-family: var(--display);
-  font-size: 26pt;
-  letter-spacing: 0.05em;
+  font-size: 19pt;
+  letter-spacing: 0.03em;
+  overflow-wrap: anywhere;
   color: var(--gold);
   text-decoration: none;
   border-top: 1px solid var(--bronze);
@@ -364,6 +365,42 @@ ul.plain li::marker { color: var(--gold); }
   color: var(--gold);
 }
 .linkmeta a { color: var(--body); text-decoration: none; font-size: 13pt; }
+
+/* ---------- closing credit ---------- */
+.creditpage {
+  height: 297mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  break-inside: avoid;
+}
+.creditcard { text-align: center; }
+.credit-portrait {
+  width: 62mm;
+  height: 77mm;
+  object-fit: cover;
+  border: 1px solid rgba(138,106,60,.6);
+  display: block;
+  margin: 0 auto 11mm;
+}
+.credit-line {
+  font-family: var(--script);
+  font-style: italic;
+  font-size: 19pt;
+  color: var(--gold-soft);
+  margin: 0 0 6mm;
+  max-width: none;
+}
+.credit-name {
+  font-family: var(--display);
+  font-size: 15pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin: 0 0 9mm;
+  max-width: none;
+}
+.credit-meta { font-size: 12pt; color: var(--dim); margin: 0; max-width: none; }
 
 /* ---------- contents ---------- */
 .toc { list-style: none; margin: 6mm 0 0; padding: 0; column-count: 1; }
