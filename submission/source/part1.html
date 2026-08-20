@@ -50,8 +50,8 @@ html, body {
   /* see .ground below: this alone does not reach the page margins */
   color: var(--body);
   font-family: var(--text);
-  font-size: 11.4pt;
-  line-height: 1.75;
+  font-size: 13pt;
+  line-height: 1.68;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
@@ -116,7 +116,7 @@ caption { break-after: avoid-page; page-break-after: avoid; }
 .cover h1 {
   font-family: var(--display);
   font-weight: 400;
-  font-size: 30pt;
+  font-size: 32pt;
   letter-spacing: 0.16em;
   color: var(--cream);
   margin: 0;
@@ -126,14 +126,14 @@ caption { break-after: avoid-page; page-break-after: avoid; }
 .cover .script {
   font-family: var(--script);
   font-style: italic;
-  font-size: 19pt;
+  font-size: 21pt;
   color: var(--gold-soft);
   margin: 2mm 0 0;
 }
 .cover .rule { width: 44mm; height: 1px; background: var(--gold); opacity: .8; margin: 9mm 0; }
 .cover .claim {
   font-family: var(--display);
-  font-size: 9.5pt;
+  font-size: 12pt;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--body);
@@ -146,7 +146,7 @@ caption { break-after: avoid-page; page-break-after: avoid; }
   bottom: 22mm;
   left: 0; right: 0;
   font-family: var(--display);
-  font-size: 8.5pt;
+  font-size: 12pt;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--dim);
@@ -160,7 +160,7 @@ caption { break-after: avoid-page; page-break-after: avoid; }
 
 .eyebrow {
   font-family: var(--display);
-  font-size: 8.5pt;
+  font-size: 12pt;
   letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--gold);
@@ -174,7 +174,7 @@ caption { break-after: avoid-page; page-break-after: avoid; }
 h2 {
   font-family: var(--display);
   font-weight: 400;
-  font-size: 21pt;
+  font-size: 24pt;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--cream);
@@ -185,7 +185,7 @@ h2 {
 h3 {
   font-family: var(--display);
   font-weight: 600;
-  font-size: 11pt;
+  font-size: 12.5pt;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold);
@@ -195,21 +195,21 @@ h3 {
 h4 {
   font-family: var(--text);
   font-weight: 600;
-  font-size: 12pt;
+  font-size: 13.5pt;
   color: var(--cream);
   margin: 6mm 0 1.5mm;
   letter-spacing: 0.01em;
 }
 
-p { margin: 0 0 4mm; max-width: 165mm; }
-p.lead { font-size: 12.6pt; color: var(--cream); line-height: 1.7; }
+p { margin: 0 0 4.5mm; max-width: 168mm; }
+p.lead { font-size: 14.6pt; color: var(--cream); line-height: 1.6; }
 em { font-style: italic; color: var(--cream); }
 strong { font-weight: 600; color: var(--cream); }
 
 .fig { font-family: var(--display); color: var(--gold); font-size: 1.12em; letter-spacing: .02em; }
 
 .note {
-  font-size: 10pt;
+  font-size: 12pt;
   color: var(--dim);
   font-style: italic;
   border-left: 1px solid var(--bronze);
@@ -221,7 +221,7 @@ strong { font-weight: 600; color: var(--cream); }
 .pull {
   font-family: var(--script);
   font-style: italic;
-  font-size: 15pt;
+  font-size: 17pt;
   line-height: 1.5;
   color: var(--gold-soft);
   border-top: 1px solid var(--bronze);
@@ -236,13 +236,13 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 5mm 0 6mm;
-  font-size: 10.4pt;
+  font-size: 12pt;
   page-break-inside: avoid;
 }
 caption {
   text-align: left;
   font-family: var(--display);
-  font-size: 8.5pt;
+  font-size: 12pt;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
@@ -252,7 +252,7 @@ th {
   text-align: left;
   font-family: var(--display);
   font-weight: 600;
-  font-size: 8.5pt;
+  font-size: 12pt;
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--gold-soft);
@@ -291,13 +291,13 @@ tr.total td { border-bottom: none; border-top: 1px solid var(--bronze); color: v
 }
 .stat .n {
   font-family: var(--display);
-  font-size: 16pt;
+  font-size: 19pt;
   color: var(--gold);
   display: block;
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
 }
-.stat .l { font-size: 9.2pt; color: var(--dim); display: block; margin-top: 2mm; line-height: 1.4; }
+.stat .l { font-size: 12pt; color: var(--dim); display: block; margin-top: 2mm; line-height: 1.4; }
 
 ul.plain { margin: 0 0 4mm; padding-left: 5mm; max-width: 165mm; }
 ul.plain li { margin-bottom: 2mm; }
@@ -305,31 +305,91 @@ ul.plain li::marker { color: var(--gold); }
 
 .keyline { height: 1px; background: var(--bronze); opacity: .5; margin: 8mm 0; }
 
+/* ---------- the live portfolio page ---------- */
+.linkpage {
+  height: 297mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  page-break-after: always;
+}
+.linkcard {
+  border: 1px solid var(--bronze);
+  padding: 18mm 16mm;
+  text-align: center;
+  max-width: 150mm;
+  width: 100%;
+}
+.linkcard .eyebrow::after { display: none; }
+.linklead {
+  font-size: 14.6pt;
+  color: var(--cream);
+  line-height: 1.6;
+  margin: 0 auto 10mm;
+  max-width: 108mm;
+}
+.bigurl {
+  display: block;
+  font-family: var(--display);
+  font-size: 26pt;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  text-decoration: none;
+  border-top: 1px solid var(--bronze);
+  border-bottom: 1px solid var(--bronze);
+  padding: 7mm 0;
+  margin-bottom: 10mm;
+}
+.qr { width: 34mm; height: 34mm; display: block; margin: 0 auto 7mm; }
+.linknote {
+  font-size: 12pt;
+  color: var(--dim);
+  margin: 0 auto 10mm;
+  max-width: 112mm;
+}
+.linkmeta {
+  display: flex;
+  justify-content: center;
+  gap: 10mm;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(138,106,60,.4);
+  padding-top: 7mm;
+}
+.linkmeta div { display: flex; flex-direction: column; gap: 1.5mm; }
+.linkmeta span {
+  font-family: var(--display);
+  font-size: 12pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.linkmeta a { color: var(--body); text-decoration: none; font-size: 13pt; }
+
 /* ---------- contents ---------- */
 .toc { list-style: none; margin: 6mm 0 0; padding: 0; column-count: 1; }
 .toc li {
   display: flex;
   align-items: baseline;
   gap: 3mm;
-  padding: 2.6mm 0;
+  padding: 1.9mm 0;
   border-bottom: 1px solid rgba(138,106,60,.25);
 }
 .toc .num {
   font-family: var(--display);
-  font-size: 9pt;
+  font-size: 12pt;
   color: var(--gold);
   min-width: 13mm;
   letter-spacing: .1em;
 }
-.toc .name { font-size: 11.5pt; color: var(--cream); }
+.toc .name { font-size: 13pt; color: var(--cream); }
 .toc .part {
   font-family: var(--display);
-  font-size: 8.5pt;
+  font-size: 12pt;
   letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--dim);
   border: none;
-  padding-top: 6mm;
+  padding-top: 4mm;
   display: block;
 }
 </style>
@@ -351,51 +411,4 @@ ul.plain li::marker { color: var(--gold); }
     <a href="https://marcusscent.com">marcusscent.com</a> &nbsp;&middot;&nbsp; info@marcusscent.com<br>
     Amman, Jordan
   </div>
-</div>
-
-<!-- ============================= CONTENTS ============================= -->
-<div class="sheet section">
-  <p class="eyebrow">Contents</p>
-  <h2>What is in this document</h2>
-
-  <p class="lead">This is the full record behind the company: the reasoning, the figures, the two
-  years that produced the first bottle, and what the numbers actually say. The website states the
-  case. This states the evidence.</p>
-
-  <ul class="toc">
-    <li class="part">I · The company</li>
-    <li><span class="num">01</span><span class="name">The business idea</span></li>
-    <li><span class="num">02</span><span class="name">Company overview</span></li>
-    <li><span class="num">03</span><span class="name">The founding story</span></li>
-    <li><span class="num">04</span><span class="name">Development, in detail</span></li>
-    <li><span class="num">05</span><span class="name">Operations: how a bottle is made</span></li>
-    <li><span class="num">06</span><span class="name">Product specification</span></li>
-    <li><span class="num">07</span><span class="name">Vision &amp; mission</span></li>
-    <li><span class="num">08</span><span class="name">Core values</span></li>
-    <li class="part">II · The business</li>
-    <li><span class="num">09</span><span class="name">Business model, and why nobody else sells it</span></li>
-    <li><span class="num">10</span><span class="name">Unit economics</span></li>
-    <li><span class="num">11</span><span class="name">Competitive position</span></li>
-    <li><span class="num">12</span><span class="name">Revenue streams</span></li>
-    <li><span class="num">13</span><span class="name">Pricing philosophy</span></li>
-    <li><span class="num">14</span><span class="name">The customer journey</span></li>
-    <li><span class="num">15</span><span class="name">Traction: the first two weeks</span></li>
-    <li><span class="num">16</span><span class="name">SMART goals</span></li>
-    <li><span class="num">17</span><span class="name">Action plan</span></li>
-    <li><span class="num">18</span><span class="name">Growth strategy</span></li>
-    <li><span class="num">19</span><span class="name">Risk analysis</span></li>
-    <li><span class="num">20</span><span class="name">Sustainability and ethics</span></li>
-    <li><span class="num">21</span><span class="name">Financial outlook</span></li>
-    <li><span class="num">22</span><span class="name">Market analysis</span></li>
-    <li class="part">III · The brand</li>
-    <li><span class="num">23</span><span class="name">The collection</span></li>
-    <li><span class="num">24</span><span class="name">Thinking method</span></li>
-    <li><span class="num">25</span><span class="name">Brand identity</span></li>
-    <li><span class="num">26</span><span class="name">Website strategy</span></li>
-    <li><span class="num">27</span><span class="name">Portfolio appearance &amp; design</span></li>
-    <li><span class="num">28</span><span class="name">Contact</span></li>
-    <li class="part">IV · Reference</li>
-    <li><span class="num">29</span><span class="name">Lessons</span></li>
-    <li><span class="num">30</span><span class="name">Glossary</span></li>
-  </ul>
 </div>

@@ -5,7 +5,9 @@ const { chromium } = require(path.join(NPX, "playwright"));
 
 const DIR = __dirname;
 const parts = [
-  "part1",    // stylesheet, cover, contents
+  "part1",    // stylesheet and cover
+  "partlink", // the live portfolio, straight after the cover
+  "part1c",   // contents
   "part0",    // executive summary
   "part1b",   // 01 business idea
   "part2",    // 02 overview, 03 founding story, 04 development, 07 vision, 08 values

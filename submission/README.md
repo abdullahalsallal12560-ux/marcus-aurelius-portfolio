@@ -1,6 +1,6 @@
 # Submission
 
-`Marcus-Aurelius-Portfolio.pdf` is the document to upload to eLearning. 55 pages,
+`Marcus-Aurelius-Portfolio.pdf` is the document to upload to eLearning. 62 pages,
 A4, real vector text rather than page images, so it is selectable and searchable.
 
 ## Why this exists alongside the website
@@ -28,4 +28,4 @@ embedded in it as base64 from `lockup.b64`, so the document has no external
 dependencies except the Google Fonts request.
 
 Editing the copy means editing the part files. The build is deterministic: same
-input, same 55 pages.
+input, same 62 pages.
