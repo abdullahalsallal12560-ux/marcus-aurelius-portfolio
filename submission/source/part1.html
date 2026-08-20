@@ -184,6 +184,23 @@ h2 {
   line-height: 1.15;
 }
 
+/* A section folded into another one. Larger than a heading and smaller than a
+   section title, so the reader can see it is a part of what they are in
+   rather than something new. */
+.sub-section {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 17pt;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin: 0 0 5mm;
+  line-height: 1.2;
+  break-after: avoid-page;
+  page-break-after: avoid;
+  max-width: none;
+}
+
 h3 {
   font-family: var(--display);
   font-weight: 600;
@@ -421,6 +438,16 @@ ul.plain li::marker { color: var(--gold); }
   letter-spacing: .1em;
 }
 .toc .name { font-size: 13pt; color: var(--cream); }
+.toc .under {
+  display: block;
+  font-size: 12pt;
+  color: var(--dim);
+  letter-spacing: 0;
+  margin-top: 1mm;
+  line-height: 1.4;
+}
+.toc li { align-items: flex-start; }
+.toc .num { padding-top: 0.6mm; }
 .toc .part {
   font-family: var(--display);
   font-size: 12pt;

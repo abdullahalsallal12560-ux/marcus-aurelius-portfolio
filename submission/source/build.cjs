@@ -5,24 +5,29 @@ const { chromium } = require(path.join(NPX, "playwright"));
 
 const DIR = __dirname;
 const parts = [
-  "part1",      // stylesheet and cover
-  "partlink",   // the live portfolio
-  "part1c",     // contents
-  "part0",      // executive summary
-  "part1b",     // 01 business idea
-  "part2",      // 02 overview, 03 founding story, 04 development
-  "part2b",     // 05 operations, 06 product specification
-  "part2c",     // 07 vision and mission, 08 core values
-  "part3",      // 09 business model, 10 what the money buys
-  "part3a",     // 11 competitive position
-  "part3c",     // 12 revenue streams
-  "part3b",     // 13 pricing philosophy, 14 customer journey
-  "part4",      // 15 traction, 16 smart goals, 17 action plan, 18 growth
-  "part4b",     // 19 risk, 20 sustainability, 21 outlook
-  "part4c",     // 22 market analysis
-  "part5",      // 23 collection, 24 thinking, 25 identity, 26 website, 27 design, 28 contact
-  "part6",      // 29 lessons, 30 glossary
-  "partcredit", // closing credit
+  "part1",
+  "partlink",
+  "part1c",
+  "part0",
+  "sec03",
+  "sec04",
+  "sec05",
+  "sec06",
+  "sec07",
+  "sec08",
+  "sec09",
+  "sec10",
+  "sec11",
+  "sec12",
+  "sec13",
+  "sec14",
+  "sec15",
+  "sec16",
+  "sec17",
+  "appA",
+  "appB",
+  "appC",
+  "partcredit",
 ];
 const html = parts.map((p) => fs.readFileSync(path.join(DIR, p + ".html"), "utf8")).join("\n");
 const combined = path.join(DIR, "portfolio.html");
