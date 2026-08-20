@@ -12,7 +12,7 @@
 
   --font-display: "Cinzel", serif;
   --font-script: "Playfair Display", serif;
-  --font-body: "EB Garamond", serif;
+  --font-body: "Cormorant Garamond", "EB Garamond", serif;
 }
 
 :root {
@@ -37,6 +37,24 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Cormorant is finer and higher in contrast than EB Garamond and has a
+   smaller eye, so light text on this ground needs the weight and the tracking
+   to hold together. Chosen against a specimen rather than guessed: 600 and
+   0.04em, with the lines opened to match. */
+.font-body {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.68;
+}
+
+/* Amiri has no 600 at all, so asking for one gets a synthesised weight that
+   thickens the strokes unevenly. And Arabic is cursive: the tracking above
+   would pull the joins of every word apart, which the rule further down
+   already prevents. */
+:root[lang="ar"] .font-body {
+  font-weight: 700;
 }
 
 section {

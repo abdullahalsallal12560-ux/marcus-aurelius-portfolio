@@ -194,7 +194,7 @@ export default {
     typefaces: [
       { role: "Display: wordmark & headings" },
       { role: "Script accent: flourishes" },
-      { role: "Body: long-form reading" },
+      { role: "Body: reading on screen" },
     ],
   },
 

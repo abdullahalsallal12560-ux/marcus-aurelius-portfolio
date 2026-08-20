@@ -6,7 +6,7 @@ import { useT } from "../../i18n/useLocale";
 const specimens = [
   { face: "Cinzel", role: "Display: wordmark & headings", sample: "MARCVS", className: "font-display tracking-[0.1em]" },
   { face: "Playfair Display Italic", role: "Script accent: flourishes", sample: "Perfumes", className: "font-script" },
-  { face: "EB Garamond", role: "Body: long-form reading", sample: "Aa", className: "font-body" },
+  { face: "Cormorant Garamond", role: "Body: long-form reading", sample: "Aa", className: "font-body" },
 ];
 
 export default function PortfolioDesign() {

@@ -193,7 +193,7 @@ export default {
     typefaces: [
       { role: "Display: logotipo e titoli" },
       { role: "Corsivo: fioriture" },
-      { role: "Testo: lettura lunga" },
+      { role: "Testo: lettura a schermo" },
     ],
   },
 
