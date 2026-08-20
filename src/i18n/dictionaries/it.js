@@ -269,10 +269,10 @@ export default {
       },
     ],
     tractionTitle: "Cosa hanno fatto le prime due settimane",
-    tractionLede: "Un soft launch privato a prezzo riservato alla cerchia dei fondatori, prima di qualsiasi marketing pubblico.",
-    tally: ["Flaconi venduti", "JOD di ricavo", "Margine lordo", "JOD in marketing"],
-    tractionNote: "Ha coperto il 68% di due anni di sviluppo in quattordici giorni. Altri diciassette flaconi chiudono il resto, e l'obiettivo fissato negli Obiettivi SMART chiede cinquanta vendite in tre mesi.",
-    tractionEmphasis: "68% di due anni di sviluppo",
+    tractionLede: "Un soft launch privato, prima dell'apertura al pubblico e prima che esistesse qualsiasi marketing.",
+    tally: ["Flaconi venduti", "Giorni", "Spesi in marketing", "Venduti da altri"],
+    tractionNote: "Venduti a una cerchia chiusa prima che il lancio pubblico fosse aperto e prima che un solo dinaro andasse in promozione. L'obiettivo fissato negli Obiettivi SMART chiede cinquanta vendite in tre mesi.",
+    tractionEmphasis: "prima che un solo dinaro andasse in promozione",
   },
 
   companyOverview: {

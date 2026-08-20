@@ -37,14 +37,15 @@ const streams = [
   },
 ];
 
-// First two weeks of the private soft launch. Revenue is at founding-circle
-// pricing, which is why it is labelled as such rather than left to imply the
-// list price, the arithmetic would not survive a reader checking it.
+// First two weeks of the private soft launch. Deliberately no revenue and no
+// margin: this page is read by people who might buy a bottle, and publishing
+// both invites them to divide one by the other. Two of the four are zeroes,
+// and both of those are the boast.
 const tally = [
   { value: 36, label: "Bottles sold" },
-  { value: 1400, label: "JOD revenue" },
-  { value: 87.9, decimals: 1, suffix: "%", label: "Gross margin" },
-  { value: 0, label: "JOD on marketing" },
+  { value: 14, label: "Days" },
+  { value: 0, label: "Spent on marketing" },
+  { value: 0, label: "Sold by anyone else" },
 ];
 
 /** Counts up once the strip arrives, so the figures land rather than appear. */

@@ -270,10 +270,10 @@ export default {
       },
     ],
     tractionTitle: "What the first two weeks did",
-    tractionLede: "A private soft launch at founding-circle pricing, before any public marketing existed.",
-    tally: ["Bottles sold", "JOD revenue", "Gross margin", "JOD on marketing"],
-    tractionNote: "That covered 68% of two years of development in fourteen days. Seventeen more bottles clears the rest of it, and the goal set out in SMART Goals asks for fifty sales in three months.",
-    tractionEmphasis: "68% of two years of development",
+    tractionLede: "A private soft launch, before the public opening and before any marketing existed.",
+    tally: ["Bottles sold", "Days", "Spent on marketing", "Sold by anyone else"],
+    tractionNote: "Sold to a closed circle before the public launch had opened and before a single dinar went on reaching anyone. The goal set out in SMART Goals asks for fifty sales in three months.",
+    tractionEmphasis: "before a single dinar went on reaching anyone",
   },
 
   companyOverview: {
