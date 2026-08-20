@@ -140,7 +140,7 @@ export default {
       label: "Fase 2",
       title: "Lancio",
       status: "Prossimi 6 mesi",
-      body: "Completare la ricerca di mercato (primi 2 mesi), aprire ufficialmente la vendita online (oggi solo soft launch e lista d'attesa), condurre una campagna social strutturata, puntare alle prime 50 vendite entro tre mesi dal lancio e costruire i primi accordi con rivenditori di nicchia selezionati.",
+      body: "Completare la ricerca di mercato (primi 2 mesi), aprire ufficialmente la vendita online (oggi solo soft launch e lista d'attesa), condurre una campagna social strutturata, e puntare alle prime 50 vendite entro tre mesi dal lancio. Nessuna collocazione presso terzi in nessuna fase: il flacone non lo vende nessun altro, e non finisce mai su uno scaffale accanto al lavoro di un'altra casa.",
     },
     {
       label: "Fase 3",

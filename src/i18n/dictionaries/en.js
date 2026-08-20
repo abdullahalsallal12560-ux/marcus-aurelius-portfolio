@@ -141,7 +141,7 @@ export default {
       label: "Phase 2",
       title: "Launch",
       status: "Next 6 months",
-      body: "Complete market research (first 2 months), officially launch online sales (currently soft-launch and waitlist only), run a structured social media campaign, target the first 50 sales within 3 months of launch, and build early placement partnerships with select niche retailers.",
+      body: "Complete market research (first 2 months), officially launch online sales (currently soft-launch and waitlist only), run a structured social media campaign, and target the first 50 sales within 3 months of launch. No third-party retail placement at any stage: the bottle is never sold by anyone else, and never sits on a shelf beside another house's work.",
     },
     {
       label: "Phase 3",
