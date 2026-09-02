@@ -1,5 +1,7 @@
 <meta charset="utf-8">
-<title>Marcus Aurelius Perfumes — Company Portfolio</title>
+<title>Marcus Aurelius Perfumes: Company Portfolio</title>
+<meta name="author" content="Abdullah Al-Sallal">
+<meta name="subject" content="Company portfolio, Marcus Aurelius Perfumes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@1,400;1,500&display=swap">
@@ -220,6 +222,34 @@ h4 {
   letter-spacing: 0.01em;
 }
 
+/* One level under h3, for the sub-parts of a heading the brief names itself:
+   the two palettes under Colours, the three market tiers under Market size.
+   The inherited h4 above is sized for the inside of a card, which is smaller
+   than body text and would read as a demotion out here. Display face so it
+   reads as structure, cream rather than gold so it cannot be taken for an h3. */
+.section > h4 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 12pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin: 6.5mm 0 2mm;
+}
+
+/* The mark, printed rather than described. Held on its own ground so the
+   engraving reads at this size, and kept narrow so it sits as a plate in the
+   text column instead of behaving like a cover image. */
+.logo-plate {
+  background: var(--ink-soft, #17140F);
+  border: 1px solid var(--bronze);
+  padding: 9mm 0;
+  margin: 4mm 0 5mm;
+  text-align: center;
+  page-break-inside: avoid;
+}
+.logo-plate img { width: 78mm; height: auto; }
+
 p { margin: 0 0 4.5mm; max-width: 168mm; }
 p.lead { font-size: 14.6pt; color: var(--cream); line-height: 1.6; }
 em { font-style: italic; color: var(--cream); }
@@ -284,7 +314,12 @@ td {
   color: var(--body);
   vertical-align: top;
 }
-td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+/* A right-aligned figure in the final column should sit flush with the table
+   edge, so its right padding is dropped. Anywhere else the padding has to stay:
+   in the Outlook table the figure leads the row, and without a gap the number
+   runs straight into the sentence beside it. */
+td.num:last-child, th.num:last-child { padding-right: 0; }
 tr.total td { border-bottom: none; border-top: 1px solid var(--bronze); color: var(--cream); font-weight: 600; padding-top: 3mm; }
 
 /* ---------- blocks ---------- */

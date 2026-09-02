@@ -230,6 +230,42 @@ export default {
   },
 
   brandIdentity: {
+    groupTitles: { colours: "Colours", visual: "Visual Style" },
+
+    logo: {
+      title: "Logo",
+      body: "The mark is a classical bust in profile, drawn as an engraving rather than a flat silhouette, so it carries the same cut-in-stone quality as the wordmark beneath it. The company is named after a Roman emperor and the mark says so without a caption.",
+      parts: [
+        { name: "The bust", note: "Used alone wherever the wordmark would be too small to read: the navigation bar, labels, the browser tab. It is drawn as a mask that inherits its colour from the text around it, which is why it turns navy inside the Maximus colourway without a second file existing." },
+        { name: "The wordmark", note: "MARCUS AURELIUS in Cinzel capitals. A Roman inscriptional letter, for a house named after a Roman." },
+        { name: "The script", note: "Perfumes, set in an italic beneath the capitals. The capital carries the authority and the script carries the Italian register; neither would do both alone." },
+      ],
+    },
+
+    typography: {
+      title: "Typography",
+      body: "Three faces, each with one job. Nothing on the site is set in a face chosen for variety.",
+      faces: [
+        { name: "Cinzel", role: "Display", reason: "A Roman inscriptional capital, cut for stone." },
+        { name: "Playfair Display", role: "Script accent", reason: "Carries the Italian register without tipping into calligraphy." },
+        { name: "Cormorant Garamond", role: "Body", reason: "An old-style book face, chosen for reading rather than for effect." },
+      ],
+      arabic: "Arabic borrows none of them, because none of the three carries an Arabic glyph at all. It runs on Reem Kufi for display, Kufi being the Arabic script cut for stone exactly as Cinzel is the Latin one, and on Amiri for reading, a revival of the Bulaq naskh and the nearest Arabic has to an old-style book face.",
+    },
+
+    system: {
+      title: "Design System",
+      body: "Nothing here is styled one element at a time. Every colour, size and space resolves from a named token, which is what lets the whole page change colourway without a single component being rewritten.",
+      layers: [
+        { name: "Colour", note: "Six named tokens. Every surface refers to a token, never to a hex value." },
+        { name: "Type scale", note: "Five steps: display, heading, sub-heading, body, label. There is no sixth." },
+        { name: "Spacing", note: "One rhythm reused at every scale, so section spacing and card padding are related rather than chosen." },
+        { name: "Components", note: "Card, table, keyline, pull quote, meander divider, numbered index. Each defined once." },
+        { name: "Motion", note: "One reveal, one crossfade, both switched off outright when the reader asks for reduced motion." },
+      ],
+      note: "None of it was assembled in a layout tool. This site and the portfolio document are set in code from the same tokens, which is why a colour changed in one place is correct in both.",
+    },
+
     digital: {
       title: "Digital Identity",
       body: "Black background, cream text, muted gold accents. Used for the website, social media, and all online communication. Chosen to convey strength and quiet confidence without visual noise. The fragrance does not need loud colors to prove itself.",
@@ -300,6 +336,15 @@ export default {
       { text: "He wore it into the street. The compliments that came back were not expected. Only then did it become a brand.", emphasis: "Only then did it become a brand." },
     ],
     credit: "The rooftop belonged to the friend from that first conversation, who kept him company through most of it.",
+  },
+
+  marketAnalysisMeta: {
+    scaleTitle: "Industry overview and market size",
+    scaleNote: "Three scales, largest first.",
+    competitorsTitle: "Competitors",
+    competitorsBody: "Globally, the established niche houses: Maison Francis Kurkdjian, Creed, Xerjoff and Amouage, at $300 and above. Regionally, the heritage names: Ajmal, Rasasi and Swiss Arabian. Locally, budget domestic brands selling imitation scents at one end and international niche distributors selling at premium import prices at the other.",
+    opportunityTitle: "Opportunity",
+    opportunityBody: "No locally designed and produced brand competes at true international niche quality and identity. The gap sits between traditional oud-heavy fragrance and Western-style niche perfumery, and Romeo di Roma occupies it directly by putting saffron and vanilla against oud and leather rather than choosing one tradition over the other.",
   },
 
   marketAnalysis: [

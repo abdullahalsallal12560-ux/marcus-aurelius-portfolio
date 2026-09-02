@@ -28,3 +28,8 @@ media-source
 
 # local screenshot review set (not deployed)
 review
+
+# Build intermediates from submission/source/build.cjs. The finished PDF is
+# committed at submission/, one level up; these two are what produced it.
+submission/source/portfolio.html
+submission/source/Marcus-Aurelius-Portfolio.pdf

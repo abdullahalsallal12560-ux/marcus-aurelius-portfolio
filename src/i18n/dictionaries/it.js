@@ -229,6 +229,42 @@ export default {
   },
 
   brandIdentity: {
+    groupTitles: { colours: "Colori", visual: "Stile Visivo" },
+
+    logo: {
+      title: "Logo",
+      body: "Il marchio è un busto classico di profilo, disegnato come un'incisione e non come una silhouette piatta, così da portare la stessa qualità scolpita nella pietra del logotipo che gli sta sotto. L'azienda porta il nome di un imperatore romano e il marchio lo dice senza didascalia.",
+      parts: [
+        { name: "Il busto", note: "Usato da solo dove il logotipo sarebbe troppo piccolo per leggersi: la barra di navigazione, le etichette, la scheda del browser. È disegnato come una maschera che eredita il colore dal testo attorno, ed è per questo che diventa blu notte dentro la veste di Maximus senza che esista un secondo file." },
+        { name: "Il logotipo", note: "MARCUS AURELIUS in capitali Cinzel. Una lettera epigrafica romana, per una casa che porta un nome romano." },
+        { name: "Il corsivo", note: "Perfumes, in corsivo sotto le capitali. La capitale porta l'autorità e il corsivo porta il registro italiano; nessuno dei due farebbe entrambe le cose da solo." },
+      ],
+    },
+
+    typography: {
+      title: "Tipografia",
+      body: "Tre caratteri, ciascuno con un solo compito. Nulla nel sito è composto in un carattere scelto per varietà.",
+      faces: [
+        { name: "Cinzel", role: "Display", reason: "Una capitale epigrafica romana, tagliata per la pietra." },
+        { name: "Playfair Display", role: "Accento corsivo", reason: "Porta il registro italiano senza scivolare nella calligrafia." },
+        { name: "Cormorant Garamond", role: "Testo", reason: "Un carattere da libro di vecchio stile, scelto per la lettura e non per l'effetto." },
+      ],
+      arabic: "L'arabo non ne prende in prestito nessuno, perché nessuno dei tre porta un solo glifo arabo. Usa Reem Kufi per il display, essendo il kufico la scrittura araba tagliata per la pietra esattamente come Cinzel lo è per il latino, e Amiri per la lettura, una ripresa del naskh di Bulaq e la cosa più vicina che l'arabo abbia a un carattere da libro di vecchio stile.",
+    },
+
+    system: {
+      title: "Sistema di Design",
+      body: "Nulla qui è formattato un elemento alla volta. Ogni colore, dimensione e spazio deriva da un token con un nome, ed è questo che permette all'intera pagina di cambiare veste cromatica senza riscrivere un solo componente.",
+      layers: [
+        { name: "Colore", note: "Sei token con un nome. Ogni superficie fa riferimento a un token, mai a un valore esadecimale." },
+        { name: "Scala tipografica", note: "Cinque gradi: display, titolo, sottotitolo, testo, etichetta. Non ce n'è un sesto." },
+        { name: "Spaziatura", note: "Un solo ritmo riusato a ogni scala, così la spaziatura delle sezioni e il padding delle schede sono legati e non scelti." },
+        { name: "Componenti", note: "Scheda, tabella, filetto, citazione, divisore a meandro, indice numerato. Ciascuno definito una volta." },
+        { name: "Movimento", note: "Una comparsa, una dissolvenza, entrambe disattivate del tutto quando il lettore chiede movimento ridotto." },
+      ],
+      note: "Niente di tutto questo è stato assemblato in uno strumento di impaginazione. Questo sito e il documento del portfolio sono composti in codice dagli stessi token, ed è per questo che un colore cambiato in un posto è corretto in entrambi.",
+    },
+
     digital: {
       title: "Identità digitale",
       body: "Fondo nero, testo crema, accenti d'oro spenti. Usata per il sito, i social e ogni comunicazione online. Scelta per trasmettere forza e sicurezza silenziosa senza rumore visivo. La fragranza non ha bisogno di colori accesi per dimostrare qualcosa.",
@@ -299,6 +335,15 @@ export default {
       { text: "L'ha indossato ed è uscito per strada. I complimenti che sono tornati indietro non se li aspettava. Solo allora è diventato un marchio.", emphasis: "Solo allora è diventato un marchio." },
     ],
     credit: "Il tetto era dell'amico di quella prima conversazione, che gli ha tenuto compagnia per quasi tutto il percorso.",
+  },
+
+  marketAnalysisMeta: {
+    scaleTitle: "Panoramica del settore e dimensione del mercato",
+    scaleNote: "Tre scale, dalla più ampia.",
+    competitorsTitle: "Concorrenti",
+    competitorsBody: "A livello globale, le case di nicchia affermate: Maison Francis Kurkdjian, Creed, Xerjoff e Amouage, da 300 dollari in su. A livello regionale, i nomi storici: Ajmal, Rasasi e Swiss Arabian. A livello locale, marchi nazionali economici che vendono profumi di imitazione da un lato e distributori internazionali di nicchia che vendono a prezzi di importazione elevati dall'altro.",
+    opportunityTitle: "Opportunità",
+    opportunityBody: "Nessun marchio progettato e prodotto localmente compete sulla qualità e sull'identità della vera nicchia internazionale. Il divario si colloca tra il profumo tradizionale carico di oud e la profumeria di nicchia di stampo occidentale, e Romeo di Roma lo occupa direttamente mettendo zafferano e vaniglia contro oud e cuoio invece di scegliere una tradizione a scapito dell'altra.",
   },
 
   marketAnalysis: [

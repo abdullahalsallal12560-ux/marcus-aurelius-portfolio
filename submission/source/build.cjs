@@ -45,11 +45,30 @@ const out = path.join(DIR, "Marcus-Aurelius-Portfolio.pdf");
   await p.evaluate(() => document.fonts.ready);
   await p.waitForTimeout(1500);
 
-  const fonts = await p.evaluate(() => ({
-    cinzel: document.fonts.check('16px "Cinzel"'),
-    garamond: document.fonts.check('16px "EB Garamond"'),
-    playfair: document.fonts.check('italic 16px "Playfair Display"'),
-  }));
+  // Measured rather than asked. document.fonts.check reported Playfair missing
+  // while it was demonstrably rendering on the page, so the probe now sets the
+  // same string twice, once in the face and once in a fallback the face cannot
+  // be, and compares the widths. Identical widths mean the fallback answered
+  // both times, which is the only thing worth knowing here.
+  const fonts = await p.evaluate(() => {
+    const measure = (family, style) => {
+      const s = document.createElement("span");
+      s.textContent = "Handgloves 12345 quick brown fox";
+      s.style.cssText = "position:absolute;visibility:hidden;white-space:nowrap;font-size:64px;font-style:" + style;
+      s.style.fontFamily = family;
+      document.body.appendChild(s);
+      const w = s.getBoundingClientRect().width;
+      s.remove();
+      return w;
+    };
+    const loaded = (family, style) =>
+      Math.abs(measure('"' + family + '", monospace', style) - measure("monospace", style)) > 1;
+    return {
+      cinzel: loaded("Cinzel", "normal"),
+      garamond: loaded("EB Garamond", "normal"),
+      playfair: loaded("Playfair Display", "italic"),
+    };
+  });
   console.log("fonts:", JSON.stringify(fonts));
 
   // Chrome shrinks the entire document to fit when any element is wider than
@@ -79,6 +98,26 @@ const out = path.join(DIR, "Marcus-Aurelius-Portfolio.pdf");
   });
 
   await b.close();
+
+  // Chrome takes the document title from <title> and writes nothing else, so a
+  // reader shows the file with no author against it. The rest is set here,
+  // after the render, because there is no way to pass it through page.pdf().
+  try {
+    const { execFileSync } = require("child_process");
+    execFileSync("python", ["-c", [
+      "import pymupdf,sys",
+      "d=pymupdf.open(sys.argv[1])",
+      "m=d.metadata or {}",
+      "m.update(author='Abdullah Al-Sallal',",
+      "  subject='Company portfolio: Marcus Aurelius Perfumes',",
+      "  keywords='niche fragrance, Amman, direct to consumer, company portfolio',",
+      "  creator='Marcus Aurelius Perfumes')",
+      "d.set_metadata(m); d.saveIncr()",
+    ].join("\n"), out], { stdio: "pipe" });
+    console.log("metadata stamped");
+  } catch (e) {
+    console.log("** metadata not stamped:", String(e.message).split("\n")[0]);
+  }
 
   const data = fs.readFileSync(out);
   const pages = (data.toString("latin1").match(/\/Type\s*\/Page[^s]/g) || []).length;

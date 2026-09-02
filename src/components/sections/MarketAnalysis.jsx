@@ -36,6 +36,16 @@ export default function MarketAnalysis() {
       <div className="max-w-6xl mx-auto">
         <SectionHeading id="market-analysis" eyebrow="Where We Compete" title="Market Analysis" />
 
+        <Reveal className="flex items-baseline gap-4 mb-9">
+          <h3 className="font-display text-gold text-base md:text-lg tracking-[0.22em] uppercase">
+            {t.marketAnalysisMeta.scaleTitle}
+          </h3>
+          <span className="h-px flex-1 bg-gold/25" />
+          <span className="meta-label-sm text-cream-dim whitespace-nowrap">
+            {t.marketAnalysisMeta.scaleNote}
+          </span>
+        </Reveal>
+
         <Reveal stagger className="grid md:grid-cols-3 gap-6 md:gap-8">
           {t.marketAnalysis.map((m, i) => (
             <div
@@ -52,6 +62,32 @@ export default function MarketAnalysis() {
               </div>
               <p className="font-body text-base md:text-lg text-cream-dim leading-[1.85]">
                 <Body text={m.body} />
+              </p>
+            </div>
+          ))}
+        </Reveal>
+
+        {/* The competitors are named inside the three columns above and the
+            opportunity is argued inside the local one. Both are pulled out
+            here because the brief asks for them by name, and a reader should
+            not have to mine three paragraphs to find either. */}
+        <Reveal stagger className="grid md:grid-cols-2 gap-10 md:gap-14 mt-16 md:mt-20 pt-12 border-t border-gold/20">
+          {[
+            {
+              title: t.marketAnalysisMeta.competitorsTitle,
+              body: t.marketAnalysisMeta.competitorsBody,
+            },
+            {
+              title: t.marketAnalysisMeta.opportunityTitle,
+              body: t.marketAnalysisMeta.opportunityBody,
+            },
+          ].map((block) => (
+            <div key={block.title}>
+              <h3 className="font-display text-gold text-base md:text-lg tracking-[0.22em] uppercase mb-5">
+                {block.title}
+              </h3>
+              <p className="font-body text-base md:text-lg text-cream-dim leading-[1.85]">
+                {block.body}
               </p>
             </div>
           ))}

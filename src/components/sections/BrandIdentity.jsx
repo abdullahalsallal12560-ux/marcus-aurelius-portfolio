@@ -61,12 +61,56 @@ function Swatches({ items }) {
   );
 }
 
+/* A heading for one of the five things the brief names under Brand Identity.
+   Set apart from the card headings below it so the five read as the structure
+   of the section rather than as five more boxes. */
+function GroupHeading({ children }) {
+  return (
+    <div className="flex items-center gap-5 mb-9">
+      <span className="h-px flex-1 bg-gold/25" />
+      <h3 className="font-display text-gold text-base md:text-lg tracking-[0.24em] uppercase whitespace-nowrap">
+        {children}
+      </h3>
+      <span className="h-px flex-1 bg-gold/25" />
+    </div>
+  );
+}
+
 export default function BrandIdentity() {
   const t = useT();
   return (
     <section id="brand-identity" className="py-28 md:py-40 px-5 bg-ink">
       <div className="max-w-5xl mx-auto">
         <SectionHeading id="brand-identity" eyebrow="How We Present" title="Brand Identity" />
+
+        {/* ---------------------------------------------------------- logo */}
+        <GroupHeading>{t.brandIdentity.logo.title}</GroupHeading>
+
+        <Reveal className="border border-gold/25 bg-black/40 p-8 md:p-12 mb-20">
+          <div className="flex flex-col items-center gap-6 mb-10">
+            <BustMark className="w-20 h-24 md:w-24 md:h-28 text-cream" />
+            <p className="font-display text-cream text-2xl md:text-3xl tracking-wide text-center">
+              <span className="uppercase">Marcus Aurelius</span>{" "}
+              <span className="font-script text-gold-soft normal-case">Perfumes</span>
+            </p>
+          </div>
+
+          <p className="font-body text-cream-dim leading-relaxed max-w-3xl mx-auto text-center mb-10">
+            {t.brandIdentity.logo.body}
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-10">
+            {t.brandIdentity.logo.parts.map((part) => (
+              <div key={part.name} className="text-center">
+                <p className="meta-label-sm text-gold mb-3">{part.name}</p>
+                <p className="font-body text-[15px] text-cream-dim/90 leading-relaxed">{part.note}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
+        {/* ------------------------------------------------------- colours */}
+        <GroupHeading>{t.brandIdentity.groupTitles.colours}</GroupHeading>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-20">
           <Reveal variant="left" className="border border-gold/25 bg-black/40 p-8 md:p-10 text-center">
@@ -93,6 +137,68 @@ export default function BrandIdentity() {
             <Swatches items={physicalSwatches} />
           </Reveal>
         </div>
+
+        {/* ---------------------------------------------------- typography */}
+        <GroupHeading>{t.brandIdentity.typography.title}</GroupHeading>
+
+        <Reveal className="border border-gold/25 p-8 md:p-10 mb-20">
+          <p className="font-body text-cream-dim leading-relaxed max-w-3xl mx-auto text-center mb-10">
+            {t.brandIdentity.typography.body}
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-10">
+            {t.brandIdentity.typography.faces.map((face) => (
+              <div key={face.name} className="text-center">
+                {/* Each specimen is set in the face it describes, so the row is
+                    the evidence rather than a list of names. */}
+                <p
+                  className={`text-cream text-3xl md:text-4xl mb-3 ${
+                    face.name === "Cinzel"
+                      ? "font-display tracking-[0.12em]"
+                      : face.name.startsWith("Playfair")
+                        ? "font-script italic text-gold-soft"
+                        : "font-body"
+                  }`}
+                >
+                  Aa
+                </p>
+                <p className="meta-label-sm text-gold mb-2">{face.name}</p>
+                <p className="font-body text-[15px] text-cream-dim/90 leading-relaxed">
+                  {face.role}. {face.reason}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p className="font-body text-[15px] text-cream-dim/85 leading-relaxed max-w-3xl mx-auto text-center mt-10 pt-8 border-t border-gold/15">
+            {t.brandIdentity.typography.arabic}
+          </p>
+        </Reveal>
+
+        {/* ------------------------------------------------- design system */}
+        <GroupHeading>{t.brandIdentity.system.title}</GroupHeading>
+
+        <Reveal className="border border-gold/25 p-8 md:p-10 mb-20">
+          <p className="font-body text-cream-dim leading-relaxed max-w-3xl mx-auto text-center mb-9">
+            {t.brandIdentity.system.body}
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-8">
+            {t.brandIdentity.system.layers.map((layer) => (
+              <div key={layer.name} className="border-t border-gold/25 pt-4">
+                <p className="meta-label-sm text-gold mb-2">{layer.name}</p>
+                <p className="font-body text-[15px] text-cream-dim/90 leading-relaxed">{layer.note}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="font-body text-[15px] text-cream-dim/85 leading-relaxed max-w-3xl mx-auto text-center mt-9 pt-8 border-t border-gold/15">
+            {t.brandIdentity.system.note}
+          </p>
+        </Reveal>
+
+        {/* -------------------------------------------------- visual style */}
+        <GroupHeading>{t.brandIdentity.groupTitles.visual}</GroupHeading>
 
         <Reveal className="border border-gold/25 p-8 md:p-10 mb-20">
           <h3 className="font-display text-lg tracking-[0.2em] uppercase text-cream mb-4 text-center">
