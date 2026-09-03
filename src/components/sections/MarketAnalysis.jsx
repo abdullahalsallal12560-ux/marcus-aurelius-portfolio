@@ -46,6 +46,15 @@ export default function MarketAnalysis() {
           </span>
         </Reveal>
 
+        {/* Every other figure on the site is the company's own. These are not,
+            and an unlabelled estimate standing beside a measured number borrows
+            its authority. Saying which is which costs one paragraph. */}
+        <Reveal className="border-s-2 border-gold/35 ps-5 md:ps-6 mb-12 md:mb-14 max-w-3xl">
+          <p className="font-body text-[15px] md:text-base text-cream-dim/85 leading-relaxed italic">
+            {t.marketAnalysisMeta.sourceNote}
+          </p>
+        </Reveal>
+
         <Reveal stagger className="grid md:grid-cols-3 gap-6 md:gap-8">
           {t.marketAnalysis.map((m, i) => (
             <div

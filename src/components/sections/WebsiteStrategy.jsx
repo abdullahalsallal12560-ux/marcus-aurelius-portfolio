@@ -7,7 +7,7 @@ const pages = [
   { name: "Shop / Collection", body: "All four fragrances with SKU, pricing, and dual product/lifestyle imagery." },
   { name: "Story", body: "The founding narrative." },
   { name: "Atelier / Ingredients", body: "Editorial content on ingredient philosophy and craftsmanship." },
-  { name: "Founders", body: "Personal introduction to the people behind the brand." },
+  { name: "Founder", body: "Personal introduction to the person behind the brand." },
   { name: "Contact & Order Tracking", body: "Direct contact channel and order tracking system." },
 ];
 

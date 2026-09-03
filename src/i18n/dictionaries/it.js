@@ -169,7 +169,7 @@ export default {
     { name: "Shop / Collezione", body: "Tutte e quattro le fragranze con codice, prezzo e immagini sia di prodotto sia d'ambiente." },
     { name: "Storia", body: "Il racconto delle origini." },
     { name: "Atelier / Ingredienti", body: "Contenuti editoriali sulla filosofia degli ingredienti e sull'artigianalità." },
-    { name: "Fondatori", body: "Presentazione personale di chi sta dietro al marchio." },
+    { name: "Fondatore", body: "Presentazione personale della persona dietro al marchio." },
     { name: "Contatti e tracciamento", body: "Canale di contatto diretto e sistema di tracciamento degli ordini." },
   ],
 
@@ -294,7 +294,7 @@ export default {
         body: "Nessun negozio, nessun distributore, nessun rivenditore che trattiene una quota. Non è un limite da giustificare: affitto, ricarico del negozio e margine di distribuzione sono ciò che di solito consuma il prezzo di una fragranza. Toglierli tutti e tre è ciò che permette all'olio di essere la parte cara.",
       },
       {
-        role: "Acquisizione", phase: "In lancio", title: "Il cofanetto scoperta",
+        role: "Acquisizione", phase: "In sviluppo", title: "Il cofanetto scoperta",
         lede: "La collezione completa, quattro fragranze da 10 ml ciascuna",
         body: "Dieci millilitri sono una misura che si porta davvero, non una fialetta. Nessuno si impegna su un 100 ml di nicchia che non ha mai annusato, e questo risponde a quell'obiezione senza mai dichiarare un prezzo più basso per il flacone: quanto costa il cofanetto viene scalato dal primo flacone intero. La prova si ripaga da sola, e chi si è trovato bene arriva già pagato.",
       },
@@ -338,6 +338,7 @@ export default {
   },
 
   marketAnalysisMeta: {
+    sourceNote: "Le cifre di questa sezione sono stime di settore indicative, tratte da rapporti di mercato pubblicati e usate per dimensionare l'opportunità, non per fare previsioni. Sono gli unici numeri di questo sito che non appartengono all'azienda: ogni altra cifra è misurata dai suoi registri.",
     scaleTitle: "Panoramica del settore e dimensione del mercato",
     scaleNote: "Tre scale, dalla più ampia.",
     competitorsTitle: "Concorrenti",

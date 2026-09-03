@@ -21,7 +21,7 @@ const streams = [
   },
   {
     role: "Acquisition",
-    phase: "Launching",
+    phase: "In development",
     title: "The discovery set",
     lede: "The full collection, four fragrances at 10ml each",
     body:

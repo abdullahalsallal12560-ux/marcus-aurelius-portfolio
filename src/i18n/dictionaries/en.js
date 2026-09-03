@@ -170,7 +170,7 @@ export default {
     { name: "Shop / Collection", body: "All four fragrances with SKU, pricing, and dual product and lifestyle imagery." },
     { name: "Story", body: "The founding narrative." },
     { name: "Atelier / Ingredients", body: "Editorial content on ingredient philosophy and craftsmanship." },
-    { name: "Founders", body: "Personal introduction to the people behind the brand." },
+    { name: "Founder", body: "Personal introduction to the person behind the brand." },
     { name: "Contact & Order Tracking", body: "Direct contact channel and order tracking system." },
   ],
 
@@ -295,7 +295,7 @@ export default {
         body: "No shop, no distributor, no reseller taking a cut. This is not a limitation being explained away: rent, retail markup and distribution margin are what normally consume the price of a fragrance. Removing all three is what allows the oil to be the expensive part.",
       },
       {
-        role: "Acquisition", phase: "Launching", title: "The discovery set",
+        role: "Acquisition", phase: "In development", title: "The discovery set",
         lede: "The full collection, four fragrances at 10ml each",
         body: "Ten millilitres is a size you can actually wear, not a vial. Nobody commits to a 100ml niche fragrance they have never smelled, and this answers that without ever quoting a lower price for a bottle: what the set costs is credited against the first full bottle. The trial pays for itself, and a buyer who liked it arrives already paid up.",
       },
@@ -339,6 +339,7 @@ export default {
   },
 
   marketAnalysisMeta: {
+    sourceNote: "The figures in this section are indicative industry estimates, drawn from published market reporting and used to size the opportunity rather than to forecast from. They are the only numbers on this site that are not the company's own: every figure elsewhere is measured from its own records.",
     scaleTitle: "Industry overview and market size",
     scaleNote: "Three scales, largest first.",
     competitorsTitle: "Competitors",
